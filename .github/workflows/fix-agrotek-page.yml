@@ -13,27 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Apply Agrotek page fixes
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import re
-          p = Path('agrotek.html')
-          text = p.read_text(encoding='utf-8')
-          text = text.replace('class="nav-logo">СТА<span>.</span></a>', 'class="nav-logo">СТАНИСЛАВ<span>.</span></a>')
-          text = text.replace('src="projects/agrotek-cover.webp"', 'src="projects/covers/agrotek-cover.webp"')
-          pattern = r'<div class="images-grid-3" style="margin-top:16px">.*?src="projects/agrotek/13\.webp".*?</div>'
-          replacement = '''<div class="images-grid" style="margin-top:16px">
-      <img class="img-ph wide case-img" src="projects/agrotek/7.webp" alt="Agrotek slide">
-      <img class="img-ph wide case-img" src="projects/agrotek/15.webp" alt="Agrotek final slide">
-    </div>'''
-          text = re.sub(pattern, replacement, text, count=1, flags=re.S)
-          p.write_text(text, encoding='utf-8')
-          PY
+      - name: Apply script
+        run: python scripts/patch_agrotek_page.py
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add agrotek.html
-          git diff --cached --quiet || git commit -m "Fix Agrotek cover logo and image grid"
+          git diff --cached --quiet || git commit -m "Patch Agrotek page"
           git push
