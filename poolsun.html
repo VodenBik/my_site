@@ -38,42 +38,32 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .meta-value{font-size:13px;color:var(--white);text-align:right}
 
 /* COVER */
-.project-cover{width:100%;aspect-ratio:21/9;background:var(--gray2);overflow:hidden;border-bottom:1px solid var(--border)}
-.project-cover img{width:100%;height:100%;object-fit:cover;display:block}
-.project-cover-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
+.project-cover{max-width:1200px;margin:0 auto;padding:48px;border-bottom:1px solid var(--border)}
+.project-cover img{width:100%;height:auto;object-fit:contain;display:block;border:1px solid var(--border);border-radius:4px;background:var(--gray2)}
 
 /* CONTENT */
 .project-content{max-width:1200px;margin:0 auto;padding:80px 48px}
-
 .content-section{margin-bottom:80px}
 .content-section:last-child{margin-bottom:0}
-
-.section-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-
+.section-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
 .section-text{font-size:16px;color:var(--muted);line-height:1.8;max-width:680px}
 
 /* IMAGES */
-.images-full{width:100%;margin:48px 0}
-.images-full img{width:100%;display:block;border-radius:4px;border:1px solid var(--border)}
-.images-full-ph{width:100%;aspect-ratio:16/9;background:var(--gray2);border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#333;margin-bottom:12px}
-
-.images-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:48px 0}
-.images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:48px 0}
-
-.img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333}
+.images-stack{display:grid;grid-template-columns:1fr;gap:28px;margin:48px 0}
+.images-stack img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
 
 /* TAGS */
 .tags-wrap{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
 .tag{padding:7px 16px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
 
-/* DIVIDER */
-.divider{height:1px;background:var(--border);margin:0}
-
 /* NEXT PROJECT */
 .next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
 .next-project:hover{background:var(--gray)}
 .next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,64px);line-height:.92;color:var(--white);letter-spacing:-.01em}
+.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);line-height:.95;color:var(--white);letter-spacing:-.01em;text-transform:uppercase}
 .next-arrow{font-size:48px;color:var(--accent);flex-shrink:0;transition:transform .2s}
 .next-project:hover .next-arrow{transform:translateX(8px)}
 
@@ -88,8 +78,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 @media(max-width:1024px){
   nav{padding:20px 24px}
   .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:40px}
+  .project-cover{padding:32px 24px}
   .project-content{padding:60px 24px}
-  .images-grid-2,.images-grid-3{grid-template-columns:1fr}
   .next-project{padding:60px 24px}
   footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
 }
@@ -97,16 +87,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
   body{cursor:auto}
   .cursor{display:none}
 }
-
-/* REAL PROJECT IMAGES */
-.project-cover{background:var(--gray2)}
-.images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
-.images-stack{display:grid;grid-template-columns:1fr;gap:28px;margin:48px 0}
-.images-stack img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
-.logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
-.logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
-.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
-
 </style>
 </head>
 <body>
@@ -147,35 +127,38 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 <!-- КОНТЕНТ ПРОЕКТА -->
 <div class="project-content">
 
-  <!-- БЛОК: Задача -->
   <div class="content-section fade-up">
     <p class="section-label">Задача</p>
+    <h2 class="section-title">Что нужно было сделать</h2>
     <p class="section-text">Пересобрать сайт Poolsun как понятную витрину инженерной компании, а не просто набор услуг. Страница должна быстро объяснять, чем занимается команда, почему ей можно доверять и как оставить заявку без лишнего поиска по сайту.</p>
   </div>
 
-  <!-- БЛОК: Решение -->
   <div class="content-section fade-up">
     <p class="section-label">Решение</p>
+    <h2 class="section-title">Логика страницы</h2>
     <p class="section-text">Структура построена вокруг доверия: чёткое позиционирование на первом экране, направления работ, визуальные примеры, аргументы по качеству и понятный путь к обращению. Визуальный стиль держится на крупной типографике, тёмной базе и фотографиях воды, чтобы сайт выглядел собранно, технологично и дороже типовых страниц подрядчиков.</p>
   </div>
 
-  <!-- БЛОК: Скриншоты -->
-  <div class="images-stack fade-up">
-    <img class="case-img" src="projects/poolsun/2.webp" alt="Poolsun — логотип и описание проекта">
-    <img class="case-img" src="projects/poolsun/3.webp" alt="Poolsun — секция бассейнов">
-    <img class="case-img" src="projects/poolsun/4.webp" alt="Poolsun — хамамы и сауны">
-    <img class="case-img" src="projects/poolsun/5.webp" alt="Poolsun — преимущества">
+  <div class="content-section fade-up">
+    <p class="section-label">Визуальная система</p>
+    <h2 class="section-title">Крупные экраны без сжатия</h2>
+    <div class="images-stack">
+      <img class="case-img" src="projects/poolsun/2.webp" alt="Poolsun — логотип и описание проекта">
+      <img class="case-img" src="projects/poolsun/3.webp" alt="Poolsun — секция бассейнов">
+      <img class="case-img" src="projects/poolsun/4.webp" alt="Poolsun — хамамы и сауны">
+      <img class="case-img" src="projects/poolsun/5.webp" alt="Poolsun — преимущества">
+    </div>
   </div>
 
-  <!-- БЛОК: Процесс -->
   <div class="content-section fade-up">
     <p class="section-label">Процесс</p>
+    <h2 class="section-title">Как собиралась структура</h2>
     <p class="section-text">Сначала была собрана логика страницы: что делает компания, какие объекты берёт в работу, чем отличается от конкурентов и где пользователь должен оставить заявку. После этого структура была перенесена в Tilda и доработана через визуальные блоки, адаптацию и аккуратные акценты в интерфейсе.</p>
   </div>
 
-  <!-- БЛОК: Результат -->
   <div class="content-section fade-up">
     <p class="section-label">Результат</p>
+    <h2 class="section-title">Что получилось</h2>
     <p class="section-text">Получилась цельная презентационная страница для компании по бассейнам: без лишнего декоративного шума, без повторов обложки и без сжатых превью. Изображения показываются крупно, а текст ведёт пользователя от понимания услуги к заявке.</p>
   </div>
 
@@ -185,7 +168,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 <a href="agrotek.html" class="next-project">
   <div>
     <p class="next-label">Следующий проект</p>
-    <p class="next-title">Агротек</p>
+    <p class="next-title">AGROTEK</p>
   </div>
   <span class="next-arrow">→</span>
 </a>
