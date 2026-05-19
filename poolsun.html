@@ -14,8 +14,6 @@ html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
 .cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
 .cursor.hover{width:40px;height:40px}
-
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
@@ -23,8 +21,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-back:hover{color:var(--accent)}
 .nav-back::before{content:'←';font-size:14px}
-
-/* HERO */
 .project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;border-bottom:1px solid var(--border)}
 .project-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
 .project-eyebrow-line{width:40px;height:1px;background:var(--accent)}
@@ -36,12 +32,8 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .meta-row:first-child{border-top:1px solid var(--border)}
 .meta-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .meta-value{font-size:13px;color:var(--white);text-align:right}
-
-/* COVER */
 .project-cover{max-width:1200px;margin:0 auto;padding:48px;border-bottom:1px solid var(--border)}
 .project-cover img{width:100%;height:auto;object-fit:contain;display:block;border:1px solid var(--border);border-radius:4px;background:var(--gray2)}
-
-/* CONTENT */
 .project-content{max-width:1200px;margin:0 auto;padding:80px 48px}
 .content-section{margin-bottom:80px}
 .content-section:last-child{margin-bottom:0}
@@ -49,69 +41,36 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .section-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
 .section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
 .section-text{font-size:16px;color:var(--muted);line-height:1.8;max-width:680px}
-
-/* IMAGES */
 .images-stack{display:grid;grid-template-columns:1fr;gap:28px;margin:48px 0}
 .images-stack img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
 .img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
-
-/* TAGS */
 .tags-wrap{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
 .tag{padding:7px 16px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
-
-/* NEXT PROJECT */
 .next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
 .next-project:hover{background:var(--gray)}
 .next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
 .next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);line-height:.95;color:var(--white);letter-spacing:-.01em;text-transform:uppercase}
 .next-arrow{font-size:48px;color:var(--accent);flex-shrink:0;transition:transform .2s}
 .next-project:hover .next-arrow{transform:translateX(8px)}
-
-/* FOOTER */
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
-
-/* FADE */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
-
-/* RESPONSIVE */
-@media(max-width:1024px){
-  nav{padding:20px 24px}
-  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:40px}
-  .project-cover{padding:32px 24px}
-  .project-content{padding:60px 24px}
-  .next-project{padding:60px 24px}
-  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
-}
-@media(max-width:600px){
-  body{cursor:auto}
-  .cursor{display:none}
-}
+@media(max-width:1024px){nav{padding:20px 24px}.project-hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:40px}.project-cover{padding:32px 24px}.project-content{padding:60px 24px}.next-project{padding:60px 24px}footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}}
+@media(max-width:600px){body{cursor:auto}.cursor{display:none}}
 </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
-
 <nav>
   <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
   <a href="index.html" class="nav-back">Все проекты</a>
 </nav>
-
-<!-- HERO ПРОЕКТА -->
 <section class="project-hero">
   <div>
-    <div class="project-eyebrow">
-      <div class="project-eyebrow-line"></div>
-      <span class="project-type">Сайт</span>
-    </div>
+    <div class="project-eyebrow"><div class="project-eyebrow-line"></div><span class="project-type">Сайт</span></div>
     <h1 class="project-title">Poolsun</h1>
     <p class="project-subtitle">Корпоративный сайт для компании по проектированию, монтажу и обслуживанию бассейнов.</p>
-    <div class="tags-wrap" style="margin-top:32px">
-      <span class="tag">Tilda</span>
-      <span class="tag">UI-дизайн</span>
-      <span class="tag">Корпоративный</span>
-      <span class="tag">Разработка</span>
-    </div>
+    <div class="tags-wrap" style="margin-top:32px"><span class="tag">Tilda</span><span class="tag">UI-дизайн</span><span class="tag">Корпоративный</span><span class="tag">Разработка</span></div>
   </div>
   <div class="project-meta-grid">
     <div class="meta-row"><span class="meta-label">Клиент</span><span class="meta-value">Poolsun</span></div>
@@ -120,28 +79,21 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     <div class="meta-row"><span class="meta-label">Год</span><span class="meta-value">2025</span></div>
   </div>
 </section>
-
-<!-- ГЛАВНАЯ ОБЛОЖКА -->
 <div class="project-cover fade-up"><img src="projects/covers/poolsun-cover.webp" alt="Poolsun — обложка сайта"></div>
-
-<!-- КОНТЕНТ ПРОЕКТА -->
 <div class="project-content">
-
   <div class="content-section fade-up">
     <p class="section-label">Задача</p>
     <h2 class="section-title">Что нужно было сделать</h2>
-    <p class="section-text">Пересобрать сайт Poolsun как понятную витрину инженерной компании, а не просто набор услуг. Страница должна быстро объяснять, чем занимается команда, почему ей можно доверять и как оставить заявку без лишнего поиска по сайту.</p>
+    <p class="section-text">Создать сайт Poolsun как понятную витрину инженерной компании. Страница должна быстро объяснять, чем занимается команда, почему ей можно доверять и как оставить заявку без лишнего поиска по сайту.</p>
   </div>
-
   <div class="content-section fade-up">
     <p class="section-label">Решение</p>
     <h2 class="section-title">Логика страницы</h2>
     <p class="section-text">Структура построена вокруг доверия: чёткое позиционирование на первом экране, направления работ, визуальные примеры, аргументы по качеству и понятный путь к обращению. Визуальный стиль держится на крупной типографике, тёмной базе и фотографиях воды, чтобы сайт выглядел собранно, технологично и дороже типовых страниц подрядчиков.</p>
   </div>
-
   <div class="content-section fade-up">
     <p class="section-label">Визуальная система</p>
-    <h2 class="section-title">Крупные экраны без сжатия</h2>
+    <h2 class="section-title">Строгий технологичный стиль</h2>
     <div class="images-stack">
       <img class="case-img" src="projects/poolsun/2.webp" alt="Poolsun — логотип и описание проекта">
       <img class="case-img" src="projects/poolsun/3.webp" alt="Poolsun — секция бассейнов">
@@ -149,45 +101,24 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
       <img class="case-img" src="projects/poolsun/5.webp" alt="Poolsun — преимущества">
     </div>
   </div>
-
   <div class="content-section fade-up">
     <p class="section-label">Процесс</p>
     <h2 class="section-title">Как собиралась структура</h2>
     <p class="section-text">Сначала была собрана логика страницы: что делает компания, какие объекты берёт в работу, чем отличается от конкурентов и где пользователь должен оставить заявку. После этого структура была перенесена в Tilda и доработана через визуальные блоки, адаптацию и аккуратные акценты в интерфейсе.</p>
   </div>
-
   <div class="content-section fade-up">
     <p class="section-label">Результат</p>
     <h2 class="section-title">Что получилось</h2>
     <p class="section-text">Получилась цельная презентационная страница для компании по бассейнам: без лишнего декоративного шума, без повторов обложки и без сжатых превью. Изображения показываются крупно, а текст ведёт пользователя от понимания услуги к заявке.</p>
   </div>
-
 </div>
-
-<!-- СЛЕДУЮЩИЙ ПРОЕКТ -->
-<a href="agrotek.html" class="next-project">
-  <div>
-    <p class="next-label">Следующий проект</p>
-    <p class="next-title">AGROTEK</p>
-  </div>
-  <span class="next-arrow">→</span>
-</a>
-
-<footer>
-  <span>&#169; 2026 Станислав</span>
-  <span>Дизайнер &amp; AI-специалист · Аланья</span>
-</footer>
-
+<a href="agrotek.html" class="next-project"><div><p class="next-label">Следующий проект</p><p class="next-title">AGROTEK</p></div><span class="next-arrow">→</span></a>
+<footer><span>&#169; 2026 Станислав</span><span>Дизайнер &amp; AI-специалист · Аланья</span></footer>
 <script>
 var cursor=document.getElementById('cursor');
 document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
-document.querySelectorAll('a,button').forEach(function(el){
-  el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});
-  el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});
-});
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*100)});
-},{threshold:.1});
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*100)});},{threshold:.1});
 document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
 </script>
 </body>
