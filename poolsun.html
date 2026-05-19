@@ -100,13 +100,12 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 
 /* REAL PROJECT IMAGES */
 .project-cover{background:var(--gray2)}
-.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
 .images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.images-stack{display:grid;grid-template-columns:1fr;gap:28px;margin:48px 0}
+.images-stack img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
 .logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
 .logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
 .img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
-
-.project-cover{aspect-ratio:auto;height:auto}.project-cover img{height:auto;object-fit:contain}
 
 </style>
 </head>
@@ -114,7 +113,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 <div class="cursor" id="cursor"></div>
 
 <nav>
-  <a href="index.html" class="nav-logo">СТА<span>.</span></a>
+  <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
   <a href="index.html" class="nav-back">Все проекты</a>
 </nav>
 
@@ -143,7 +142,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 </section>
 
 <!-- ГЛАВНАЯ ОБЛОЖКА -->
-<div class="project-cover fade-up"><img src="projects/poolsun-cover.webp" alt="Poolsun — обложка сайта"></div>
+<div class="project-cover fade-up"><img src="projects/covers/poolsun-cover.webp" alt="Poolsun — обложка сайта"></div>
 
 <!-- КОНТЕНТ ПРОЕКТА -->
 <div class="project-content">
@@ -151,43 +150,33 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
   <!-- БЛОК: Задача -->
   <div class="content-section fade-up">
     <p class="section-label">Задача</p>
-    <p class="section-text">Создать корпоративный сайт для компании, занимающейся проектированием и монтажом бассейнов под ключ. Основная цель — передать экспертность и надёжность бренда, выделиться среди конкурентов и увеличить количество заявок.</p>
-  </div>
-
-  <!-- БЛОК: Скриншоты 1 — широкий -->
-  <div class="images-full fade-up">
-    <img class="case-img" src="projects/poolsun/1.webp" alt="Poolsun — главный экран">
+    <p class="section-text">Пересобрать сайт Poolsun как понятную витрину инженерной компании, а не просто набор услуг. Страница должна быстро объяснять, чем занимается команда, почему ей можно доверять и как оставить заявку без лишнего поиска по сайту.</p>
   </div>
 
   <!-- БЛОК: Решение -->
   <div class="content-section fade-up">
     <p class="section-label">Решение</p>
-    <p class="section-text">Разработал структуру с фокусом на конверсию: портфолио работ, блок услуг с ценами, раздел с гарантиями и форма заявки на каждом экране. Визуальный стиль — строгий и дорогой, с акцентом на фотографии реализованных объектов.</p>
+    <p class="section-text">Структура построена вокруг доверия: чёткое позиционирование на первом экране, направления работ, визуальные примеры, аргументы по качеству и понятный путь к обращению. Визуальный стиль держится на крупной типографике, тёмной базе и фотографиях воды, чтобы сайт выглядел собранно, технологично и дороже типовых страниц подрядчиков.</p>
   </div>
 
-  <!-- БЛОК: Скриншоты 2 — сетка 2 колонки -->
-  <div class="images-grid-2 fade-up">
-    <img class="img-ph case-img" src="projects/poolsun/1.webp" alt="Poolsun — главный экран">
-    <img class="img-ph case-img" src="projects/poolsun/2.webp" alt="Poolsun — логотип и описание">
+  <!-- БЛОК: Скриншоты -->
+  <div class="images-stack fade-up">
+    <img class="case-img" src="projects/poolsun/2.webp" alt="Poolsun — логотип и описание проекта">
+    <img class="case-img" src="projects/poolsun/3.webp" alt="Poolsun — секция бассейнов">
+    <img class="case-img" src="projects/poolsun/4.webp" alt="Poolsun — хамамы и сауны">
+    <img class="case-img" src="projects/poolsun/5.webp" alt="Poolsun — преимущества">
   </div>
 
-  <!-- БЛОК: Процесс (опционально) -->
+  <!-- БЛОК: Процесс -->
   <div class="content-section fade-up">
     <p class="section-label">Процесс</p>
-    <p class="section-text">Начал с анализа конкурентов и составления структуры. Далее — прототип в Figma, согласование с клиентом, финальная верстка на Tilda с кастомными блоками. Срок реализации — 3 недели.</p>
+    <p class="section-text">Сначала была собрана логика страницы: что делает компания, какие объекты берёт в работу, чем отличается от конкурентов и где пользователь должен оставить заявку. После этого структура была перенесена в Tilda и доработана через визуальные блоки, адаптацию и аккуратные акценты в интерфейсе.</p>
   </div>
 
-  <!-- БЛОК: Скриншоты 3 — сетка 3 колонки -->
-  <div class="images-grid-3 fade-up">
-    <img class="img-ph case-img" src="projects/poolsun/3.webp" alt="Poolsun — секция бассейнов">
-    <img class="img-ph case-img" src="projects/poolsun/4.webp" alt="Poolsun — хамамы и сауны">
-    <img class="img-ph case-img" src="projects/poolsun/5.webp" alt="Poolsun — преимущества">
-  </div>
-
-  <!-- БЛОК: Результат (опционально) -->
+  <!-- БЛОК: Результат -->
   <div class="content-section fade-up">
     <p class="section-label">Результат</p>
-    <p class="section-text">Сайт запущен в 2025 году. Клиент отметил рост обращений через форму в первый месяц после запуска.</p>
+    <p class="section-text">Получилась цельная презентационная страница для компании по бассейнам: без лишнего декоративного шума, без повторов обложки и без сжатых превью. Изображения показываются крупно, а текст ведёт пользователя от понимания услуги к заявке.</p>
   </div>
 
 </div>
@@ -203,7 +192,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 
 <footer>
   <span>&#169; 2026 Станислав</span>
-  <span>Дизайнер &amp; AI-специалист · Анталья</span>
+  <span>Дизайнер &amp; AI-специалист · Аланья</span>
 </footer>
 
 <script>
