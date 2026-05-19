@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Агротек — Станислав</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(120px,16vw,240px);letter-spacing:-.04em;color:rgba(255,255,255,.02);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-subtitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(24px,3vw,42px);line-height:1;letter-spacing:-.01em;margin-bottom:32px;color:var(--accent)}
+.project-desc{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.project-cover img{width:100%;display:block;object-fit:cover}
+.project-cover-ph{width:100%;aspect-ratio:21/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
+.stats-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--gray)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.stat-block{background:var(--gray);padding:32px 28px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--accent);line-height:1;margin-bottom:8px}
+.stat-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:80px}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
+.content-text p{margin-bottom:16px}
+.content-text p:last-child{margin-bottom:0}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:40px}
+.concept-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
+.concept-card:hover{border-color:var(--accent)}
+.concept-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.25;line-height:1;margin-bottom:16px}
+.concept-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.concept-text{font-size:13px;color:var(--muted);line-height:1.65}
+.narrative-section{padding:0 48px;margin-bottom:80px}
+.narrative-item{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px 0;border-top:1px solid var(--border)}
+.narrative-item:last-child{border-bottom:1px solid var(--border)}
+.narrative-item.reverse{direction:rtl}
+.narrative-item.reverse > *{direction:ltr}
+.narrative-slide-num{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.narrative-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3vw,44px);color:var(--white);line-height:.95;margin-bottom:16px}
+.narrative-desc{font-size:14px;color:var(--muted);line-height:1.75}
+.narrative-img{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.narrative-img-ph{width:100%;aspect-ratio:16/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333}
+.narrative-img img{width:100%;display:block;object-fit:cover}
+.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid img,.images-grid-3 img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
+.img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
+.img-ph.wide{aspect-ratio:16/9}
+.images-full-ph{width:100%;aspect-ratio:16/9;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333;border:1px solid var(--border);margin-bottom:16px}
+.images-full img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);margin-bottom:16px}
+.quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
+.quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-sub{font-size:13px;color:var(--muted)}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .project-cover,.narrative-section{margin:0 24px}
+  .project-content{padding:60px 24px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .concept-grid{grid-template-columns:1fr 1fr}
+  .narrative-item{grid-template-columns:1fr;gap:24px}
+  .narrative-item.reverse{direction:ltr}
+  .images-grid{grid-template-columns:1fr}
+  .images-grid-3{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+  .stats-section{padding:48px 24px}
+}
+@media(max-width:600px){
+  .concept-grid,.images-grid-3{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  body{cursor:auto}
+  .cursor{display:none}
+  .project-meta-grid{grid-template-columns:1fr}
+}
+
+/* REAL PROJECT IMAGES */
+.project-cover{background:var(--gray2)}
+.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
+.images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
+.logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
+.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
+
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">СТА<span>.</span></a>
+  <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-bg">АГРО</div>
+  <div class="project-hero-left">
+    <p class="project-type">Презентация</p>
+    <h1 class="project-title">Агротек</h1>
+    <p class="project-subtitle">Стратегия развития 2026</p>
+    <p class="project-desc">Многостраничная стратегическая презентация для группы компаний Агротек. Задача — передать масштаб, амбиции и путь компании от дистрибьютора к независимому холдингу полного цикла.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Клиент</p><p class="meta-value">ГК Агротек</p></div>
+      <div class="meta-item"><p class="meta-label">Год</p><p class="meta-value">2026</p></div>
+      <div class="meta-item"><p class="meta-label">Тип</p><p class="meta-value">Стратегическая презентация</p></div>
+      <div class="meta-item"><p class="meta-label">Слайдов</p><p class="meta-value">16</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">PowerPoint</span>
+      <span class="tag">Стратегия</span>
+      <span class="tag">B2B</span>
+      <span class="tag">Инфографика</span>
+      <span class="tag">Нарратив</span>
+    </div>
+  </div>
+</section>
+<div class="project-cover fade-up"><img src="projects/agrotek-cover.webp" alt="Агротек — обложка презентации"></div>
+
+<!-- STATS -->
+<div class="stats-section fade-up">
+  <div class="stats-grid">
+    <div class="stat-block">
+      <div class="stat-num">600+</div>
+      <div class="stat-desc">сотрудников в компании</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">50+</div>
+      <div class="stat-desc">регионов присутствия</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">7000+</div>
+      <div class="stat-desc">партнёров по всей России</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">25М</div>
+      <div class="stat-desc">рублей годовой выручки</div>
+    </div>
+  </div>
+</div>
+
+<div class="project-content">
+
+  <!-- ЗАДАЧА -->
+  <div class="content-section fade-up">
+    <p class="content-label">Задача</p>
+    <h2 class="content-title">Что нужно было сделать</h2>
+    <div class="content-text">
+      <p>Группа компаний Агротек — один из крупнейших агрохолдингов России, работающий в сегменте семян, средств защиты растений и удобрений. Компания прошла путь от небольшого дистрибьютора до вертикально интегрированного холдинга с собственной наукой, производством и продажами.</p>
+      <p>Задача: создать стратегическую презентацию для конференции «Старт сезона 2026», которая покажет путь компании, её философию и амбиции. Аудитория — руководители, партнёры и сотрудники. Тон: вдохновляющий, но без пафоса.</p>
+    </div>
+  </div>
+
+  <!-- АНАЛИЗ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Анализ</p>
+    <h2 class="content-title">Что изучил перед началом</h2>
+    <div class="content-text">
+      <p>Перед началом разобрал позиционирование компании: Агротек не просто продаёт семена — они строят независимую систему, которая не зависит от западных игроков. После ухода глобальных брендов в 2022 году компания не отступила, а захватила освободившееся пространство.</p>
+      <p>Ключевой инсайт: у компании есть сильный эмоциональный нарратив — от давления гигантов к суверенитету. Это и стало основой структуры презентации.</p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-num">01</div>
+        <p class="concept-title">Нарратив как основа</p>
+        <p class="concept-text">Вместо сухих цифр — история трансформации. От давления к суверенитету, от «Я» к «Мы». Каждый слайд продолжает эту историю.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-num">02</div>
+        <p class="concept-title">Визуальный контраст</p>
+        <p class="concept-text">Тёмный фон — доминирует в B2B-презентациях для серьёзных встреч. Зелёный акцент — фирменный цвет бренда. Белый текст — максимальный контраст и читаемость.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-num">03</div>
+        <p class="concept-title">Живые образы</p>
+        <p class="concept-text">Мемы, сильные метафоры (эволюция, дерево, старый трактор vs новая техника), реальные фото команды. Не корпоративная скука — живая энергия.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- НАРРАТИВ — КЛЮЧЕВЫЕ СЛАЙДЫ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Нарратив</p>
+    <h2 class="content-title">Структура истории</h2>
+    <div class="content-text">
+      <p>Презентация построена как путешествие — от прошлого к будущему, от личного к общему. Каждый слайд — это узловая точка в истории компании.</p>
+    </div>
+  </div>
+</div>
+
+<!-- КЛЮЧЕВЫЕ СЛАЙДЫ -->
+<div class="narrative-section">
+
+  <div class="narrative-item fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Слайд 02</p>
+      <h3 class="narrative-title">Технологии меняются — ценности остаются</h3>
+      <p class="narrative-desc">Открывающий образ после титула. Старый трактор прадеда против современной агротехники. Это про преемственность — компания выросла из реальных людей с реальными корнями, а не из офисов. Слайд даёт эмоциональный якорь перед стратегической частью.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="projects/agrotek/3.webp" alt="Агротек — технологии меняются, ценности сохраняются">
+    </div>
+  </div>
+
+  <div class="narrative-item reverse fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Слайд 03</p>
+      <h3 class="narrative-title">От Я к Мы и обратно</h3>
+      <p class="narrative-desc">Философский слайд про связь личного пути и пути компании. Зеркальный текст «И ОБРАТНО» — визуальный приём, который физически передаёт идею отражения. Это ключевая ценностная рамка всей презентации: компания — это личное дело каждого сотрудника.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="projects/agrotek/4.webp" alt="Агротек — быть сопричастным к великому">
+    </div>
+  </div>
+
+  <div class="narrative-item fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Слайды 05–06</p>
+      <h3 class="narrative-title">От давления — к суверенитету</h3>
+      <p class="narrative-desc">Два слайда-диптих. Первый — фото с кричащим боссом с мегафоном, символ давления гигантов. Второй — эволюция человека к логотипу Агротека. Сильнейший контраст в презентации. Эти слайды переводят абстрактную стратегию в понятную эмоцию: мы больше не жертвы рынка — мы его создатели.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="projects/agrotek/6.webp" alt="Агротек — уйти от нервной партнёрской позиции">
+    </div>
+  </div>
+
+  <div class="narrative-item reverse fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Слайд 08</p>
+      <h3 class="narrative-title">Наши конкуренты vs Наши инновации</h3>
+      <p class="narrative-desc">Самый дерзкий слайд. Конкуренты — обломок металла, мы — звездолёт Enterprise. Роботизированная рука Агротека тянется к обычной человеческой, как Микеланджело. Этот слайд вызывает смех и запоминается — именно то, что нужно для корпоративной конференции.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="projects/agrotek/8.webp" alt="Агротек — конкуренты и инновации">
+    </div>
+  </div>
+
+  <div class="narrative-item fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Слайд 09</p>
+      <h3 class="narrative-title">Кто мы сегодня — цифры</h3>
+      <p class="narrative-desc">После нарратива — факты. 300+ сортов, 1000+ СЗР, 600+ сотрудников, 7000+ партнёров, 25 млн выручки. Слайд с цифрами намеренно идёт после эмоциональной части — аудитория уже вовлечена и готова воспринимать масштаб.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="projects/agrotek/9.webp" alt="Агротек — кто мы сегодня">
+    </div>
+  </div>
+
+</div>
+
+<div class="project-content">
+
+  <!-- ПРОЦЕСС -->
+  <div class="content-section fade-up">
+    <p class="content-label">Процесс</p>
+    <h2 class="content-title">Как делал</h2>
+    <div class="content-text">
+      <p>Начал с погружения в материалы компании: история, ценности, ключевые события. Из этого выкристаллизовался главный конфликт презентации — давление vs суверенитет — который стал сюжетным хребтом.</p>
+      <p>Структуру делал по принципу нарративной дуги: эмоциональный старт (история, корни) → конфликт (2022, уход западных игроков) → победа (холдинг, инновации) → вдохновение (команда, будущее). Цифры и статистика — только в середине, когда аудитория уже эмоционально вовлечена.</p>
+      <p>Каждый слайд проверял на один вопрос: «Что должен почувствовать зритель в этот момент?» Если ответа не было — слайд переделывался.</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">Уход глобальных игроков стал для нас сигналом к атаке, а не к отступлению</p>
+      <p class="quote-sub">Ключевой тезис презентации, который определил весь визуальный тон</p>
+    </div>
+  </div>
+
+  <!-- СКРИНЫ ПРОИЗВОДСТВА -->
+  <div class="content-section fade-up">
+    <p class="content-label">Визуальная система</p>
+    <h2 class="content-title">Дизайн-решения</h2>
+    <div class="content-text">
+      <p>Тёмный фон #0D2318 — корпоративный зелёный Агротека в тёмном варианте. Это создаёт ощущение глубины и серьёзности без потери фирменного стиля. Заголовки — Bebas Neue, крупно, жирно. Акцентный зелёный — только на ключевых словах.</p>
+    </div>
+    <div class="images-grid" style="margin-top:32px">
+      <img class="img-ph wide case-img" src="projects/agrotek/10.webp" alt="Агротек — производственный блок">
+      <img class="img-ph wide case-img" src="projects/agrotek/11.webp" alt="Агротек — командный блок">
+    </div>
+    <div class="images-grid-3" style="margin-top:16px">
+      <img class="img-ph case-img" src="projects/agrotek/7.webp" alt="Агротек — цель, сила, путь">
+      <img class="img-ph case-img" src="projects/agrotek/13.webp" alt="Агротек — бренд на здании">
+      <img class="img-ph case-img" src="projects/agrotek/15.webp" alt="Агротек — финальный слайд">
+    </div>
+  </div>
+
+  <!-- РЕЗУЛЬТАТ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Результат</p>
+    <h2 class="content-title">Что получилось</h2>
+    <div class="content-text">
+      <p>Презентация из 16 слайдов с единой визуальной системой и нарративом от первого до последнего слайда. Использована на конференции «Старт сезона 2026» перед аудиторией из 600+ сотрудников и партнёров.</p>
+      <p>Главное достижение — презентация не выглядит как корпоративный отчёт. Это история с характером, юмором и реальными эмоциями, которая держит внимание зала от начала до конца.</p>
+    </div>
+  </div>
+
+</div>
+
+<a href="fortress.html" class="next-project">
+  <div>
+    <p class="next-label">Следующий проект</p>
+    <p class="next-title">Fortress Investment</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>&#169; 2026 Станислав</span>
+  <span>Дизайнер &amp; AI-специалист · Анталья</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});
+  el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});
+});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>

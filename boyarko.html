@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>МедиаКит Боярко — Станислав</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--boyarko-sand:#C4A882;--boyarko-warm:#E8DDD0;--boyarko-stone:#9B9087}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+
+/* HERO */
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,14vw,200px);letter-spacing:-.04em;color:rgba(255,255,255,.02);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6.5vw,100px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-subtitle{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+
+/* COVER */
+.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.project-cover img{width:100%;display:block;object-fit:cover}
+.project-cover-ph{width:100%;aspect-ratio:21/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
+
+/* PALETTE ACCENT */
+.palette-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.palette-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:10px}
+.palette-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.palette-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.color-card{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.color-swatch{height:80px}
+.color-info{background:var(--black);padding:14px 16px}
+.color-name{font-size:13px;font-weight:400;color:var(--white);margin-bottom:4px}
+.color-hex{font-size:11px;color:var(--muted);font-family:monospace}
+.color-role{font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+
+/* STATS */
+.stats-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.stat-block{background:var(--gray);padding:32px 28px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--accent);line-height:1;margin-bottom:8px}
+.stat-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* SLIDES GRID */
+.slides-section{padding:60px 48px;background:var(--gray);border-bottom:1px solid var(--border)}
+.slides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.slide-card{border-radius:4px;overflow:hidden;border:1px solid var(--border);background:var(--black);transition:border-color .2s}
+.slide-card:hover{border-color:var(--accent)}
+.slide-thumb{width:100%;aspect-ratio:16/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#333;transition:color .3s}
+.slide-card:hover .slide-thumb{color:#555}
+.slide-info{padding:16px 20px}
+.slide-num{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:8px}
+.slide-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:6px}
+.slide-desc{font-size:12px;color:var(--muted);line-height:1.5}
+
+/* CONTENT */
+.project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:80px}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
+.content-text p{margin-bottom:16px}
+.content-text p:last-child{margin-bottom:0}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.step-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
+.step-card:hover{border-color:var(--accent)}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
+.step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.step-text{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* TOPICS LIST */
+.topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.topic-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:24px;transition:border-color .2s}
+.topic-card:hover{border-color:rgba(196,168,130,.3)}
+.topic-num{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--boyarko-sand);opacity:.4;line-height:1;margin-bottom:12px}
+.topic-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em}
+.topic-list{font-size:12px;color:var(--muted);line-height:1.7}
+
+/* IMAGES */
+.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid img,.images-grid-3 img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
+.img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
+.img-ph.wide{aspect-ratio:16/9}
+.img-ph.tall{aspect-ratio:3/4}
+.quote-block{background:var(--gray);border-left:3px solid var(--boyarko-sand);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
+.quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-sub{font-size:13px;color:var(--muted)}
+
+/* NEXT */
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .project-cover{margin:0 24px}
+  .project-content{padding:60px 24px}
+  .palette-section,.stats-section,.slides-section{padding:48px 24px}
+  .palette-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .slides-grid,.steps-grid,.topics-grid{grid-template-columns:1fr}
+  .images-grid{grid-template-columns:1fr}
+  .images-grid-3{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+}
+@media(max-width:600px){
+  .palette-grid,.images-grid-3{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  body{cursor:auto}
+  .cursor{display:none}
+  .project-meta-grid{grid-template-columns:1fr}
+}
+
+/* REAL PROJECT IMAGES */
+.project-cover{background:var(--gray2)}
+.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
+.images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
+.logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
+.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
+
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">СТА<span>.</span></a>
+  <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
+</nav>
+
+<!-- HERO -->
+<section class="project-hero">
+  <div class="hero-bg">BOYARKO</div>
+  <div class="project-hero-left">
+    <p class="project-type">Презентация · МедиаКит</p>
+    <h1 class="project-title">Елена Боярко</h1>
+    <p class="project-subtitle">МедиаКит для спикера и предпринимателя в индустрии моды. Личный бренд, упакованный для питчинга партнёрам, организаторам конференций и инвесторам.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Клиент</p><p class="meta-value">Елена Боярко</p></div>
+      <div class="meta-item"><p class="meta-label">Год</p><p class="meta-value">2024</p></div>
+      <div class="meta-item"><p class="meta-label">Тип</p><p class="meta-value">МедиаКит · Личный бренд</p></div>
+      <div class="meta-item"><p class="meta-label">Слайдов</p><p class="meta-value">9</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">PowerPoint</span>
+      <span class="tag">Личный бренд</span>
+      <span class="tag">Fashion</span>
+      <span class="tag">МедиаКит</span>
+      <span class="tag">Спикер</span>
+    </div>
+  </div>
+</section>
+
+<!-- COVER -->
+<div class="project-cover fade-up"><img src="projects/boyarko-cover.webp" alt="Елена Боярко — обложка медиакита"></div>
+
+<!-- STATS -->
+<div class="stats-section fade-up">
+  <div class="stats-grid">
+    <div class="stat-block">
+      <div class="stat-num">5</div>
+      <div class="stat-desc">лет в fashion-бизнесе</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">9</div>
+      <div class="stat-desc">тем для выступлений спикера</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">10</div>
+      <div class="stat-desc">оригинальных проектов в КБА</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">3</div>
+      <div class="stat-desc">конференции как спикер</div>
+    </div>
+  </div>
+</div>
+
+<div class="project-content">
+
+  <!-- ЗАДАЧА -->
+  <div class="content-section fade-up">
+    <p class="content-label">Задача</p>
+    <h2 class="content-title">Зачем нужен МедиаКит</h2>
+    <div class="content-text">
+      <p>Елена Боярко — дизайнер сумок, спикер в индустрии моды и стиля, основатель Конструкторского Бюро Аксессуаров (КБА). Активно выступает на конференциях, сотрудничает с брендами и медиа. Но каждый раз, когда нужно было представиться новому партнёру или организатору события, приходилось объяснять всё с нуля — кто она, что делает, о чём говорит.</p>
+      <p>Задача: создать МедиаКит — документ, который сам продаёт спикера. Открыл, прочитал — всё понял. Без лишних звонков и уточнений. Аудитория: организаторы конференций в fashion, предприниматели, потенциальные партнёры и инвесторы.</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">МедиаКит — это не резюме. Это питч-дек личного бренда.</p>
+      <p class="quote-sub">Ключевое отличие от стандартного CV, которое определило подход к структуре</p>
+    </div>
+  </div>
+
+  <!-- БРЕЙНШТОРМ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Брейншторм</p>
+    <h2 class="content-title">Подход к упаковке</h2>
+    <div class="content-text">
+      <p>Главный вопрос перед началом: что хочет знать организатор конференции, прежде чем пригласить спикера? Не список курсов, а конкретные ответы: кто она, о чём говорит, что аудитория получит на выступлении, как с ней связаться.</p>
+      <p>Второй вопрос: что хочет знать потенциальный партнёр по бизнесу? Масштаб, экспертиза, медийность, доказательства.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <p class="step-title">Три роли — три аудитории</p>
+        <p class="step-text">Елена одновременно спикер, предприниматель и дизайнер. МедиаКит должен работать для всех трёх аудиторий, не теряя фокуса. Решение — чёткая иерархия слайдов: сначала личность, потом экспертиза, потом конкретика.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <p class="step-title">Палитра под бренд сумок</p>
+        <p class="step-text">BOЯRKO BAG — это тёплые пастельные тона: беж, песок, серо-коричневый. Презентация должна отражать визуальный DNA бренда, а не выглядеть как случайный корпоративный шаблон. Это часть личного бренда.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <p class="step-title">Диагональные блоки</p>
+        <p class="step-text">Стандартные прямоугольные слайды выглядят скучно для fashion-аудитории. Диагональное деление — динамика и движение, как в модных лукбуках. При этом текст остаётся строгим и читаемым.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <p class="step-title">Фото как главный аргумент</p>
+        <p class="step-text">В личном бренде фотография важнее текста. Профессиональные съёмки с сумками занимают половину каждого ключевого слайда. Это не украшение — это доказательство статуса.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ПАЛИТРА -->
+<div class="palette-section fade-up">
+  <p class="palette-label">Цветовая палитра</p>
+  <div class="palette-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background:#C4A882"></div>
+      <div class="color-info">
+        <p class="color-name">Boyarko Sand</p>
+        <p class="color-hex">#C4A882</p>
+        <p class="color-role">Основной акцент</p>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#E8DDD0"></div>
+      <div class="color-info">
+        <p class="color-name">Warm Cream</p>
+        <p class="color-hex">#E8DDD0</p>
+        <p class="color-role">Светлый фон</p>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#9B9087"></div>
+      <div class="color-info">
+        <p class="color-name">Warm Stone</p>
+        <p class="color-hex">#9B9087</p>
+        <p class="color-role">Нейтральный · текст</p>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#2A2522"></div>
+      <div class="color-info">
+        <p class="color-name">Espresso</p>
+        <p class="color-hex">#2A2522</p>
+        <p class="color-role">Тёмный · заголовки</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- СЛАЙДЫ -->
+<div class="slides-section fade-up">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="palette-label">Структура презентации</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:12px">Разбор по слайдам</h2>
+    <p style="font-size:15px;color:var(--muted);max-width:600px;line-height:1.7;margin-bottom:0">Каждый слайд решает одну задачу. Никакой воды — только то, что нужно целевой аудитории.</p>
+    <div class="slides-grid">
+
+      <div class="slide-card">
+        <div class="slide-thumb">Слайд 01 · Титул</div>
+        <div class="slide-info">
+          <div class="slide-num">01</div>
+          <p class="slide-title">Титульный слайд</p>
+          <p class="slide-desc">Фото + 4 роли одной строкой. Диагональная композиция создаёт динамику. Контакт @boyarko_bags сразу в подвале — организатор знает куда писать ещё до следующего слайда.</p>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-thumb">Слайд 02 · Обо мне</div>
+        <div class="slide-info">
+          <div class="slide-num">02</div>
+          <p class="slide-title">Обо мне</p>
+          <p class="slide-desc">Фото слева, три ключевых факта справа с иконками сумок. 5 лет в fashion, собственный бренд, Конструкторское Бюро Аксессуаров. Минимум слов — максимум смысла.</p>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-thumb">Слайд 03 · Образование</div>
+        <div class="slide-info">
+          <div class="slide-num">03</div>
+          <p class="slide-title">Образование</p>
+          <p class="slide-desc">4 карточки курсов + блок с высшим образованием и опытом работы. Это снимает возражение «а она вообще эксперт?». Два образования плюс Британская школа дизайна — аргумент весомый.</p>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-thumb">Слайд 04 · Достижения</div>
+        <div class="slide-info">
+          <div class="slide-num">04</div>
+          <p class="slide-title">Достижения</p>
+          <p class="slide-desc">6 блоков с достижениями в сетке 2×3. Спикер на конференциях, бренд с 2019 года, шоурумы Москвы, публикации в MaryWay, Яндекс Дзен в топе, ТВ и подкасты. Иконки сумок как единый визуальный язык.</p>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-thumb">Слайд 05 · КБА</div>
+        <div class="slide-info">
+          <div class="slide-num">05</div>
+          <p class="slide-title">Конструкторское бюро аксессуаров</p>
+          <p class="slide-desc">Три кружка-диаграммы Венна: 2 года работы · 10 проектов · 16 публикаций. Визуализация через наложение форм создаёт ощущение взаимосвязи — бюро = пересечение опыта, проектов и экспертизы.</p>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-thumb">Слайды 06–08 · Темы</div>
+        <div class="slide-info">
+          <div class="slide-num">06–08</div>
+          <p class="slide-title">Темы выступлений</p>
+          <p class="slide-desc">9 тем на трёх слайдах по три. Нумерованный список с заголовком и пунктами. Организатор видит готовые программы — ему не нужно придумывать, о чём попросить спикера.</p>
+        </div>
+      </div>
+
+      <div class="slide-card">
+        <div class="slide-thumb">Слайд 09 · Контакты</div>
+        <div class="slide-info">
+          <div class="slide-num">09</div>
+          <p class="slide-title">Мои контакты</p>
+          <p class="slide-desc">Все каналы в одном месте: телефон, сайт, Telegram, ВКонтакте, Instagram, Авито, КБА. Фото справа — завершает презентацию образом, с которого она начиналась. Замкнутый круг.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="project-content">
+
+  <!-- ТЕМЫ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Экспертиза</p>
+    <h2 class="content-title">9 тем для выступлений</h2>
+    <div class="content-text">
+      <p>Ключевая часть МедиаКита — конкретные темы. Не абстрактное «говорю о моде», а готовые программы с подпунктами. Организатор может сразу выбрать нужную и отправить на согласование.</p>
+    </div>
+    <div class="topics-grid">
+      <div class="topic-card">
+        <div class="topic-num">01</div>
+        <p class="topic-title">Формирование сумочного гардероба</p>
+        <p class="topic-list">База vs тренд · Качество и материалы · Типология моделей · Российские бренды</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-num">02</div>
+        <p class="topic-title">Идеальная сумка: как выбрать и где купить</p>
+        <p class="topic-list">Требования к сумке · Качество при покупке · Сумка и фигура · Бренды на разный бюджет</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-num">03</div>
+        <p class="topic-title">Тренды в мире сумок</p>
+        <p class="topic-list">Формы · Цвета · Материалы · Принты · Core-эстетика · Российские бренды</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-num">04</div>
+        <p class="topic-title">Базовые сумки: что это и где купить</p>
+        <p class="topic-list">Понятие базовой сумки · Формы/Цвета/Материалы · Как обновить любимую сумку</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-num">05</div>
+        <p class="topic-title">Вечерние сумки: принципы стилизации</p>
+        <p class="topic-list">История · Виды: клатч, минодьер, box-bag, кисет · Стилизация к образу</p>
+      </div>
+      <div class="topic-card">
+        <div class="topic-num">06–09</div>
+        <p class="topic-title">+ ещё четыре темы</p>
+        <p class="topic-list">Ошибки в выборе сумки · Уход и хранение · Как запустить сумочный бренд · Обзор российских брендов для стилистов</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПРОЦЕСС -->
+  <div class="content-section fade-up">
+    <p class="content-label">Процесс</p>
+    <h2 class="content-title">Как делал</h2>
+    <div class="content-text">
+      <p>Начал со структуры — выстроил логику от общего к частному: кто она → что умеет → чего достигла → о чём говорит → как связаться. Это стандартная питч-структура, адаптированная под personal brand.</p>
+      <p>Диагональные блоки на первом и последнем слайдах создают рамку — презентация начинается и заканчивается одним образом. Это профессиональный приём из редакционного дизайна: открытие и закрытие должны рифмоваться.</p>
+      <p>Все 9 тем выступлений структурированы одинаково — номер, заголовок, подпункты. Это не случайность, а намеренная система: организатор сканирует страницу по диагонали и видит только заголовки. Если заинтересовало — читает детали.</p>
+    </div>
+
+    <div class="images-grid" style="margin-top:32px">
+      <img class="img-ph wide case-img" src="projects/boyarko/1.webp" alt="Боярко — титульный слайд">
+      <img class="img-ph wide case-img" src="projects/boyarko/5.webp" alt="Боярко — конструкторское бюро аксессуаров">
+    </div>
+    <div class="images-grid-3" style="margin-top:16px">
+      <img class="img-ph case-img" src="projects/boyarko/3.webp" alt="Боярко — образование">
+      <img class="img-ph case-img" src="projects/boyarko/4.webp" alt="Боярко — достижения">
+      <img class="img-ph case-img" src="projects/boyarko/9.webp" alt="Боярко — контакты">
+    </div>
+  </div>
+
+  <!-- РЕЗУЛЬТАТ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Результат</p>
+    <h2 class="content-title">Что получилось</h2>
+    <div class="content-text">
+      <p>МедиаКит на 9 слайдах — компактный, конкретный, с единым визуальным языком в тёплой пастельной палитре бренда BOЯRKO BAG. Закрывает все возражения организатора и партнёра в одном документе.</p>
+      <p>Главное достижение: личный бренд Елены упакован так, что она может отправить один файл — и больше ничего объяснять не нужно. МедиаКит работает вместо неё.</p>
+    </div>
+  </div>
+
+</div>
+
+<a href="nabucco.html" class="next-project">
+  <div>
+    <p class="next-label">Следующий проект</p>
+    <p class="next-title">Nabucco</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>&#169; 2026 Станислав</span>
+  <span>Дизайнер &amp; AI-специалист · Анталья</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});
+  el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});
+});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>

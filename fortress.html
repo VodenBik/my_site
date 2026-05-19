@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortress Investment — Станислав</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--fi-navy:#002948;--fi-blue:#163962;--fi-light:#F4F4F4;--fi-dark:#0E0E0E}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,14vw,200px);letter-spacing:-.04em;color:rgba(255,255,255,.02);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(56px,7vw,110px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-subtitle{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.project-cover img{width:100%;display:block;object-fit:cover}
+.project-cover-ph{width:100%;aspect-ratio:21/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
+
+/* PALETTE */
+.palette-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.palette-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:10px}
+.palette-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.palette-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.color-card{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.color-swatch{height:100px}
+.color-info{background:var(--black);padding:14px 16px}
+.color-name{font-size:13px;font-weight:400;color:var(--white);margin-bottom:4px}
+.color-hex{font-size:11px;color:var(--muted);font-family:monospace;letter-spacing:.04em}
+.color-codes{font-size:10px;color:#444;margin-top:6px;line-height:1.6;font-family:monospace}
+.color-role{font-size:10px;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+
+/* FONT */
+.font-section{padding:60px 48px;border-bottom:1px solid var(--border)}
+.font-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+.font-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.font-name{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.font-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.font-weights{display:flex;flex-direction:column;gap:8px;margin-top:8px;padding-top:16px;border-top:1px solid var(--border)}
+.font-weight-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.font-weight-sample{font-size:18px;color:var(--white)}
+.font-weight-label{font-size:10px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+
+/* LOGO CONCEPT */
+.logo-concept{padding:60px 48px;background:var(--gray);border-bottom:1px solid var(--border)}
+.concept-split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+.logo-preview{background:var(--fi-navy);border-radius:4px;padding:60px 40px;display:flex;align-items:center;justify-content:center;min-height:280px;border:1px solid rgba(255,255,255,.06)}
+.logo-preview-ph{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center}
+.logo-shield-ph{width:80px;height:90px;background:rgba(255,255,255,.08);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.3);text-transform:uppercase}
+.logo-wordmark-ph{font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.5);text-transform:uppercase;line-height:1.8}
+.symbol-list{display:flex;flex-direction:column;gap:20px}
+.symbol-item{display:flex;gap:16px;align-items:flex-start}
+.symbol-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:6px}
+.symbol-title{font-size:14px;font-weight:500;color:var(--white);margin-bottom:6px}
+.symbol-text{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* PATTERN */
+.pattern-section{padding:60px 48px;border-bottom:1px solid var(--border)}
+.pattern-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.pattern-card{border-radius:4px;overflow:hidden;border:1px solid var(--border);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;position:relative}
+.pattern-label{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
+
+/* CONTENT */
+.project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:80px}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
+.content-text p{margin-bottom:16px}
+.content-text p:last-child{margin-bottom:0}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.step-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
+.step-card:hover{border-color:var(--accent)}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
+.step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.step-text{font-size:13px;color:var(--muted);line-height:1.65}
+.deliverables-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.deliverable-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--gray);border-radius:4px;border:1px solid var(--border)}
+.deliverable-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:6px}
+.deliverable-text{font-size:13px;color:var(--muted);line-height:1.5}
+.deliverable-text strong{color:var(--white);font-weight:500;display:block;margin-bottom:4px}
+.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid img,.images-grid-3 img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
+.img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
+.img-ph.wide{aspect-ratio:16/9}
+.img-ph.tall{aspect-ratio:2/3}
+.img-ph.square{aspect-ratio:1/1}
+.quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
+.quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-sub{font-size:13px;color:var(--muted)}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .project-cover{margin:0 24px}
+  .project-content{padding:60px 24px}
+  .palette-section,.font-section,.logo-concept,.pattern-section{padding:48px 24px}
+  .palette-grid,.pattern-grid{grid-template-columns:1fr 1fr}
+  .font-grid,.steps-grid,.concept-split{grid-template-columns:1fr}
+  .deliverables-grid{grid-template-columns:1fr 1fr}
+  .images-grid{grid-template-columns:1fr}
+  .images-grid-3{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+}
+@media(max-width:600px){
+  .palette-grid,.deliverables-grid,.images-grid-3,.pattern-grid{grid-template-columns:1fr}
+  body{cursor:auto}
+  .cursor{display:none}
+  .project-meta-grid{grid-template-columns:1fr}
+}
+
+/* REAL PROJECT IMAGES */
+.project-cover{background:var(--gray2)}
+.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
+.images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
+.logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
+.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
+
+</style>
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">СТА<span>.</span></a>
+  <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
+</nav>
+
+<!-- HERO -->
+<section class="project-hero">
+  <div class="hero-bg">FORTRESS</div>
+  <div class="project-hero-left">
+    <p class="project-type">Айдентика & Брендбук</p>
+    <h1 class="project-title">Fortress Investment</h1>
+    <p class="project-subtitle">Полная визуальная система для агентства недвижимости в Анталье — от концепции и логотипа до брендбука, носителей и сувенирной продукции.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Клиент</p><p class="meta-value">Fortress Investment</p></div>
+      <div class="meta-item"><p class="meta-label">Год</p><p class="meta-value">2024</p></div>
+      <div class="meta-item"><p class="meta-label">Тип</p><p class="meta-value">Айдентика · Брендбук</p></div>
+      <div class="meta-item"><p class="meta-label">Объём</p><p class="meta-value">37 страниц</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">Illustrator</span>
+      <span class="tag">Photoshop</span>
+      <span class="tag">Логотип</span>
+      <span class="tag">Брендбук</span>
+      <span class="tag">Недвижимость</span>
+      <span class="tag">Турция</span>
+    </div>
+  </div>
+</section>
+
+<!-- COVER -->
+<div class="project-cover fade-up"><img src="projects/fortress-cover.webp" alt="Fortress Investment — обложка брендбука"></div>
+
+<!-- КОНТЕНТ -->
+<div class="project-content">
+
+  <!-- ЗАДАЧА -->
+  <div class="content-section fade-up">
+    <p class="content-label">Задача</p>
+    <h2 class="content-title">С чего началось</h2>
+    <div class="content-text">
+      <p>Агентство недвижимости Fortress Investment работает в Анталье и специализируется на инвестиционной недвижимости для иностранных покупателей — преимущественно русскоязычная аудитория. Компания выходила на рынок с нуля: без логотипа, без визуальной системы, без понимания своего образа.</p>
+      <p>Задача: создать полноценную айдентику и оформить её в брендбук. Важно — бренд должен работать на двух языках (русский и английский), выглядеть премиально и передавать ключевые ценности: надёжность, защита интересов клиента, профессионализм.</p>
+    </div>
+  </div>
+
+  <!-- БРЕЙНШТОРМ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Брейншторм</p>
+    <h2 class="content-title">Поиск концепции</h2>
+    <div class="content-text">
+      <p>Начал с разбора названия. Fortress — Крепость. Это не просто слово, это метафора: крепость защищает, стоит нерушимо, внушает доверие. Investment — вложение, рост капитала, стратегический подход. Название уже содержит всё необходимое — нужно было его визуализировать, а не придумывать поверх.</p>
+      <p>Изучил конкурентов в сегменте агентств недвижимости Турции. Большинство используют типовые решения: дом+ключ, минималистичный шрифт, синий цвет. Синий — правильное решение для этой сферы, но нужна была более сильная образная система.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <p class="step-title">Метафора крепости</p>
+        <p class="step-text">Щит как центральный символ — защита интересов клиента. Зубцы башни крепости сверху — узнаваемый силуэт, который работает даже в маленьком размере на визитке.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <p class="step-title">Графема «F»</p>
+        <p class="step-text">Внутри щита — буква F из Fortress. Двойной смысл: и символ бренда, и образ ворот крепости. Это создаёт глубину — знак читается на нескольких уровнях.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <p class="step-title">Баланс строгости и гибкости</p>
+        <p class="step-text">Крепость — неприступна, но агентство работает с людьми и должно быть открытым. Скруглённые элементы в щите смягчают жёсткость геометрии — символизируют лояльность.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">04</div>
+        <p class="step-title">Синий как якорь</p>
+        <p class="step-text">Глубокий военно-морской синий (#002948) — не банковский, а архитектурный. Он ассоциируется с надёжностью и одновременно с морем, что важно для Антальи.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ЛОГОТИП -->
+<div class="logo-concept fade-up">
+  <div style="padding:0 0 0 0;max-width:1200px;margin:0 auto">
+    <p class="palette-label">Логотип</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">Концепция и символика</h2>
+    <div class="concept-split">
+      <div class="logo-preview">
+        <div class="logo-preview-ph">
+          <img src="projects/fortress-logo.svg" alt="Fortress Investment logo" style="max-height:170px">
+        </div>
+      </div>
+      <div class="symbol-list">
+        <div class="symbol-item">
+          <div class="symbol-dot"></div>
+          <div>
+            <p class="symbol-title">Щит-крепость</p>
+            <p class="symbol-text">Центральный символ напоминает щит или башню крепости. Подчёркивает надёжность и защиту интересов клиентов — главные ценности агентства.</p>
+          </div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-dot"></div>
+          <div>
+            <p class="symbol-title">Графема «F»</p>
+            <p class="symbol-text">Графический элемент внутри щита — буква F из названия Fortress. Двойное прочтение: инициал бренда и образ ворот. Делает знак легко узнаваемым.</p>
+          </div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-dot"></div>
+          <div>
+            <p class="symbol-title">Скруглённые углы</p>
+            <p class="symbol-text">Несмотря на «неприступность» крепости, скруглённые элементы символизируют лояльность и гибкость в работе с клиентами. Строгость без холодности.</p>
+          </div>
+        </div>
+        <div class="symbol-item">
+          <div class="symbol-dot"></div>
+          <div>
+            <p class="symbol-title">Шрифт логотипа — Bookman Old Style</p>
+            <p class="symbol-text">Классический serif с историей — подчёркивает премиальность и уверенность. Прописные буквы усиливают монументальность образа.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ЦВЕТОВАЯ ПАЛИТРА -->
+<div class="palette-section fade-up">
+  <p class="palette-label">Цветовая палитра</p>
+  <div class="palette-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background:#002948"></div>
+      <div class="color-info">
+        <p class="color-name">Fortress Navy</p>
+        <p class="color-hex">#002948</p>
+        <p class="color-codes">Pantone 7463C<br>CMYK 100·60·16·67</p>
+        <p class="color-role">Основной · фон · доминирует</p>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#163962"></div>
+      <div class="color-info">
+        <p class="color-name">Fortress Blue</p>
+        <p class="color-hex">#163962</p>
+        <p class="color-codes">Pantone 534C<br>CMYK 100·79·35·24</p>
+        <p class="color-role">Дополнительный · градиенты</p>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#F4F4F4;border-bottom:1px solid rgba(0,0,0,.08)"></div>
+      <div class="color-info">
+        <p class="color-name">Light Gray</p>
+        <p class="color-hex">#F4F4F4</p>
+        <p class="color-codes">Pantone 656C<br>CMYK 5·4·4·0</p>
+        <p class="color-role">Светлый фон · документация</p>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background:#0E0E0E"></div>
+      <div class="color-info">
+        <p class="color-name">Near Black</p>
+        <p class="color-hex">#0E0E0E</p>
+        <p class="color-codes">Pantone Black 6C<br>CMYK 81·71·62·90</p>
+        <p class="color-role">Монохромный вариант</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block" style="margin-top:40px">
+    <p class="quote-text">Синий — надёжность и профессионализм. Белый — прозрачность сделок. Два цвета, один смысл.</p>
+    <p class="quote-sub">Логика цветовой системы Fortress Investment</p>
+  </div>
+</div>
+
+<!-- ТИПОГРАФИКА -->
+<div class="font-section fade-up">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="content-label">Типографика</p>
+    <h2 class="content-title">Шрифтовая система</h2>
+    <div class="content-text">
+      <p>Два шрифта с жёсткими ролями. Никаких смешений: каждый шрифт знает своё место в иерархии.</p>
+    </div>
+    <div class="font-grid">
+      <div class="font-card">
+        <p class="font-name">Bookman Old Style — логотип</p>
+        <div style="font-size:clamp(28px,3vw,44px);line-height:1;color:var(--white);letter-spacing:.08em;font-family:Georgia,serif">FORTRESS<br>INVESTMENT</div>
+        <p class="font-desc">Классический шрифт с засечками — строгие, чёткие, гармоничные пропорции. Используется исключительно в логотипе. Передаёт премиальность и историчность бренда.</p>
+        <div class="font-weights">
+          <div class="font-weight-row">
+            <span class="font-weight-sample" style="font-family:Georgia,serif;font-weight:400">Regular · основное начертание</span>
+            <span class="font-weight-label">Only</span>
+          </div>
+        </div>
+      </div>
+      <div class="font-card">
+        <p class="font-name">Montserrat — все тексты</p>
+        <div style="font-size:clamp(24px,2.5vw,36px);line-height:1.1;color:var(--white);font-weight:600;letter-spacing:.04em">Агентство<br>недвижимости</div>
+        <p class="font-desc">Геометрический гротеск — чистота форм, минимализм, высокая читаемость. Три начертания с чёткими ролями: SemiBold для заголовков, Medium для подзаголовков, Regular для текста.</p>
+        <div class="font-weights">
+          <div class="font-weight-row">
+            <span class="font-weight-sample" style="font-weight:600">Montserrat SemiBold</span>
+            <span class="font-weight-label">Заголовки</span>
+          </div>
+          <div class="font-weight-row">
+            <span class="font-weight-sample" style="font-weight:500">Montserrat Medium</span>
+            <span class="font-weight-label">Подзаголовки</span>
+          </div>
+          <div class="font-weight-row">
+            <span class="font-weight-sample" style="font-weight:400">Montserrat Regular</span>
+            <span class="font-weight-label">Текст</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ПАТТЕРНЫ -->
+<div class="pattern-section fade-up">
+  <div style="max-width:1200px;margin:0 auto">
+    <p class="content-label">Паттерн</p>
+    <h2 class="content-title">Орнамент из зубцов крепости</h2>
+    <div class="content-text">
+      <p>Паттерн — это повторяющийся мотив зубцов крепости, взятый из верхней части логотипа. Выстраивается в шевронную сетку — динамичную, но строгую. Используется на упаковке, папке, носителях.</p>
+    </div>
+    <div class="pattern-grid" style="margin-top:40px">
+      <div class="pattern-card" style="background:#002948">
+        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)">Тёмный на синем</div>
+        <p class="pattern-label" style="color:rgba(255,255,255,.3)">Основной</p>
+      </div>
+      <div class="pattern-card" style="background:#F4F4F4">
+        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(0,0,0,.2)">Тёмный на светлом</div>
+        <p class="pattern-label" style="color:rgba(0,0,0,.25)">Документация</p>
+      </div>
+      <div class="pattern-card" style="background:#002948;border:1px solid rgba(255,255,255,.15)">
+        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.25)">Светлый на синем</div>
+        <p class="pattern-label" style="color:rgba(255,255,255,.3)">Инверсия</p>
+      </div>
+      <div class="pattern-card" style="background:#0E0E0E">
+        <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.2)">Монохром</div>
+        <p class="pattern-label" style="color:rgba(255,255,255,.2)">Тиснение · мерч</p>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="images-grid">
+        <img class="img-ph wide case-img" src="projects/fortress/17.webp" alt="Fortress — паттерны бренда">
+        <img class="img-ph wide case-img" src="projects/fortress/26.webp" alt="Fortress — применение паттерна на папке">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="project-content">
+
+  <!-- НОСИТЕЛИ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Носители</p>
+    <h2 class="content-title">Корпоративная документация</h2>
+    <div class="content-text">
+      <p>Все носители строятся на едином принципе: тёмный синий блок с логотипом + светлая зона для контента. Это создаёт мгновенную узнаваемость на любом формате.</p>
+    </div>
+    <div class="deliverables-grid">
+      <div class="deliverable-item">
+        <div class="deliverable-dot"></div>
+        <div class="deliverable-text"><strong>Визитная карточка</strong>90×50 мм · 4+4 CMYK · матовая ламинация 32 мкн · 300 гр/м²</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-dot"></div>
+        <div class="deliverable-text"><strong>Фирменный бланк</strong>А4 · два варианта — цветной и монохромный для ч/б печати</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-dot"></div>
+        <div class="deliverable-text"><strong>Папка</strong>А3 разворот · паттерн на обложке · карман для документов</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-dot"></div>
+        <div class="deliverable-text"><strong>Ручка</strong>Фирменный мерч с логотипом для встреч с клиентами</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-dot"></div>
+        <div class="deliverable-text"><strong>Кружка</strong>Белая кружка с логотипом — офис и корпоративные подарки</div>
+      </div>
+      <div class="deliverable-item">
+        <div class="deliverable-dot"></div>
+        <div class="deliverable-text"><strong>Футболка</strong>Два варианта: белая и чёрная — с логотипом на груди и спине</div>
+      </div>
+    </div>
+    <div class="images-grid" style="margin-top:32px">
+      <img class="img-ph wide case-img" src="projects/fortress/21.webp" alt="Fortress — визитные карточки">
+      <img class="img-ph wide case-img" src="projects/fortress/22.webp" alt="Fortress — фирменный бланк">
+    </div>
+    <div class="images-grid-3" style="margin-top:16px">
+      <img class="img-ph case-img" src="projects/fortress/25.webp" alt="Fortress — папка">
+      <img class="img-ph case-img" src="projects/fortress/29.webp" alt="Fortress — кружка">
+      <img class="img-ph case-img" src="projects/fortress/30.webp" alt="Fortress — футболки">
+    </div>
+  </div>
+
+  <!-- ПРАВИЛА ИСПОЛЬЗОВАНИЯ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Правила</p>
+    <h2 class="content-title">Что нельзя делать с логотипом</h2>
+    <div class="content-text">
+      <p>Отдельный раздел брендбука — запрещённые варианты. Это важно для агентства с несколькими сотрудниками: каждый должен знать, как нельзя использовать знак. Описаны 6 ошибок: искажение пропорций, использование без знака, неутверждённые цвета, смена расположения элементов, замена шрифта, горизонтальное размещение.</p>
+    </div>
+    <div class="images-grid" style="margin-top:32px">
+      <img class="img-ph wide case-img" src="projects/fortress/4.webp" alt="Fortress — цветовые варианты логотипа">
+      <img class="img-ph wide case-img" src="projects/fortress/5.webp" alt="Fortress — охранное поле логотипа">
+    </div>
+  </div>
+
+  <!-- РЕЗУЛЬТАТ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Результат</p>
+    <h2 class="content-title">Что получилось</h2>
+    <div class="content-text">
+      <p>Полная визуальная система: логотип в трёх вариантах (цветной, монохромный, белый), цветовая палитра с точными кодами для печати и экрана, типографическая система на двух языках, паттерн в четырёх вариантах, шесть категорий носителей.</p>
+      <p>Брендбук на 37 страницах — это не просто красивый PDF, это рабочий инструмент. Любой подрядчик, которому агентство передаст файл, сможет точно воспроизвести фирменный стиль без лишних вопросов.</p>
+      <p>Главное достижение: бренд выглядит как международное агентство, а не локальная контора. Это критично для работы с иностранными инвесторами — визуальный уровень должен соответствовать уровню сделок.</p>
+    </div>
+
+    <div class="images-grid" style="margin-top:40px">
+      <img class="img-ph wide case-img" src="projects/fortress/31.webp" alt="Fortress — финальный разворот брендбука">
+      <img class="img-ph wide case-img" src="projects/fortress/12.webp" alt="Fortress — логотип на стене">
+    </div>
+  </div>
+
+</div>
+
+<a href="osteriya.html" class="next-project">
+  <div>
+    <p class="next-label">Следующий проект</p>
+    <p class="next-title">Osteriya</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>&#169; 2026 Станислав</span>
+  <span>Дизайнер &amp; AI-специалист · Анталья</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});
+  el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});
+});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>
