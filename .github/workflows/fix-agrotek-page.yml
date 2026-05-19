@@ -1,0 +1,47 @@
+name: Fix Agrotek page
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-agrotek:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply Agrotek page fixes
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('agrotek.html')
+          text = p.read_text(encoding='utf-8')
+
+          text = text.replace('<a href="index.html" class="nav-logo">СТА<span>.</span></a>', '<a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>')
+          text = text.replace('src="projects/agrotek-cover.webp"', 'src="projects/covers/agrotek-cover.webp"')
+
+          old = '''    <div class="images-grid-3" style="margin-top:16px">
+      <img class="img-ph case-img" src="projects/agrotek/7.webp" alt="Агротек — цель, сила, путь">
+      <img class="img-ph case-img" src="projects/agrotek/13.webp" alt="Агротек — бренд на здании">
+      <img class="img-ph case-img" src="projects/agrotek/15.webp" alt="Агротек — финальный слайд">
+    </div>'''
+          new = '''    <div class="images-grid" style="margin-top:16px">
+      <img class="img-ph wide case-img" src="projects/agrotek/7.webp" alt="Агротек — цель, сила, путь">
+      <img class="img-ph wide case-img" src="projects/agrotek/15.webp" alt="Агротек — финальный слайд">
+    </div>'''
+          if old not in text:
+              raise SystemExit('Target Agrotek image grid block not found')
+          text = text.replace(old, new)
+
+          p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add agrotek.html
+          git diff --cached --quiet || git commit -m "Fix Agrotek cover logo and image grid"
+          git push
