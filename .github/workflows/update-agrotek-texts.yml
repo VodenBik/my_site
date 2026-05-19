@@ -1,0 +1,47 @@
+name: Update Agrotek texts
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-agrotek:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace Agrotek narrative texts only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('agrotek.html')
+          text = p.read_text(encoding='utf-8')
+          replacements = {
+              '<h3 class="narrative-title">От Я к Мы и обратно</h3>': '<h3 class="narrative-title">От личного пути — к общей силе</h3>',
+              '<p class="narrative-desc">Философский слайд про связь личного пути и пути компании. Зеркальный текст «И ОБРАТНО» — визуальный приём, который физически передаёт идею отражения. Это ключевая ценностная рамка всей презентации: компания — это личное дело каждого сотрудника.</p>': '<p class="narrative-desc">Этот слайд связывает личную мотивацию сотрудников с движением всей компании. Я собрал композицию вокруг идеи сопричастности: человек видит в развитии Агротека не абстрактную корпоративную цель, а продолжение собственного пути. Поэтому здесь важны не цифры, а ощущение масштаба — страна, компания и каждый участник внутри одной истории.</p>',
+              '<p class="narrative-slide-num">Слайды 05–06</p>': '<p class="narrative-slide-num">Слайд 05</p>',
+              '<p class="narrative-desc">Два слайда-диптих. Первый — фото с кричащим боссом с мегафоном, символ давления гигантов. Второй — эволюция человека к логотипу Агротека. Сильнейший контраст в презентации. Эти слайды переводят абстрактную стратегию в понятную эмоцию: мы больше не жертвы рынка — мы его создатели.</p>': '<p class="narrative-desc">Здесь нужно было показать переломный момент без сухого бизнес-языка. Слайд фиксирует состояние зависимости и внешнего давления, а затем переводит эту эмоцию в главный тезис презентации: Агротек уходит от неравной партнёрской позиции к собственной системе решений. Так стратегия становится понятной не через таблицу, а через сильный визуальный контраст.</p>',
+              '<h3 class="narrative-title">Наши конкуренты vs Наши инновации</h3>': '<h3 class="narrative-title">Инновации с характером</h3>',
+              '<p class="narrative-desc">Самый дерзкий слайд. Конкуренты — обломок металла, мы — звездолёт Enterprise. Роботизированная рука Агротека тянется к обычной человеческой, как Микеланджело. Этот слайд вызывает смех и запоминается — именно то, что нужно для корпоративной конференции.</p>': '<p class="narrative-desc">Этот блок сделан намеренно дерзким, чтобы сбить привычный тон корпоративной презентации. Вместо аккуратной иллюстрации про технологии — яркое сравнение: конкуренты выглядят как устаревший металл, Агротек — как инженерная система будущего. Слайд работает на запоминание и добавляет в презентацию энергию, которой часто не хватает B2B-выступлениям.</p>',
+          }
+          missing = []
+          for old, new in replacements.items():
+              if old not in text:
+                  missing.append(old)
+              text = text.replace(old, new)
+          if missing:
+              print('Missing patterns:', len(missing))
+              for m in missing:
+                  print(m[:160])
+          p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add agrotek.html
+          git diff --cached --quiet || git commit -m "Update Agrotek narrative texts"
+          git push
