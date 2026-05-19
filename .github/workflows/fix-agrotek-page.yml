@@ -17,25 +17,17 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
           p = Path('agrotek.html')
           text = p.read_text(encoding='utf-8')
-
-          text = text.replace('<a href="index.html" class="nav-logo">СТА<span>.</span></a>', '<a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>')
+          text = text.replace('class="nav-logo">СТА<span>.</span></a>', 'class="nav-logo">СТАНИСЛАВ<span>.</span></a>')
           text = text.replace('src="projects/agrotek-cover.webp"', 'src="projects/covers/agrotek-cover.webp"')
-
-          old = '''    <div class="images-grid-3" style="margin-top:16px">
-      <img class="img-ph case-img" src="projects/agrotek/7.webp" alt="Агротек — цель, сила, путь">
-      <img class="img-ph case-img" src="projects/agrotek/13.webp" alt="Агротек — бренд на здании">
-      <img class="img-ph case-img" src="projects/agrotek/15.webp" alt="Агротек — финальный слайд">
+          pattern = r'<div class="images-grid-3" style="margin-top:16px">.*?src="projects/agrotek/13\.webp".*?</div>'
+          replacement = '''<div class="images-grid" style="margin-top:16px">
+      <img class="img-ph wide case-img" src="projects/agrotek/7.webp" alt="Agrotek slide">
+      <img class="img-ph wide case-img" src="projects/agrotek/15.webp" alt="Agrotek final slide">
     </div>'''
-          new = '''    <div class="images-grid" style="margin-top:16px">
-      <img class="img-ph wide case-img" src="projects/agrotek/7.webp" alt="Агротек — цель, сила, путь">
-      <img class="img-ph wide case-img" src="projects/agrotek/15.webp" alt="Агротек — финальный слайд">
-    </div>'''
-          if old not in text:
-              raise SystemExit('Target Agrotek image grid block not found')
-          text = text.replace(old, new)
-
+          text = re.sub(pattern, replacement, text, count=1, flags=re.S)
           p.write_text(text, encoding='utf-8')
           PY
       - name: Commit changes
