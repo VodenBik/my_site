@@ -1,0 +1,44 @@
+@media(max-width:600px){
+  nav{padding:16px 18px}
+  .nav-logo{font-size:20px}
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hero{min-height:auto;padding:104px 18px 48px;display:flex;flex-direction:column;gap:32px;align-items:flex-start}
+  .hero-left{padding-bottom:0;width:100%}
+  .hero-eyebrow{margin-bottom:22px}
+  .hero-eyebrow-line{width:34px}
+  .hero-eyebrow-text{font-size:10px;letter-spacing:.12em}
+  h1{font-size:clamp(54px,17vw,72px);line-height:.9;margin-bottom:26px;white-space:normal}
+  .hero-desc{max-width:100%;font-size:14px;line-height:1.65}
+  .hero-scroll{display:none}
+  .hero-bg-text{font-size:118px;bottom:-18px;left:-6px}
+  .hero-right{width:100%;padding-bottom:0;align-items:flex-start;flex-direction:column;gap:22px}
+  .hero-photo-block{width:100%;max-width:340px;height:auto;aspect-ratio:3/4}
+  .hero-stats{width:100%;justify-content:space-between;gap:12px}
+  .stat{align-items:flex-start}
+  .stat-num{font-size:34px}
+  .stat-label{font-size:9px}
+  .marquee-wrap{padding:14px 0}
+  .marquee-item{padding:0 24px;gap:16px;font-size:10px}
+  #projects,#skills,#process,#contact{padding:56px 18px}
+  .section-title{font-size:54px}
+  .filter-wrap{margin:34px 0;gap:7px}
+  .filter-btn{padding:8px 14px;font-size:10px;cursor:pointer}
+  .projects-grid{gap:14px}
+  .project-info{padding:18px 18px 20px}
+  .project-name{font-size:17px}
+  .project-desc{font-size:12px}
+  .project-arrow{width:34px;height:34px;opacity:1;transform:none;margin-top:0}
+  .skills-layout{grid-template-columns:1fr;gap:34px;margin-top:36px}
+  .skill-row{align-items:flex-start;gap:14px;padding:18px 0}
+  .skill-tools{text-align:right;max-width:48%}
+  .skills-extra-item{padding:14px 16px}
+  .process-grid{grid-template-columns:1fr}
+  .process-step{padding:30px 24px}
+  .contact-title{font-size:58px}
+  .contact-links{width:100%}
+  .contact-link{width:100%;justify-content:center}
+  footer{padding:20px 18px}
+  body{cursor:auto}
+  .cursor{display:none}
+}
