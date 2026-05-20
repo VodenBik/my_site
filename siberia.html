@@ -55,13 +55,13 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .content-text p:last-child{margin-bottom:0}
 
 /* VALUES */
-.values-section{padding:60px 48px;background:var(--sib-dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);width:calc(100vw - 96px);max-width:none;margin:40px 0 0 50%;transform:translateX(-50%)}
-.value-block{background:var(--sib-dark);min-height:176px;padding:28px 36px;transition:background .2s}
+.values-section{max-width:1400px;margin:80px auto;padding:60px 48px;background:var(--sib-dark);border:1px solid var(--border);border-radius:4px;overflow:visible}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);width:100%;max-width:1200px;margin:40px auto 0}
+.value-block{background:var(--sib-dark);padding:28px;transition:background .2s}
 .value-block:hover{background:rgba(26,99,216,.15)}
-.value-icon{font-size:24px;margin-bottom:18px;display:block;line-height:1}
-.value-title{font-family:'Bebas Neue',sans-serif;font-size:32px;color:var(--sib-sky);margin-bottom:14px;letter-spacing:.02em;line-height:1}
-.value-text{font-size:13px;color:rgba(255,255,255,.4);line-height:1.55;max-width:260px}
+.value-icon{font-size:24px;margin-bottom:16px;display:block;line-height:1}
+.value-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--sib-sky);margin-bottom:10px;letter-spacing:.02em;line-height:1}
+.value-text{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5;max-width:none}
 
 /* LOGO ANALYSIS */
 .logo-section{padding:60px 48px;background:var(--gray);border-bottom:1px solid var(--border)}
@@ -153,8 +153,9 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
   .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
   .project-cover{margin:0 24px}
   .project-content{padding:60px 24px}
-  .values-section,.logo-section,.palette-section,.font-section,.carriers-section{padding:48px 24px}
-  .values-grid{grid-template-columns:1fr 1fr;width:auto;max-width:none;margin:40px 0 0;transform:none}
+  .logo-section,.palette-section,.font-section,.carriers-section{padding:48px 24px}
+  .values-section{margin:48px 24px;padding:48px 24px}
+  .values-grid{grid-template-columns:1fr 1fr}
   .logo-split,.font-grid,.steps-grid{grid-template-columns:1fr}
   .palette-grid{grid-template-columns:1fr 1fr}
   .carriers-grid,.deliverables-grid{grid-template-columns:1fr 1fr}
@@ -177,18 +178,6 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 .logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
 .logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
 .img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
-
-
-
-/* compact values block */
-.values-section{padding:60px 48px!important}
-.values-grid{width:100%!important;max-width:1200px!important;margin:40px auto 0!important;transform:none!important}
-.value-block{height:auto!important;min-height:0!important;padding:28px!important;overflow:visible!important}
-.value-icon{font-size:24px!important;margin-bottom:16px!important;line-height:1!important}
-.value-title{font-size:28px!important;line-height:1!important;margin-bottom:10px!important}
-.value-text{font-size:13px!important;line-height:1.65!important;max-width:none!important}
-@media(max-width:1024px){.values-grid{width:auto!important;margin:40px 0 0!important;transform:none!important}.value-block{height:auto!important;min-height:0!important}}
-
 </style>
 </head>
 <body>
