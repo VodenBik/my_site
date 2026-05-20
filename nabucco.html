@@ -6,12 +6,13 @@
 <title>Nabucco — Станислав</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=MuseoModerno:wght@400;500;600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--nabucco-orange:#E8531A;--nabucco-dark:#1A1008}
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--nabucco-orange:#E8531A;--nabucco-dark:#1A1008;--nabucco-cream:#F5F0E8}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+a{color:inherit;text-decoration:none}
 .cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
 .cursor.hover{width:40px;height:40px}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
@@ -22,8 +23,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .nav-back:hover{color:var(--accent)}
 .nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
 .nav-back-arrow{display:inline-block;transition:transform .2s}
-
-/* HERO */
 .project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
 .hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(120px,16vw,240px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
 .project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
@@ -38,33 +37,27 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .meta-value{font-size:14px;color:var(--white);font-weight:400}
 .project-tags{display:flex;gap:8px;flex-wrap:wrap}
 .tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
-
-/* COVER */
-.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
-.project-cover img{width:100%;display:block;object-fit:cover}
-.project-cover-ph{width:100%;aspect-ratio:21/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
-
-/* COLOR PALETTE BLOCK */
+.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border);background:var(--gray2)}
+.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
+.project-cover.nabucco-title-slide{max-width:980px;margin-left:48px;margin-right:auto;border:0;background:transparent;overflow:visible}
+.project-cover.nabucco-title-slide img{border:1px solid var(--border);border-radius:4px;background:var(--gray2)}
 .palette-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.palette-inner{max-width:1200px;margin:0 auto}
 .palette-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:10px}
 .palette-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
-.palette-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.palette-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .color-card{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
 .color-swatch{height:80px}
 .color-info{background:var(--black);padding:14px 16px}
 .color-name{font-size:13px;font-weight:400;color:var(--white);margin-bottom:4px}
 .color-hex{font-size:11px;color:var(--muted);font-family:monospace;letter-spacing:.04em}
 .color-role{font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
-
-/* FONT BLOCK */
 .font-section{padding:60px 48px;border-bottom:1px solid var(--border)}
 .font-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
 .font-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:32px;display:flex;flex-direction:column;gap:16px}
 .font-preview{font-size:clamp(32px,4vw,52px);line-height:1;color:var(--white)}
 .font-name{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .font-desc{font-size:13px;color:var(--muted);line-height:1.6}
-
-/* LOGO BLOCK */
 .logo-section{padding:60px 48px;background:var(--gray);border-bottom:1px solid var(--border)}
 .logo-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:40px}
 .logo-card{border-radius:4px;padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;border:1px solid var(--border);min-height:160px}
@@ -72,9 +65,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .logo-card.light{background:#f5f0e8}
 .logo-card.orange{background:var(--nabucco-orange)}
 .logo-caption{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:8px}
-.logo-img-ph{width:120px;height:48px;background:rgba(255,255,255,.1);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
-
-/* CONTENT */
 .project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
 .content-section{margin-bottom:80px}
 .content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
@@ -83,39 +73,26 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
 .content-text p{margin-bottom:16px}
 .content-text p:last-child{margin-bottom:0}
-
-/* STEP BLOCKS */
 .steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
 .step-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
 .step-card:hover{border-color:var(--accent)}
 .step-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
 .step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
 .step-text{font-size:13px;color:var(--muted);line-height:1.65}
-
-/* DELIVERABLES */
 .deliverables-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 .deliverable-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--gray);border-radius:4px;border:1px solid var(--border)}
 .deliverable-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:6px}
 .deliverable-text{font-size:13px;color:var(--muted);line-height:1.5}
 .deliverable-text strong{color:var(--white);font-weight:500;display:block;margin-bottom:4px}
-
-/* IMAGES */
-.images-full-ph{width:100%;aspect-ratio:16/9;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333;border:1px solid var(--border);margin-bottom:16px}
-.images-full img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);margin-bottom:16px}
 .images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
-.images-grid img,.images-grid-3 img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
+.images-grid img,.images-grid-3 img,.case-img{width:100%;height:auto;border-radius:4px;display:block;border:1px solid var(--border);background:var(--gray2)}
 .img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
 .img-ph.wide{aspect-ratio:16/9}
 .img-ph.square{aspect-ratio:1/1}
-.img-ph.tall{aspect-ratio:3/4}
-
-/* QUOTE */
 .quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
 .quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
 .quote-sub{font-size:13px;color:var(--muted)}
-
-/* NEXT */
 .next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
 .next-project:hover{background:var(--gray)}
 .next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
@@ -125,60 +102,29 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
-
-@media(max-width:1024px){
-  nav{padding:20px 24px}
-  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
-  .project-cover{margin:0 24px}
-  .project-content{padding:60px 24px}
-  .palette-section,.font-section,.logo-section{padding:48px 24px}
-  .palette-grid{grid-template-columns:1fr 1fr}
-  .font-grid,.steps-grid{grid-template-columns:1fr}
-  .logo-grid,.deliverables-grid{grid-template-columns:1fr 1fr}
-  .images-grid{grid-template-columns:1fr}
-  .images-grid-3{grid-template-columns:1fr 1fr}
-  .next-project{padding:60px 24px}
-  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
-}
-@media(max-width:600px){
-  .palette-grid,.deliverables-grid,.logo-grid,.images-grid-3{grid-template-columns:1fr}
-  body{cursor:auto}
-  .cursor{display:none}
-  .project-meta-grid{grid-template-columns:1fr}
-}
-
-/* REAL PROJECT IMAGES */
-.project-cover{background:var(--gray2)}
-.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
-.images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
-.logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
-.logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
-.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
-
+@media(max-width:1024px){nav{padding:20px 24px}.project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}.project-cover{margin:0 24px}.project-cover.nabucco-title-slide{max-width:none;margin-inline:24px}.project-content{padding:60px 24px}.palette-section,.font-section,.logo-section{padding:48px 24px}.palette-grid{grid-template-columns:1fr}.font-grid,.steps-grid{grid-template-columns:1fr}.logo-grid,.deliverables-grid{grid-template-columns:1fr 1fr}.images-grid{grid-template-columns:1fr}.images-grid-3{grid-template-columns:1fr 1fr}.next-project{padding:60px 24px}footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}}
+@media(max-width:600px){.deliverables-grid,.logo-grid,.images-grid-3{grid-template-columns:1fr}body{cursor:auto}.cursor{display:none}.project-meta-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
-
 <nav>
-  <a href="index.html" class="nav-logo">СТА<span>.</span></a>
+  <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
   <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
 </nav>
-
-<!-- HERO -->
 <section class="project-hero">
   <div class="hero-bg">ITALIA</div>
   <div class="project-hero-left">
     <p class="project-type">Айдентика</p>
     <h1 class="project-title">Nabucco</h1>
-    <p class="project-subtitle">Фирменный стиль для итальянского ресторана в Анталье. Логотип, цветовая система, типографика, носители и SMM-материалы — от нуля до полноценного бренда.</p>
+    <p class="project-subtitle">Фирменный стиль для итальянского ресторана в Аланье. Логотип, цветовая система, типографика, носители и SMM-материалы — от нуля до полноценного бренда.</p>
   </div>
   <div class="project-hero-right">
     <div class="project-meta-grid">
       <div class="meta-item"><p class="meta-label">Клиент</p><p class="meta-value">Nabucco Italian Cuisine</p></div>
       <div class="meta-item"><p class="meta-label">Год</p><p class="meta-value">2024</p></div>
       <div class="meta-item"><p class="meta-label">Тип</p><p class="meta-value">Айдентика & SMM</p></div>
-      <div class="meta-item"><p class="meta-label">Локация</p><p class="meta-value">Анталья, Турция</p></div>
+      <div class="meta-item"><p class="meta-label">Локация</p><p class="meta-value">Аланья, Турция</p></div>
     </div>
     <div class="project-tags">
       <span class="tag">Illustrator</span>
@@ -190,62 +136,31 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     </div>
   </div>
 </section>
-
-<!-- ОБЛОЖКА -->
-<div class="project-cover fade-up"><img src="projects/nabucco-cover.webp" alt="Nabucco Italian Cuisine — обложка кейса"></div>
-
-<!-- КОНТЕНТ -->
+<div class="project-cover nabucco-title-slide fade-up"><img src="projects/nabucco/17.webp" alt="Nabucco Italian Cuisine — титульный слайд"></div>
 <div class="project-content">
-
-  <!-- ЗАДАЧА -->
   <div class="content-section fade-up">
     <p class="content-label">Задача</p>
     <h2 class="content-title">С чего всё началось</h2>
     <div class="content-text">
-      <p>Итальянский ресторан Nabucco открывался в Анталье с нуля. Владелец — Flavio di Marki — итальянец, который давно мечтал открыть ресторан в Турции. Готовой айдентики не было вообще ничего: ни логотипа, ни цветов, ни понимания визуального образа.</p>
+      <p>Итальянский ресторан Nabucco открывался в Аланье с нуля. Владелец — Flavio di Marki — итальянец, который давно мечтал открыть ресторан в Турции. Готовой айдентики не было вообще ничего: ни логотипа, ни цветов, ни понимания визуального образа.</p>
       <p>Задача: создать полноценный бренд с нуля. Он должен был транслировать настоящую итальянскую кухню, при этом работать в турецком контексте и не выглядеть как очередная пицца-точка с флагом Италии на вывеске.</p>
     </div>
-
-    <div class="quote-block">
-      <p class="quote-text">«It was my dream — to open my own restaurant in Turkey. Now the dream came true»</p>
-      <p class="quote-sub">Flavio di Marki, владелец Nabucco Italian Cuisine</p>
-    </div>
+    <div class="quote-block"><p class="quote-text">«It was my dream — to open my own restaurant in Turkey. Now the dream came true»</p><p class="quote-sub">Flavio di Marki, владелец Nabucco Italian Cuisine</p></div>
   </div>
-
-  <!-- ИССЛЕДОВАНИЕ -->
   <div class="content-section fade-up">
     <p class="content-label">Исследование</p>
     <h2 class="content-title">Брейншторм и анализ</h2>
     <div class="content-text">
-      <p>Начал с анализа конкурентов в Анталье — большинство итальянских ресторанов используют предсказуемые решения: красно-зелёная палитра, пицца на логотипе, «итальянская» типографика с засечками. Всё это давно обесценилось.</p>
+      <p>Начал с анализа конкурентов в Аланье — большинство итальянских ресторанов используют предсказуемые решения: красно-зелёная палитра, пицца на логотипе, «итальянская» типографика с засечками. Всё это давно обесценилось.</p>
       <p>Изучил современные итальянские бренды в Европе — там тренд на лаконичность, геометрию, оранжево-терракотовые оттенки. Это цвета итальянской архитектуры, солнца, терракоты — настоящей Италии, а не туристического клише.</p>
     </div>
-
     <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <p class="step-title">Анализ конкурентов</p>
-        <p class="step-text">Собрал 20+ итальянских ресторанов Антальи и Европы. Выявил шаблоны которые нужно избежать и белые пятна куда можно зайти.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <p class="step-title">Референсы и настроение</p>
-        <p class="step-text">Собрал мудборд: современная итальянская архитектура, терракота, геометрические паттерны, уличные рынки Неаполя. Утвердил с клиентом.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <p class="step-title">Именной нейминг</p>
-        <p class="step-text">Nabucco — опера Верди, символ итальянской культуры. Имя уже несёт в себе историю и характер. Это и стало концептуальным якорем.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">04</div>
-        <p class="step-title">ЦА и контекст</p>
-        <p class="step-text">Ресторан в Анталье — аудитория смешанная: туристы (русские, европейцы) и местные. Нужно работать на обе группы без потери характера.</p>
-      </div>
+      <div class="step-card"><div class="step-num">01</div><p class="step-title">Анализ конкурентов</p><p class="step-text">Собрал 20+ итальянских ресторанов Аланьи и Европы. Выявил шаблоны, которые нужно избежать, и белые пятна, куда можно зайти.</p></div>
+      <div class="step-card"><div class="step-num">02</div><p class="step-title">Референсы и настроение</p><p class="step-text">Собрал мудборд: современная итальянская архитектура, терракота, геометрические паттерны, уличные рынки Неаполя. Утвердил с клиентом.</p></div>
+      <div class="step-card"><div class="step-num">03</div><p class="step-title">Именной нейминг</p><p class="step-text">Nabucco — опера Верди, символ итальянской культуры. Имя уже несёт в себе историю и характер. Это и стало концептуальным якорем.</p></div>
+      <div class="step-card"><div class="step-num">04</div><p class="step-title">ЦА и контекст</p><p class="step-text">Ресторан в Аланье — аудитория смешанная: туристы, европейцы и местные. Нужно работать на обе группы без потери характера.</p></div>
     </div>
   </div>
-
-  <!-- ЛОГОТИП -->
   <div class="content-section fade-up">
     <p class="content-label">Логотип</p>
     <h2 class="content-title">Создание знака</h2>
@@ -258,204 +173,81 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
       <img class="img-ph wide case-img" src="projects/nabucco/15.webp" alt="Nabucco — монограмма и логотип">
     </div>
   </div>
-
 </div>
-
-<!-- ЦВЕТОВАЯ ПАЛИТРА -->
 <div class="palette-section fade-up">
-  <p class="palette-label">Цветовая палитра</p>
-  <div class="palette-grid">
-    <div class="color-card">
-      <div class="color-swatch" style="background:#E8531A"></div>
-      <div class="color-info">
-        <p class="color-name">Nabucco Orange</p>
-        <p class="color-hex">#E8531A</p>
-        <p class="color-role">Основной акцент</p>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#1A1008"></div>
-      <div class="color-info">
-        <p class="color-name">Espresso</p>
-        <p class="color-hex">#1A1008</p>
-        <p class="color-role">Основной фон</p>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#F5F0E8"></div>
-      <div class="color-info">
-        <p class="color-name">Cream</p>
-        <p class="color-hex">#F5F0E8</p>
-        <p class="color-role">Светлый фон / текст</p>
-      </div>
-    </div>
-    <div class="color-card">
-      <div class="color-swatch" style="background:#000511"></div>
-      <div class="color-info">
-        <p class="color-name">Midnight</p>
-        <p class="color-hex">#000511</p>
-        <p class="color-role">Дополнительный тёмный</p>
-      </div>
+  <div class="palette-inner">
+    <p class="palette-label">Цветовая палитра</p>
+    <div class="palette-grid">
+      <div class="color-card"><div class="color-swatch" style="background:#E8531A"></div><div class="color-info"><p class="color-name">Nabucco Orange</p><p class="color-hex">#E8531A</p><p class="color-role">Основной акцент</p></div></div>
+      <div class="color-card"><div class="color-swatch" style="background:#1A1008"></div><div class="color-info"><p class="color-name">Espresso</p><p class="color-hex">#1A1008</p><p class="color-role">Основной фон</p></div></div>
+      <div class="color-card"><div class="color-swatch" style="background:#F5F0E8"></div><div class="color-info"><p class="color-name">Cream</p><p class="color-hex">#F5F0E8</p><p class="color-role">Светлый фон / текст</p></div></div>
     </div>
   </div>
 </div>
-
-<!-- ШРИФТЫ -->
 <div class="font-section fade-up">
   <div class="project-content" style="padding:0">
     <p class="content-label">Типографика</p>
     <h2 class="content-title">Подбор шрифтов</h2>
-    <div class="content-text">
-      <p>Два шрифта с чёткими ролями: один для заголовков — характерный, с индивидуальностью. Второй для текста — чистый, функциональный. Оба работают в связке на всех носителях.</p>
-    </div>
+    <div class="content-text"><p>Два шрифта с чёткими ролями: один для заголовков — характерный, с индивидуальностью. Второй для текста — чистый, функциональный. Оба работают в связке на всех носителях.</p></div>
     <div class="font-grid">
-      <div class="font-card">
-        <div class="font-preview" style="font-family:'Georgia',serif;letter-spacing:-.02em">Nabucco</div>
-        <p class="font-name">Museo Moderno</p>
-        <p class="font-desc">Заголовочный шрифт. Геометрический гротеск с закруглёнными формами — современный, но тёплый. Используется для логотипа, заголовков меню, вывески.</p>
-      </div>
-      <div class="font-card">
-        <div class="font-preview" style="font-family:'Times New Roman',serif;font-style:italic;font-size:clamp(24px,3vw,40px)">Italian cuisine</div>
-        <p class="font-name">Myriad Pro</p>
-        <p class="font-desc">Текстовый шрифт. Нейтральный sans-serif с хорошей читаемостью. Используется для описаний блюд, подписей, меток в SMM-материалах.</p>
-      </div>
+      <div class="font-card"><div class="font-preview" style="font-family:'MuseoModerno',sans-serif;font-weight:500;letter-spacing:-.03em">Nabucco</div><p class="font-name">MuseoModerno</p><p class="font-desc">Заголовочный шрифт. Геометрический гротеск с закруглёнными формами — современный, но тёплый. Используется для логотипа, заголовков меню, вывески.</p></div>
+      <div class="font-card"><div class="font-preview" style="font-family:'Times New Roman',serif;font-style:italic;font-size:clamp(24px,3vw,40px)">Italian cuisine</div><p class="font-name">Myriad Pro</p><p class="font-desc">Текстовый шрифт. Нейтральный sans-serif с хорошей читаемостью. Используется для описаний блюд, подписей, меток в SMM-материалах.</p></div>
     </div>
   </div>
 </div>
-
-<!-- ЛОГОТИП НА ФОНАХ -->
 <div class="logo-section fade-up">
   <div class="project-content" style="padding:0">
     <p class="content-label">Применение логотипа</p>
     <h2 class="content-title">Логотип на разных фонах</h2>
     <div class="logo-grid">
-      <div class="logo-card dark">
-        <img src="projects/nabucco/1.webp" alt="Nabucco logo light">
-        <p class="logo-caption" style="color:rgba(255,255,255,.4)">На тёмном · основное</p>
-      </div>
-      <div class="logo-card light">
-        <img src="projects/nabucco/15.webp" alt="Nabucco logo dark">
-        <p class="logo-caption">На светлом · меню</p>
-      </div>
-      <div class="logo-card orange">
-        <img src="projects/nabucco/1.webp" alt="Nabucco white logo">
-        <p class="logo-caption" style="color:rgba(255,255,255,.5)">На акцентном · мерч</p>
-      </div>
+      <div class="logo-card dark"><img src="projects/nabucco/1.webp" alt="Nabucco logo light"><p class="logo-caption" style="color:rgba(255,255,255,.4)">На тёмном · основное</p></div>
+      <div class="logo-card light"><img src="projects/nabucco/15.webp" alt="Nabucco logo dark"><p class="logo-caption">На светлом · меню</p></div>
+      <div class="logo-card orange"><img src="projects/nabucco/1.webp" alt="Nabucco white logo"><p class="logo-caption" style="color:rgba(255,255,255,.5)">На акцентном · мерч</p></div>
     </div>
   </div>
 </div>
-
 <div class="project-content">
-
-  <!-- ПАТТЕРН -->
   <div class="content-section fade-up">
     <p class="content-label">Паттерн и графика</p>
     <h2 class="content-title">Орнамент как элемент системы</h2>
-    <div class="content-text">
-      <p>Ключевой элемент айдентики помимо логотипа — геометрический орнамент на основе монограммы NU. Паттерн строится из повторяющихся знаков и используется на упаковке, носителях, фонах SMM-материалов.</p>
-      <p>Три варианта паттерна: на тёмном фоне, на оранжевом и инвертированный. Это даёт гибкость при применении — любой носитель сразу читается как часть системы.</p>
-    </div>
-    <div class="images-grid-3" style="margin-top:32px">
-      <img class="img-ph square case-img" src="projects/nabucco/5.webp" alt="Nabucco — паттерн тёмный">
-      <img class="img-ph square case-img" src="projects/nabucco/5.webp" alt="Nabucco — паттерн оранжевый">
-      <img class="img-ph square case-img" src="projects/nabucco/5.webp" alt="Nabucco — паттерн светлый">
-    </div>
+    <div class="content-text"><p>Ключевой элемент айдентики помимо логотипа — геометрический орнамент на основе монограммы NU. Паттерн строится из повторяющихся знаков и используется на упаковке, носителях, фонах SMM-материалов.</p><p>Три варианта паттерна: на тёмном фоне, на оранжевом и инвертированный. Это даёт гибкость при применении — любой носитель сразу читается как часть системы.</p></div>
+    <div class="images-grid-3" style="margin-top:32px"><img class="img-ph square case-img" src="projects/nabucco/5.webp" alt="Nabucco — паттерн тёмный"><img class="img-ph square case-img" src="projects/nabucco/5.webp" alt="Nabucco — паттерн оранжевый"><img class="img-ph square case-img" src="projects/nabucco/5.webp" alt="Nabucco — паттерн светлый"></div>
   </div>
-
-  <!-- SMM -->
   <div class="content-section fade-up">
     <p class="content-label">SMM-материалы</p>
     <h2 class="content-title">Контент для соцсетей</h2>
-    <div class="content-text">
-      <p>Разработал систему шаблонов для Instagram. Каждый пост следует сетке: зона для фото продукта, зона для текста, логотип в фиксированной позиции. Это позволяет клиенту самостоятельно создавать контент без потери фирменного стиля.</p>
-    </div>
-    <div class="images-grid" style="margin-top:32px">
-      <img class="img-ph square case-img" src="projects/nabucco/9.webp" alt="Nabucco — пост с пиццей">
-      <img class="img-ph square case-img" src="projects/nabucco/10.webp" alt="Nabucco — пост с блюдами">
-    </div>
-    <div class="images-grid-3" style="margin-top:16px">
-      <img class="img-ph square case-img" src="projects/nabucco/6.webp" alt="Nabucco — cheese tasting">
-      <img class="img-ph square case-img" src="projects/nabucco/11.webp" alt="Nabucco — join our team">
-      <img class="img-ph square case-img" src="projects/nabucco/4.webp" alt="Nabucco — меню пиццы">
-    </div>
+    <div class="content-text"><p>Разработал систему шаблонов для Instagram. Каждый пост следует сетке: зона для фото продукта, зона для текста, логотип в фиксированной позиции. Это позволяет клиенту самостоятельно создавать контент без потери фирменного стиля.</p></div>
+    <div class="images-grid" style="margin-top:32px"><img class="img-ph square case-img" src="projects/nabucco/9.webp" alt="Nabucco — пост с пиццей"><img class="img-ph square case-img" src="projects/nabucco/10.webp" alt="Nabucco — пост с блюдами"></div>
+    <div class="images-grid-3" style="margin-top:16px"><img class="img-ph square case-img" src="projects/nabucco/6.webp" alt="Nabucco — cheese tasting"><img class="img-ph square case-img" src="projects/nabucco/11.webp" alt="Nabucco — join our team"><img class="img-ph square case-img" src="projects/nabucco/4.webp" alt="Nabucco — меню пиццы"></div>
   </div>
-
-  <!-- НОСИТЕЛИ -->
   <div class="content-section fade-up">
     <p class="content-label">Носители</p>
     <h2 class="content-title">Применение фирменного стиля</h2>
-    <div class="content-text">
-      <p>Фирменный стиль применён на всех физических и цифровых носителях ресторана. Единая система работает от визитки до фасадной вывески.</p>
-    </div>
+    <div class="content-text"><p>Фирменный стиль применён на всех физических и цифровых носителях ресторана. Единая система работает от визитки до фасадной вывески.</p></div>
     <div class="deliverables-grid">
-      <div class="deliverable-item">
-        <div class="deliverable-dot"></div>
-        <div class="deliverable-text"><strong>Меню</strong>Печатное меню в фирменных цветах с типографикой бренда</div>
-      </div>
-      <div class="deliverable-item">
-        <div class="deliverable-dot"></div>
-        <div class="deliverable-text"><strong>Упаковка</strong>Коробки для пиццы с паттерном и логотипом</div>
-      </div>
-      <div class="deliverable-item">
-        <div class="deliverable-dot"></div>
-        <div class="deliverable-text"><strong>Мерч</strong>Форма персонала с монограммой NU на оранжевом фоне</div>
-      </div>
-      <div class="deliverable-item">
-        <div class="deliverable-dot"></div>
-        <div class="deliverable-text"><strong>Instagram</strong>Система шаблонов для постов и сторис</div>
-      </div>
-      <div class="deliverable-item">
-        <div class="deliverable-dot"></div>
-        <div class="deliverable-text"><strong>Визитки</strong>Двусторонние, тёмный и оранжевый вариант</div>
-      </div>
-      <div class="deliverable-item">
-        <div class="deliverable-dot"></div>
-        <div class="deliverable-text"><strong>Брендбук</strong>Правила использования знака, цветов, типографики</div>
-      </div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Меню</strong>Печатное меню в фирменных цветах с типографикой бренда</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Упаковка</strong>Коробки для пиццы с паттерном и логотипом</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Мерч</strong>Форма персонала с монограммой NU на оранжевом фоне</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Instagram</strong>Система шаблонов для постов и сторис</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Визитки</strong>Двусторонние, тёмный и оранжевый вариант</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Брендбук</strong>Правила использования знака, цветов, типографики</div></div>
     </div>
-    <div class="images-grid" style="margin-top:32px">
-      <img class="img-ph wide case-img" src="projects/nabucco/8.webp" alt="Nabucco — фирменная документация">
-      <img class="img-ph wide case-img" src="projects/nabucco/14.webp" alt="Nabucco — упаковка">
-    </div>
+    <div class="images-grid" style="margin-top:32px"><img class="img-ph wide case-img" src="projects/nabucco/8.webp" alt="Nabucco — фирменная документация"><img class="img-ph wide case-img" src="projects/nabucco/14.webp" alt="Nabucco — упаковка"></div>
   </div>
-
-  <!-- РЕЗУЛЬТАТ -->
   <div class="content-section fade-up">
     <p class="content-label">Результат</p>
     <h2 class="content-title">Что получилось</h2>
-    <div class="content-text">
-      <p>Полноценная айдентика с нуля: логотип, монограмма, цветовая система, типографика, орнамент, шаблоны для SMM и правила применения на носителях.</p>
-      <p>Главное — бренд не выглядит как очередной итальянский ресторан в туристическом городе. У него есть характер, система и узнаваемость. Оранжево-тёмная палитра выделяется в ленте и на улице среди конкурентов с предсказуемым красно-зелёным.</p>
-      <p>Клиент получил не просто логотип, а готовую систему, которую можно масштабировать — на новые локации, новые носители, новые форматы контента.</p>
-    </div>
+    <div class="content-text"><p>Полноценная айдентика с нуля: логотип, монограмма, цветовая система, типографика, орнамент, шаблоны для SMM и правила применения на носителях.</p><p>Главное — бренд не выглядит как очередной итальянский ресторан в туристическом городе. У него есть характер, система и узнаваемость. Оранжево-тёмная палитра выделяется в ленте и на улице среди конкурентов с предсказуемым красно-зелёным.</p><p>Клиент получил не просто логотип, а готовую систему, которую можно масштабировать — на новые локации, новые носители, новые форматы контента.</p></div>
     <img class="case-img" style="margin-top:40px" src="projects/nabucco/13.webp" alt="Nabucco — welcome to our restaurant">
   </div>
-
 </div>
-
-<a href="poolsun.html" class="next-project">
-  <div>
-    <p class="next-label">Следующий проект</p>
-    <p class="next-title">Poolsun</p>
-  </div>
-  <span class="next-arrow">&#8594;</span>
-</a>
-
-<footer>
-  <span>&#169; 2026 Станислав</span>
-  <span>Дизайнер &amp; AI-специалист · Анталья</span>
-</footer>
-
+<a href="poolsun.html" class="next-project"><div><p class="next-label">Следующий проект</p><p class="next-title">Poolsun</p></div><span class="next-arrow">&#8594;</span></a>
+<footer><span>&#169; 2026 Станислав</span><span>Дизайнер &amp; AI-специалист · Аланья</span></footer>
 <script>
 var cursor=document.getElementById('cursor');
 document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
-document.querySelectorAll('a,button').forEach(function(el){
-  el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});
-  el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});
-});
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});
-},{threshold:.1});
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});},{threshold:.1});
 document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
 </script>
 </body>
