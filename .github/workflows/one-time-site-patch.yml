@@ -1,0 +1,131 @@
+name: One-time site patch
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Apply requested page fixes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          def read(path):
+              return Path(path).read_text(encoding='utf-8')
+          def write(path, text):
+              Path(path).write_text(text, encoding='utf-8')
+          def rep(text, old, new, label):
+              if old not in text:
+                  print(f'WARN missing: {label}')
+              return text.replace(old, new)
+
+          # 1. fortress.html
+          p = Path('fortress.html')
+          if p.exists():
+              s = read(p)
+              s = rep(s,
+                  ".quote b{display:block;font:32px/1.1 'Bebas Neue';margin-bottom:12px}",
+                  ".quote b{display:block;font:500 24px/1.35 Onest,sans-serif;margin-bottom:12px;color:var(--w)}",
+                  'fortress quote font')
+              s = rep(s,
+                  ".next{padding:80px 48px;border-top:1px solid var(--br);display:flex;justify-content:space-between;align-items:center}.next:hover{background:var(--g)}.next-title{font-size:60px;line-height:.95}.arrow{font-size:48px}",
+                  ".next{padding:80px 48px;border-top:1px solid var(--br);display:flex;justify-content:space-between;align-items:center;text-decoration:none;transition:background .2s}.next:hover{background:var(--g)}.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--m);margin-bottom:12px}.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--w);line-height:.95}.arrow{font-size:48px;color:var(--a);transition:transform .3s}.next:hover .arrow{transform:translateX(8px)}",
+                  'fortress next css')
+              s = rep(s,
+                  '<a href="osteriya.html" class="next"><div><p class="muted">Следующий проект</p><p class="next-title">Osteriya</p></div><span class="arrow">→</span></a>',
+                  '<a href="osteriya.html" class="next"><div><p class="next-label">Следующий проект</p><p class="next-title">Osteriya</p></div><span class="arrow">→</span></a>',
+                  'fortress next html')
+              write(p, s)
+
+          # 2. osteriya.html cover path
+          p = Path('osteriya.html')
+          if p.exists():
+              s = read(p)
+              s = rep(s, 'src="projects/osteriya-cover.webp"', 'src="projects/covers/osteriya-cover.webp"', 'osteriya cover path')
+              write(p, s)
+
+          # 3. agrotek.html next to nabucco
+          p = Path('agrotek.html')
+          if p.exists():
+              s = read(p)
+              s = rep(s, '<a href="fortress.html" class="next-project">', '<a href="nabucco.html" class="next-project">', 'agrotek next href')
+              s = rep(s, '<p class="next-title">Fortress Investment</p>', '<p class="next-title">Nabucco</p>', 'agrotek next title')
+              write(p, s)
+
+          # 4. nabucco.html next to siberia
+          p = Path('nabucco.html')
+          if p.exists():
+              s = read(p)
+              s = rep(s, '<a href="poolsun.html" class="next-project">', '<a href="siberia.html" class="next-project">', 'nabucco next href')
+              s = rep(s, '<p class="next-title">Poolsun</p>', '<p class="next-title">Siberia</p>', 'nabucco next title')
+              write(p, s)
+
+          # 5. boyarko.html next to fortress
+          p = Path('boyarko.html')
+          if p.exists():
+              s = read(p)
+              s = rep(s, "<a class='next' href='nabucco.html'><div><p class='next-label'>Следующий проект</p><p class='next-title'>Nabucco</p></div><span class='arr'>→</span></a>",
+                         "<a class='next' href='fortress.html'><div><p class='next-label'>Следующий проект</p><p class='next-title'>Fortress Investment</p></div><span class='arr'>→</span></a>",
+                         'boyarko next')
+              write(p, s)
+
+          # 6. siberia.html fixes
+          p = Path('siberia.html')
+          if p.exists():
+              s = read(p)
+              s = s.replace('СТА<span>.</span>', 'СТАНИСЛАВ<span>.</span>')
+              s = s.replace('Анталья', 'Аланья')
+              s = rep(s,
+                  '.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:40px}',
+                  '.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);max-width:1200px;margin:40px auto 0}',
+                  'siberia values grid width')
+              s = rep(s,
+                  '.value-block{background:var(--sib-dark);padding:36px 28px;transition:background .2s}',
+                  '.value-block{background:var(--sib-dark);padding:28px;transition:background .2s}',
+                  'siberia value padding')
+              # logo analysis: replace placeholder with image 1
+              s = re.sub(r'<div class="logo-preview">\s*<div class="logo-preview-ph">.*?</div>\s*</div>\s*</div>',
+                         '<div class="logo-preview">\n        <img class="case-img" src="projects/siberia/1.webp" alt="Siberia — анализ знака">\n      </div>',
+                         s, count=1, flags=re.S)
+              # carriers: replace whole carrier cards grid with images 2,3,5 stacked
+              s = re.sub(r'<div class="carriers-section fade-up">.*?</div>\s*</div>\s*<div class="project-content">',
+                         '<div class="carriers-section fade-up">\n  <div style="max-width:1200px;margin:0 auto">\n    <div class="carrier-images-stack">\n      <img class="case-img" src="projects/siberia/2.webp" alt="Siberia — носитель фирменного стиля 2">\n      <img class="case-img" src="projects/siberia/3.webp" alt="Siberia — носитель фирменного стиля 3">\n      <img class="case-img" src="projects/siberia/5.webp" alt="Siberia — носитель фирменного стиля 5">\n    </div>\n  </div>\n</div>\n\n<div class="project-content">',
+                         s, count=1, flags=re.S)
+              if '.carrier-images-stack' not in s:
+                  s = s.replace('.carrier-card:hover .carrier-thumb{color:#555}', '.carrier-card:hover .carrier-thumb{color:#555}\n.carrier-images-stack{display:grid;grid-template-columns:1fr;gap:16px;margin-top:40px}')
+              elif '.carrier-images-stack{' not in s:
+                  s = s.replace('.carrier-card:hover .carrier-thumb{color:#555}', '.carrier-card:hover .carrier-thumb{color:#555}\n.carrier-images-stack{display:grid;grid-template-columns:1fr;gap:16px;margin-top:40px}')
+              # process images: leave only 7.webp
+              s = re.sub(r'\s*<div class="images-grid" style="margin-top:32px">\s*<img[^>]+projects/siberia/4\.webp[^>]*>\s*<img[^>]+projects/siberia/2\.webp[^>]*>\s*</div>\s*<div class="images-grid-3" style="margin-top:16px">\s*<img[^>]+projects/siberia/3\.webp[^>]*>\s*<img[^>]+projects/siberia/5\.webp[^>]*>\s*<img[^>]+projects/siberia/7\.webp[^>]*>\s*</div>',
+                         '\n    <div class="images-grid" style="margin-top:32px">\n      <img class="img-ph wide case-img" src="projects/siberia/7.webp" alt="Siberia — строительный билборд">\n    </div>',
+                         s, count=1, flags=re.S)
+              s = rep(s, '<a href="agrotek.html" class="next-project">', '<a href="boyarko.html" class="next-project">', 'siberia next href')
+              s = rep(s, '<p class="next-title">Агротек</p>', '<p class="next-title">Boyarko</p>', 'siberia next title')
+              write(p, s)
+
+          # remove this one-time workflow so it does not remain in repo
+          wf = Path('.github/workflows/one-time-site-patch.yml')
+          if wf.exists():
+              wf.unlink()
+          PY
+      - name: Commit patch
+        run: |
+          git config user.name "VodenBik"
+          git config user.email "actions@github.com"
+          git add fortress.html osteriya.html agrotek.html nabucco.html boyarko.html siberia.html .github/workflows/one-time-site-patch.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "apply requested page fixes"
+            git push
+          fi
