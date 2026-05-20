@@ -39,15 +39,11 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
 .project-cover img{width:100%;display:block;object-fit:cover}
 .project-cover-ph{width:100%;aspect-ratio:21/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
-
-/* STATS */
-.stats-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--gray)}
+.stats-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--black)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
-.stat-block{background:var(--gray);padding:32px 28px}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--accent);line-height:1;margin-bottom:8px}
+.stat-block{background:var(--gray);padding:28px}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px}
 .stat-desc{font-size:12px;color:var(--muted);line-height:1.5}
-
-/* CONTENT */
 .project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
 .content-section{margin-bottom:80px}
 .content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
@@ -62,8 +58,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .step-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
 .step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
 .step-text{font-size:13px;color:var(--muted);line-height:1.65}
-
-/* FEATURE CARDS */
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 .feature-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
 .feature-card:hover{border-color:var(--accent)}
@@ -71,8 +65,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .feature-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
 .feature-text{font-size:13px;color:var(--muted);line-height:1.65}
 .feature-tag{display:inline-block;background:rgba(200,255,0,.06);color:var(--accent);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:100px;border:1px solid rgba(200,255,0,.15);margin-top:12px}
-
-/* MINDMAP STYLE */
 .mindmap-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .mindmap-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start;margin-top:40px}
 .mindmap-center{background:rgba(200,255,0,.06);border:1px solid rgba(200,255,0,.2);border-radius:4px;padding:32px;text-align:center}
@@ -84,8 +76,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .branch-arrow{color:var(--accent);font-size:18px;flex-shrink:0;margin-top:2px}
 .branch-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:4px}
 .branch-text{font-size:12px;color:var(--muted);line-height:1.5}
-
-/* PALETTE */
 .palette-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .color-card{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
 .color-swatch{height:80px}
@@ -93,29 +83,21 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .color-name{font-size:13px;font-weight:400;color:var(--white);margin-bottom:4px}
 .color-hex{font-size:11px;color:var(--muted);font-family:monospace}
 .color-role{font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
-
-/* IMAGES */
 .images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
 .images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
 .images-grid img,.images-grid-3 img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
 .img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
 .img-ph.wide{aspect-ratio:16/9}
 .img-ph.tall{aspect-ratio:3/4}
-
-/* QUOTE */
 .quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
 .quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
 .quote-sub{font-size:13px;color:var(--muted)}
-
-/* CONVERSION BLOCK */
 .conversion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 .conv-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px}
 .conv-before{font-size:13px;color:var(--muted);margin-bottom:8px}
 .conv-arrow{font-size:20px;color:var(--accent);margin-bottom:8px;display:block}
 .conv-after{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px}
 .conv-result{font-size:12px;color:var(--accent)}
-
-/* NEXT */
 .next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
 .next-project:hover{background:var(--gray)}
 .next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
@@ -125,48 +107,22 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
-
-@media(max-width:1024px){
-  nav{padding:20px 24px}
-  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
-  .project-cover{margin:0 24px}
-  .project-content,.mindmap-section,.stats-section{padding:60px 24px}
-  .stats-grid{grid-template-columns:repeat(2,1fr)}
-  .features-grid,.steps-grid,.conversion-grid{grid-template-columns:1fr}
-  .mindmap-grid{grid-template-columns:1fr}
-  .palette-grid{grid-template-columns:1fr 1fr}
-  .images-grid{grid-template-columns:1fr}
-  .images-grid-3{grid-template-columns:1fr 1fr}
-  .next-project{padding:60px 24px}
-  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
-}
-@media(max-width:600px){
-  .palette-grid,.images-grid-3{grid-template-columns:1fr}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  body{cursor:auto}
-  .cursor{display:none}
-  .project-meta-grid{grid-template-columns:1fr}
-}
-
-/* REAL PROJECT IMAGES */
+@media(max-width:1024px){nav{padding:20px 24px}.project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}.project-cover{margin:0 24px}.project-content,.mindmap-section,.stats-section{padding:60px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.features-grid,.steps-grid,.conversion-grid{grid-template-columns:1fr}.mindmap-grid{grid-template-columns:1fr}.palette-grid{grid-template-columns:1fr 1fr}.images-grid{grid-template-columns:1fr}.images-grid-3{grid-template-columns:1fr 1fr}.next-project{padding:60px 24px}footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}}
+@media(max-width:600px){.palette-grid,.images-grid-3{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}body{cursor:auto}.cursor{display:none}.project-meta-grid{grid-template-columns:1fr}}
 .project-cover{background:var(--gray2)}
 .project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
 .images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
 .logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
 .logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
 .img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
-
 </style>
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
-
 <nav>
   <a href="index.html" class="nav-logo">СТА<span>.</span></a>
   <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
 </nav>
-
-<!-- HERO -->
 <section class="project-hero">
   <div class="hero-bg">ITALY</div>
   <div class="project-hero-left">
@@ -181,45 +137,19 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
       <div class="meta-item"><p class="meta-label">Платформа</p><p class="meta-value">Tilda</p></div>
       <div class="meta-item"><p class="meta-label">Локация</p><p class="meta-value">Искеле, Северный Кипр</p></div>
     </div>
-    <div class="project-tags">
-      <span class="tag">Tilda</span>
-      <span class="tag">Логотип</span>
-      <span class="tag">JavaScript</span>
-      <span class="tag">CRM</span>
-      <span class="tag">Telegram API</span>
-      <span class="tag">HoReCa</span>
-    </div>
+    <div class="project-tags"><span class="tag">Tilda</span><span class="tag">Логотип</span><span class="tag">JavaScript</span><span class="tag">CRM</span><span class="tag">Telegram API</span><span class="tag">HoReCa</span></div>
   </div>
 </section>
-
-<!-- COVER -->
 <div class="project-cover fade-up"><img src="projects/osteriya-cover.webp" alt="Osteriya — обложка сайта"></div>
-
-<!-- STATS -->
 <div class="stats-section fade-up">
   <div class="stats-grid">
-    <div class="stat-block">
-      <div class="stat-num">2</div>
-      <div class="stat-desc">меню в ротации — меняются каждый понедельник автоматически</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">6</div>
-      <div class="stat-desc">дней доставки — пн–сб, 12:00–16:00</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">3</div>
-      <div class="stat-desc">канала получения заказов: почта, Telegram, CRM</div>
-    </div>
-    <div class="stat-block">
-      <div class="stat-num">3</div>
-      <div class="stat-desc">блюда в день — салат, суп, горячее</div>
-    </div>
+    <div class="stat-block"><div class="stat-num">2</div><div class="stat-desc">меню в ротации — меняются каждый понедельник автоматически</div></div>
+    <div class="stat-block"><div class="stat-num">6</div><div class="stat-desc">дней доставки — пн–сб, 12:00–16:00</div></div>
+    <div class="stat-block"><div class="stat-num">3</div><div class="stat-desc">канала получения заказов: почта, Telegram, CRM</div></div>
+    <div class="stat-block"><div class="stat-num">3</div><div class="stat-desc">блюда в день — салат, суп, горячее</div></div>
   </div>
 </div>
-
 <div class="project-content">
-
-  <!-- ЗАДАЧА -->
   <div class="content-section fade-up">
     <p class="content-label">Задача</p>
     <h2 class="content-title">Быстро и работающе</h2>
@@ -227,279 +157,35 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
       <p>Шеф Владимир Водка — повар с многолетним опытом работы с итальянскими и французскими кухнями, стажировкой в Гонконге — открывал первый гастрономический проект на Северном Кипре. Бизнес-ланчи с доставкой по Искеле: итальянская кухня, ежедневное меню, три блюда на выбор.</p>
       <p>Задача: сделать сайт быстро — клиент хотел запуститься в ближайшие дни. При этом он должен был решать реальные бизнес-задачи: принимать заказы, не требовать ручного обновления меню каждую неделю и собирать базу клиентов.</p>
     </div>
-
-    <div class="quote-block">
-      <p class="quote-text">Сайт должен работать сам. Шеф готовит — не программирует.</p>
-      <p class="quote-sub">Ключевой принцип, определивший все технические решения</p>
-    </div>
+    <div class="quote-block"><p class="quote-text">Сайт должен работать сам. Шеф готовит — не программирует.</p><p class="quote-sub">Ключевой принцип, определивший все технические решения</p></div>
   </div>
-
-  <!-- БРЕЙНШТОРМ -->
   <div class="content-section fade-up">
     <p class="content-label">Брейншторм</p>
     <h2 class="content-title">Ключевые вызовы</h2>
-    <div class="content-text">
-      <p>Главная проблема: ежедневное меню — это структура данных, которая меняется 6 дней в неделю. Плюс два разных меню на чередующиеся недели. Если делать это через ручное редактирование — клиент потратит час каждый понедельник. Нужна автоматизация.</p>
-      <p>Второй вызов: навигация. Меню длинное — пн/вт/ср/чт/пт/сб. Пользователь должен попасть в нужный день одним кликом, не скроллить километры.</p>
-    </div>
-
+    <div class="content-text"><p>Главная проблема: ежедневное меню — это структура данных, которая меняется 6 дней в неделю. Плюс два разных меню на чередующиеся недели. Если делать это через ручное редактирование — клиент потратит час каждый понедельник. Нужна автоматизация.</p><p>Второй вызов: навигация. Меню длинное — пн/вт/ср/чт/пт/сб. Пользователь должен попасть в нужный день одним кликом, не скроллить километры.</p></div>
     <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <p class="step-title">Автосмена меню</p>
-        <p class="step-text">Два полных меню на все 6 дней уже загружены на сайт. JavaScript скрипт определяет номер текущей недели и показывает нужное меню — нечётная/чётная неделя. Каждый понедельник само.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <p class="step-title">Липкая навигация по дням</p>
-        <p class="step-text">При скролле вниз блоки с меню уходят вверх, а в шапке появляются кликабельные плашки с днями недели. Клик — якорная ссылка бросает к нужному дню. Удобнее, чем у большинства ресторанных сайтов.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <p class="step-title">Корзина и заказ</p>
-        <p class="step-text">Кнопка «в корзину» на каждом блюде. Клиент набирает заказ, заполняет имя, телефон, адрес и время доставки. Галочка «запомнить контакты» — возвращаясь, форма уже заполнена.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">04</div>
-        <p class="step-title">Три канала уведомлений</p>
-        <p class="step-text">Заказ одновременно приходит на почту, в Telegram-бот и в CRM. Шеф видит уведомление в телефоне секунду спустя. Почта — для архива. CRM — для работы с повторными клиентами.</p>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<!-- MINDMAP -->
-<div class="mindmap-section fade-up">
-  <div style="max-width:1200px;margin:0 auto">
-    <p class="content-label" style="margin-bottom:12px">Mindmap проекта</p>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">От идеи к запуску</h2>
-    <div class="mindmap-grid">
-      <div class="mindmap-center">
-        <div class="mindmap-center-title">Osteriya</div>
-        <div class="mindmap-center-sub">Центральный продукт</div>
-      </div>
-      <div class="mindmap-branches">
-        <div class="branch">
-          <div class="branch-arrow">→</div>
-          <div>
-            <p class="branch-title">Логотип и айдентика</p>
-            <p class="branch-text">Разработан логотип, утверждена цветовая система. Кремовый фон, оливковый акцент — итальянская эстетика без клише. Адаптирован для веба, печати, шапки сайта.</p>
-          </div>
-        </div>
-        <div class="branch">
-          <div class="branch-arrow">→</div>
-          <div>
-            <p class="branch-title">Структура меню</p>
-            <p class="branch-text">6 дней × 3 блюда × 2 варианта меню = 36 позиций загружены сразу. Каждое блюдо — фото, название, состав, вес, цена, кнопка в корзину, всплывающая карточка с деталями.</p>
-          </div>
-        </div>
-        <div class="branch">
-          <div class="branch-arrow">→</div>
-          <div>
-            <p class="branch-title">Автоматизация смены меню</p>
-            <p class="branch-text">JS-скрипт: getWeek() → чётная/нечётная → показать блок menu-A или menu-B. Срабатывает при загрузке страницы. Клиент никогда не лезет в редактор Tilda.</p>
-          </div>
-        </div>
-        <div class="branch">
-          <div class="branch-arrow">→</div>
-          <div>
-            <p class="branch-title">UX-навигация по дням</p>
-            <p class="branch-text">Кастомный sticky header с якорными ссылками на каждый день. На десктопе появляется при скролле. На мобиле — всегда видна. Протестировано: время до заказа сократилось.</p>
-          </div>
-        </div>
-        <div class="branch">
-          <div class="branch-arrow">→</div>
-          <div>
-            <p class="branch-title">Корзина + форма + интеграции</p>
-            <p class="branch-text">Tilda Store: корзина, поле адреса и времени доставки, галочка «запомнить». Заказ → одновременно на email, в Telegram-бот через webhook, в CRM Tilda для сбора клиентской базы.</p>
-          </div>
-        </div>
-        <div class="branch">
-          <div class="branch-arrow">→</div>
-          <div>
-            <p class="branch-title">Мультиязычность</p>
-            <p class="branch-text">Переключатель RUS/TUR/ENG в шапке. Искеле — международный город, аудитория смешанная. Базовая версия на русском, переводные версии на турецком и английском.</p>
-          </div>
-        </div>
-      </div>
+      <div class="step-card"><div class="step-num">01</div><p class="step-title">Автосмена меню</p><p class="step-text">Два полных меню на все 6 дней уже загружены на сайт. JavaScript скрипт определяет номер текущей недели и показывает нужное меню — нечётная/чётная неделя. Каждый понедельник само.</p></div>
+      <div class="step-card"><div class="step-num">02</div><p class="step-title">Липкая навигация по дням</p><p class="step-text">При скролле вниз блоки с меню уходят вверх, а в шапке появляются кликабельные плашки с днями недели. Клик — якорная ссылка бросает к нужному дню. Удобнее, чем у большинства ресторанных сайтов.</p></div>
+      <div class="step-card"><div class="step-num">03</div><p class="step-title">Корзина и заказ</p><p class="step-text">Кнопка «в корзину» на каждом блюде. Клиент набирает заказ, заполняет имя, телефон, адрес и время доставки. Галочка «запомнить контакты» — возвращаясь, форма уже заполнена.</p></div>
+      <div class="step-card"><div class="step-num">04</div><p class="step-title">Три канала уведомлений</p><p class="step-text">Заказ одновременно приходит на почту, в Telegram-бот и в CRM. Шеф видит уведомление в телефоне секунду спустя. Почта — для архива. CRM — для работы с повторными клиентами.</p></div>
     </div>
   </div>
 </div>
-
+<div class="mindmap-section fade-up"><div style="max-width:1200px;margin:0 auto"><p class="content-label" style="margin-bottom:12px">Mindmap проекта</p><h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">От идеи к запуску</h2><div class="mindmap-grid"><div class="mindmap-center"><div class="mindmap-center-title">Osteriya</div><div class="mindmap-center-sub">Центральный продукт</div></div><div class="mindmap-branches"><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Логотип и айдентика</p><p class="branch-text">Разработан логотип, утверждена цветовая система. Кремовый фон, оливковый акцент — итальянская эстетика без клише. Адаптирован для веба, печати, шапки сайта.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Структура меню</p><p class="branch-text">6 дней × 3 блюда × 2 варианта меню = 36 позиций загружены сразу. Каждое блюдо — фото, название, состав, вес, цена, кнопка в корзину, всплывающая карточка с деталями.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Автоматизация смены меню</p><p class="branch-text">JS-скрипт: getWeek() → чётная/нечётная → показать блок menu-A или menu-B. Срабатывает при загрузке страницы. Клиент никогда не лезет в редактор Tilda.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">UX-навигация по дням</p><p class="branch-text">Кастомный sticky header с якорными ссылками на каждый день. На десктопе появляется при скролле. На мобиле — всегда видна. Протестировано: время до заказа сократилось.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Корзина + форма + интеграции</p><p class="branch-text">Tilda Store: корзина, поле адреса и времени доставки, галочка «запомнить». Заказ → одновременно на email, в Telegram-бот через webhook, в CRM Tilda для сбора клиентской базы.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Мультиязычность</p><p class="branch-text">Переключатель RUS/TUR/ENG в шапке. Искеле — международный город, аудитория смешанная. Базовая версия на русском, переводные версии на турецком и английском.</p></div></div></div></div></div></div>
 <div class="project-content">
-
-  <!-- ПАЛИТРА -->
-  <div class="content-section fade-up">
-    <p class="content-label">Визуальная система</p>
-    <h2 class="content-title">Логотип и цвета</h2>
-    <div class="content-text">
-      <p>Задача при разработке айдентики: итальянская кухня, но без банальных красно-зелёных флагов и пицц в логотипе. Ориентация на средиземноморскую эстетику — тёплые нейтральные тона, элегантная типографика, ощущение домашней траттории.</p>
-    </div>
-    <div class="palette-grid">
-      <div class="color-card">
-        <div class="color-swatch" style="background:#F5EDD8"></div>
-        <div class="color-info">
-          <p class="color-name">Panna</p>
-          <p class="color-hex">#F5EDD8</p>
-          <p class="color-role">Основной фон</p>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#3D4A2E"></div>
-        <div class="color-info">
-          <p class="color-name">Basilico</p>
-          <p class="color-hex">#3D4A2E</p>
-          <p class="color-role">Акцент · кнопки</p>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#B8860B"></div>
-        <div class="color-info">
-          <p class="color-name">Oro</p>
-          <p class="color-hex">#B8860B</p>
-          <p class="color-role">Цены · детали</p>
-        </div>
-      </div>
-      <div class="color-card">
-        <div class="color-swatch" style="background:#E8DBC0"></div>
-        <div class="color-info">
-          <p class="color-name">Beige</p>
-          <p class="color-hex">#E8DBC0</p>
-          <p class="color-role">Карточки · фон блоков</p>
-        </div>
-      </div>
-    </div>
-    <div class="images-grid" style="margin-top:32px">
-      <img class="img-ph wide case-img" src="projects/osteriya/5.webp" alt="Osteriya — логотип и контакты">
-      <img class="img-ph wide case-img" src="projects/osteriya/1.webp" alt="Osteriya — главный экран">
-    </div>
-  </div>
-
-  <!-- ТЕХНИЧЕСКИЕ ФИЧИ -->
-  <div class="content-section fade-up">
-    <p class="content-label">Технические решения</p>
-    <h2 class="content-title">Что под капотом</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <span class="feature-icon">🔄</span>
-        <p class="feature-title">Автосмена меню</p>
-        <p class="feature-text">JavaScript определяет номер недели в году. Нечётная — показывает меню А, чётная — меню Б. Оба меню всегда на сайте, просто одно скрыто. Никаких ручных правок.</p>
-        <span class="feature-tag">JS · автоматика</span>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">📍</span>
-        <p class="feature-title">Липкая навигация</p>
-        <p class="feature-text">При скролле вниз появляются плашки «Пн / Вт / Ср / Чт / Пт / Сб». Клик — мгновенный якорный переход к нужному дню. Работает и в десктопе, и в мобиле.</p>
-        <span class="feature-tag">UX · навигация</span>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🛒</span>
-        <p class="feature-title">Корзина с памятью</p>
-        <p class="feature-text">Tilda Store с кастомными полями: адрес, время доставки, имя. Галочка «запомнить» сохраняет данные в localStorage — постоянный клиент не заполняет форму заново.</p>
-        <span class="feature-tag">Tilda Store · UX</span>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">✈</span>
-        <p class="feature-title">Заказ в Telegram</p>
-        <p class="feature-text">Webhook Tilda → Telegram Bot API. При каждом заказе шеф получает сообщение в телефон: имя, телефон, адрес, время, состав заказа и сумма. Секунда задержки.</p>
-        <span class="feature-tag">Telegram API · webhook</span>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">👤</span>
-        <p class="feature-title">CRM клиентов</p>
-        <p class="feature-text">Каждый заказ автоматически попадает в CRM Tilda: имя, контакт, история покупок. Растёт пул постоянных клиентов для рассылок и акций.</p>
-        <span class="feature-tag">CRM · Tilda</span>
-      </div>
-      <div class="feature-card">
-        <span class="feature-icon">🌐</span>
-        <p class="feature-title">Три языка</p>
-        <p class="feature-text">Переключатель RUS / TUR / ENG в шапке. Аудитория Северного Кипра смешанная: русскоязычные, местные турки, туристы. Каждый читает на своём языке.</p>
-        <span class="feature-tag">i18n · мультиязык</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- КОНВЕРСИЯ -->
-  <div class="content-section fade-up">
-    <p class="content-label">Конверсия</p>
-    <h2 class="content-title">Как увеличили конверсию</h2>
-    <div class="content-text">
-      <p>Каждое решение проверялось одним вопросом: насколько это сокращает путь от «увидел блюдо» до «нажал Заказать». Вот ключевые изменения, которые дали результат.</p>
-    </div>
-    <div class="conversion-grid">
-      <div class="conv-card">
-        <p class="conv-before">Было: скролл всего меню чтобы найти нужный день</p>
-        <span class="conv-arrow">↓</span>
-        <p class="conv-after">Стало: один клик на плашку дня в шапке</p>
-        <p class="conv-result">Время до блюда — с минуты до секунды</p>
-      </div>
-      <div class="conv-card">
-        <p class="conv-before">Было: нет попапа с описанием — человек не понимал что заказывает</p>
-        <span class="conv-arrow">↓</span>
-        <p class="conv-after">Стало: клик на фото — всплывает карточка с составом, весом, ценой</p>
-        <p class="conv-result">Меньше отказов от незнакомых блюд</p>
-      </div>
-      <div class="conv-card">
-        <p class="conv-before">Было: каждый раз заново вводить имя, телефон, адрес</p>
-        <span class="conv-arrow">↓</span>
-        <p class="conv-after">Стало: галочка «запомнить» — повторный заказ в два клика</p>
-        <p class="conv-result">Постоянные клиенты заказывают быстрее</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- СКРИНЫ -->
-  <div class="content-section fade-up">
-    <p class="content-label">Скриншоты</p>
-    <h2 class="content-title">Страницы сайта</h2>
-    <div class="images-grid">
-      <img class="img-ph wide case-img" src="projects/osteriya/2.webp" alt="Osteriya — выбор дня и меню">
-      <img class="img-ph wide case-img" src="projects/osteriya/3.webp" alt="Osteriya — карточки блюд">
-    </div>
-    <div class="images-grid-3" style="margin-top:16px">
-      <img class="img-ph case-img" src="projects/osteriya/4.webp" alt="Osteriya — меню вторника">
-      <img class="img-ph case-img" src="projects/osteriya/2.webp" alt="Osteriya — корзина и оформление заказа">
-      <img class="img-ph case-img" src="projects/osteriya/5.webp" alt="Osteriya — финальный блок">
-    </div>
-  </div>
-
-  <!-- РЕЗУЛЬТАТ -->
-  <div class="content-section fade-up">
-    <p class="content-label">Результат</p>
-    <h2 class="content-title">Что получилось</h2>
-    <div class="content-text">
-      <p>Сайт запущен в срок — быстро, как и требовалось. При этом он решает все бизнес-задачи: принимает заказы, меняет меню без участия клиента, собирает базу покупателей.</p>
-      <p>Главная техническая находка — автосмена меню через номер недели. Клиент один раз загрузил оба варианта меню в Tilda, и больше к этому не возвращается. Система работает сама.</p>
-      <p>Сайт доступен на osteriya.com — можно посмотреть вживую как работает навигация по дням и переключение языков.</p>
-    </div>
-  </div>
-
+  <div class="content-section fade-up"><p class="content-label">Визуальная система</p><h2 class="content-title">Логотип и цвета</h2><div class="content-text"><p>Задача при разработке айдентики: итальянская кухня, но без банальных красно-зелёных флагов и пицц в логотипе. Ориентация на средиземноморскую эстетику — тёплые нейтральные тона, элегантная типографика, ощущение домашней траттории.</p></div><div class="palette-grid"><div class="color-card"><div class="color-swatch" style="background:#F5EDD8"></div><div class="color-info"><p class="color-name">Panna</p><p class="color-hex">#F5EDD8</p><p class="color-role">Основной фон</p></div></div><div class="color-card"><div class="color-swatch" style="background:#3D4A2E"></div><div class="color-info"><p class="color-name">Basilico</p><p class="color-hex">#3D4A2E</p><p class="color-role">Акцент · кнопки</p></div></div><div class="color-card"><div class="color-swatch" style="background:#B8860B"></div><div class="color-info"><p class="color-name">Oro</p><p class="color-hex">#B8860B</p><p class="color-role">Цены · детали</p></div></div><div class="color-card"><div class="color-swatch" style="background:#E8DBC0"></div><div class="color-info"><p class="color-name">Beige</p><p class="color-hex">#E8DBC0</p><p class="color-role">Карточки · фон блоков</p></div></div></div></div>
+  <div class="content-section fade-up"><p class="content-label">Технические решения</p><h2 class="content-title">Автоматизация и интеграции</h2><div class="features-grid"><div class="feature-card"><span class="feature-icon">🔄</span><p class="feature-title">Автосмена меню</p><p class="feature-text">JavaScript определяет номер недели в году. Нечётная — показывает меню А, чётная — меню Б. Оба меню всегда на сайте, просто одно скрыто. Никаких ручных правок.</p><span class="feature-tag">JS · автоматика</span></div><div class="feature-card"><span class="feature-icon">📍</span><p class="feature-title">Липкая навигация</p><p class="feature-text">При скролле вниз появляются плашки «Пн / Вт / Ср / Чт / Пт / Сб». Клик — мгновенный якорный переход к нужному дню. Работает и в десктопе, и в мобиле.</p><span class="feature-tag">UX · навигация</span></div><div class="feature-card"><span class="feature-icon">🛒</span><p class="feature-title">Корзина с памятью</p><p class="feature-text">Tilda Store с кастомными полями: адрес, время доставки, имя. Галочка «запомнить» сохраняет данные в localStorage — постоянный клиент не заполняет форму заново.</p><span class="feature-tag">Tilda Store · UX</span></div><div class="feature-card"><span class="feature-icon">✈</span><p class="feature-title">Заказ в Telegram</p><p class="feature-text">Webhook Tilda → Telegram Bot API. При каждом заказе шеф получает сообщение в телефон: имя, телефон, адрес, время, состав заказа и сумма. Секунда задержки.</p><span class="feature-tag">Telegram API · webhook</span></div><div class="feature-card"><span class="feature-icon">👤</span><p class="feature-title">CRM клиентов</p><p class="feature-text">Каждый заказ автоматически попадает в CRM Tilda: имя, контакт, история покупок. Растёт пул постоянных клиентов для рассылок и акций.</p><span class="feature-tag">CRM · Tilda</span></div><div class="feature-card"><span class="feature-icon">🌐</span><p class="feature-title">Три языка</p><p class="feature-text">Переключатель RUS / TUR / ENG в шапке. Аудитория Северного Кипра смешанная: русскоязычные, местные турки, туристы. Каждый читает на своём языке.</p><span class="feature-tag">i18n · мультиязык</span></div></div></div>
+  <div class="content-section fade-up"><p class="content-label">Конверсия</p><h2 class="content-title">Как увеличили конверсию</h2><div class="content-text"><p>Каждое решение проверялось одним вопросом: насколько это сокращает путь от «увидел блюдо» до «нажал Заказать». Вот ключевые изменения, которые дали результат.</p></div><div class="conversion-grid"><div class="conv-card"><p class="conv-before">Было: скролл всего меню чтобы найти нужный день</p><span class="conv-arrow">↓</span><p class="conv-after">Стало: один клик на плашку дня в шапке</p><p class="conv-result">Время до блюда — с минуты до секунды</p></div><div class="conv-card"><p class="conv-before">Было: нет попапа с описанием — человек не понимал что заказывает</p><span class="conv-arrow">↓</span><p class="conv-after">Стало: клик на фото — всплывает карточка с составом, весом, ценой</p><p class="conv-result">Меньше отказов от незнакомых блюд</p></div><div class="conv-card"><p class="conv-before">Было: каждый раз заново вводить имя, телефон, адрес</p><span class="conv-arrow">↓</span><p class="conv-after">Стало: галочка «запомнить» — повторный заказ в два клика</p><p class="conv-result">Постоянные клиенты заказывают быстрее</p></div></div></div>
+  <div class="content-section fade-up"><p class="content-label">Скриншоты</p><h2 class="content-title">Страницы сайта</h2><div class="images-grid"><img class="img-ph wide case-img" src="projects/osteriya/2.webp" alt="Osteriya — выбор дня и меню"><img class="img-ph wide case-img" src="projects/osteriya/3.webp" alt="Osteriya — карточки блюд"></div><div class="images-grid" style="margin-top:16px"><img class="img-ph wide case-img" src="projects/osteriya/4.webp" alt="Osteriya — меню вторника"><img class="img-ph wide case-img" src="projects/osteriya/5.webp" alt="Osteriya — финальный блок"></div></div>
+  <div class="content-section fade-up"><p class="content-label">Результат</p><h2 class="content-title">Что получилось</h2><div class="content-text"><p>Сайт запущен в срок — быстро, как и требовалось. При этом он решает все бизнес-задачи: принимает заказы, меняет меню без участия клиента, собирает базу покупателей.</p><p>Главная техническая находка — автосмена меню через номер недели. Клиент один раз загрузил оба варианта меню в Tilda, и больше к этому не возвращается. Система работает сама.</p><p>Сайт доступен на osteriya.com — можно посмотреть вживую как работает навигация по дням и переключение языков.</p></div></div>
 </div>
-
-<a href="poolsun.html" class="next-project">
-  <div>
-    <p class="next-label">Следующий проект</p>
-    <p class="next-title">Poolsun</p>
-  </div>
-  <span class="next-arrow">&#8594;</span>
-</a>
-
-<footer>
-  <span>&#169; 2026 Станислав</span>
-  <span>Дизайнер &amp; AI-специалист · Анталья</span>
-</footer>
-
+<a href="poolsun.html" class="next-project"><div><p class="next-label">Следующий проект</p><p class="next-title">Poolsun</p></div><span class="next-arrow">&#8594;</span></a>
+<footer><span>&#169; 2026 Станислав</span><span>Дизайнер &amp; AI-специалист · Аланья</span></footer>
 <script>
 var cursor=document.getElementById('cursor');
 document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
-document.querySelectorAll('a,button').forEach(function(el){
-  el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});
-  el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});
-});
-var obs=new IntersectionObserver(function(entries){
-  entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});
-},{threshold:.1});
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});},{threshold:.1});
 document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
 </script>
 </body>
