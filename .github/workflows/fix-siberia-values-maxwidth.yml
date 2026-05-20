@@ -1,0 +1,32 @@
+name: Fix Siberia values max width
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('siberia.html')
+          s=p.read_text(encoding='utf-8')
+          start=s.find('/* compact values block */')
+          if start!=-1:
+              end=s.find('</style>', start)
+              s=s[:start]+s[end:]
+          css='''\n/* compact values block */\n.values-section{padding:60px 48px!important}\n.values-grid{width:100%!important;max-width:1200px!important;margin:40px auto 0!important;transform:none!important}\n.value-block{height:auto!important;min-height:0!important;padding:28px!important;overflow:visible!important}\n.value-icon{font-size:24px!important;margin-bottom:16px!important;line-height:1!important}\n.value-title{font-size:28px!important;line-height:1!important;margin-bottom:10px!important}\n.value-text{font-size:13px!important;line-height:1.65!important;max-width:none!important}\n@media(max-width:1024px){.values-grid{width:auto!important;margin:40px 0 0!important;transform:none!important}.value-block{height:auto!important;min-height:0!important}}\n'''
+          s=s.replace('</style>',css+'\n</style>')
+          wf=Path('.github/workflows/fix-siberia-values-maxwidth.yml')
+          if wf.exists(): wf.unlink()
+          p.write_text(s,encoding='utf-8')
+          PY
+      - run: |
+          git config user.name VodenBik
+          git config user.email actions@github.com
+          git add siberia.html .github/workflows/fix-siberia-values-maxwidth.yml
+          git commit -m "fix siberia values max width" || exit 0
+          git push
