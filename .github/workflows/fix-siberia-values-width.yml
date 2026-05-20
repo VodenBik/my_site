@@ -1,0 +1,36 @@
+name: Fix Siberia values width
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: write
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          p=Path('siberia.html')
+          s=p.read_text(encoding='utf-8')
+          old='''\n/* compact values block */\n.values-section{padding:52px 60px 64px!important}\n.values-grid{width:calc(100vw - 120px)!important;max-width:none!important;margin:34px 0 0 50%!important;transform:translateX(-50%)!important}\n.value-block{height:176px!important;min-height:0!important;padding:28px 36px!important;overflow:hidden!important}\n.value-icon{font-size:20px!important;margin-bottom:18px!important;line-height:1!important}\n.value-title{font-size:30px!important;line-height:1!important;margin-bottom:12px!important}\n.value-text{font-size:13px!important;line-height:1.45!important;max-width:260px!important}\n@media(max-width:1024px){.values-grid{width:auto!important;margin:34px 0 0!important;transform:none!important}.value-block{height:auto!important;min-height:176px!important}}\n'''
+          new='''\n/* compact values block */\n.values-section{padding:60px 48px!important}\n.values-grid{width:min(1200px, calc(100vw - 96px))!important;max-width:1200px!important;margin:40px auto 0!important;transform:none!important}\n.value-block{height:auto!important;min-height:0!important;padding:28px!important;overflow:visible!important}\n.value-icon{font-size:24px!important;margin-bottom:16px!important;line-height:1!important}\n.value-title{font-size:28px!important;line-height:1!important;margin-bottom:10px!important}\n.value-text{font-size:13px!important;line-height:1.65!important;max-width:none!important}\n@media(max-width:1024px){.values-grid{width:auto!important;margin:40px 0 0!important;transform:none!important}.value-block{height:auto!important;min-height:0!important}}\n'''
+          if old in s:
+              s=s.replace(old,new)
+          elif '/* compact values block */' in s:
+              start=s.index('/* compact values block */')
+              end=s.index('</style>', start)
+              s=s[:start]+new+'\n'+s[end:]
+          else:
+              s=s.replace('</style>',new+'\n</style>')
+          wf=Path('.github/workflows/fix-siberia-values-width.yml')
+          if wf.exists(): wf.unlink()
+          p.write_text(s,encoding='utf-8')
+          PY
+      - run: |
+          git config user.name VodenBik
+          git config user.email actions@github.com
+          git add siberia.html .github/workflows/fix-siberia-values-width.yml
+          git commit -m "fix siberia values block width" || exit 0
+          git push
