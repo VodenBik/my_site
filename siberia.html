@@ -56,8 +56,8 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 
 /* VALUES */
 .values-section{padding:60px 48px;background:var(--sib-dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);margin-top:40px}
-.value-block{background:var(--sib-dark);padding:36px 28px;transition:background .2s}
+.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.06);max-width:1200px;margin:40px auto 0}
+.value-block{background:var(--sib-dark);padding:28px;transition:background .2s}
 .value-block:hover{background:rgba(26,99,216,.15)}
 .value-icon{font-size:32px;margin-bottom:16px;display:block}
 .value-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--sib-sky);margin-bottom:10px;letter-spacing:.02em}
@@ -106,6 +106,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .carrier-card:hover{border-color:var(--sib-blue)}
 .carrier-thumb{width:100%;aspect-ratio:4/3;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;transition:color .3s}
 .carrier-card:hover .carrier-thumb{color:#555}
+.carrier-images-stack{display:grid;grid-template-columns:1fr;gap:16px;margin-top:40px}
 .carrier-info{padding:18px 20px}
 .carrier-title{font-size:14px;font-weight:500;color:var(--white);margin-bottom:6px}
 .carrier-desc{font-size:12px;color:var(--muted);line-height:1.5}
@@ -183,7 +184,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 <div class="cursor" id="cursor"></div>
 
 <nav>
-  <a href="index.html" class="nav-logo">СТА<span>.</span></a>
+  <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
   <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
 </nav>
 
@@ -307,10 +308,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">Анализ знака</h2>
     <div class="logo-split">
       <div class="logo-preview">
-        <div class="logo-preview-ph">
-          <div class="logo-name-ph"><span>S</span>iberia</div>
-          <div class="logo-sub-ph">construction !</div>
-        </div>
+        <img class="case-img" src="projects/siberia/1.webp" alt="Siberia — анализ знака">
       </div>
       <div class="logo-points">
         <div class="logo-point">
@@ -428,49 +426,10 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 <!-- НОСИТЕЛИ СЕТКА -->
 <div class="carriers-section fade-up">
   <div style="max-width:1200px;margin:0 auto">
-    <div class="carriers-grid">
-      <div class="carrier-card">
-        <div class="carrier-thumb">Фасадная вывеска · офис</div>
-        <div class="carrier-info">
-          <p class="carrier-title">Фасадная вывеска</p>
-          <p class="carrier-desc">Белый логотип на тёмно-синем фоне. Буква S читается с 50 метров. Тестировался на мокапе фасада реального офисного здания.</p>
-        </div>
-      </div>
-      <div class="carrier-card">
-        <div class="carrier-thumb">Корпоративная документация</div>
-        <div class="carrier-info">
-          <p class="carrier-title">Бланки и папки</p>
-          <p class="carrier-desc">Фирменный бланк, конверты, папка для проектной документации. Синий блок сверху, белое поле для текста, знак в подвале.</p>
-        </div>
-      </div>
-      <div class="carrier-card">
-        <div class="carrier-thumb">Сайт компании · веб</div>
-        <div class="carrier-info">
-          <p class="carrier-title">Веб-присутствие</p>
-          <p class="carrier-desc">Дизайн главной страницы: тёмный hero, крупный заголовок, синие CTA-кнопки. Адаптивная верстка для мобильных.</p>
-        </div>
-      </div>
-      <div class="carrier-card">
-        <div class="carrier-thumb">Наружная реклама · билборд</div>
-        <div class="carrier-info">
-          <p class="carrier-title">Билборд у объекта</p>
-          <p class="carrier-desc">Формат 3×6 м. Динамичная диагональная композиция, фото строительного процесса, логотип в правом верхнем углу, CTA внизу.</p>
-        </div>
-      </div>
-      <div class="carrier-card">
-        <div class="carrier-thumb">Спецодежда · команда</div>
-        <div class="carrier-info">
-          <p class="carrier-title">Форма команды</p>
-          <p class="carrier-desc">Каска, жилет, куртка — логотип на груди и спине. Белый знак на синем фоне. Люди на объекте — живые носители бренда.</p>
-        </div>
-      </div>
-      <div class="carrier-card">
-        <div class="carrier-thumb">Визитка · digital</div>
-        <div class="carrier-info">
-          <p class="carrier-title">Визитные карточки</p>
-          <p class="carrier-desc">Стандарт 90×50 мм, двусторонняя. Лицо — синий фон, логотип. Оборот — белый, контактные данные в типографике Belop.</p>
-        </div>
-      </div>
+    <div class="carrier-images-stack">
+      <img class="case-img" src="projects/siberia/2.webp" alt="Siberia — носитель фирменного стиля 2">
+      <img class="case-img" src="projects/siberia/3.webp" alt="Siberia — носитель фирменного стиля 3">
+      <img class="case-img" src="projects/siberia/5.webp" alt="Siberia — носитель фирменного стиля 5">
     </div>
   </div>
 </div>
@@ -486,15 +445,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
       <p>Процесс начался не с визуала, а с позиционирования: кто конкуренты, как они выглядят, где пустое пространство. Жёлто-оранжевый сегмент рынка занят — синий свободен. Это был первый и ключевой выбор.</p>
       <p>Дальше — логотип тестировался не на белом листе, а сразу на реальных носителях: фасад здания, билборд, спецодежда. Логотип, который выглядит хорошо в Illustrator, может провалиться на бетоне. Здесь он прошёл все тесты.</p>
     </div>
-
     <div class="images-grid" style="margin-top:32px">
-      <img class="img-ph wide case-img" src="projects/siberia/4.webp" alt="Siberia — версии логотипа">
-      <img class="img-ph wide case-img" src="projects/siberia/2.webp" alt="Siberia — логотип на фасаде">
-    </div>
-    <div class="images-grid-3" style="margin-top:16px">
-      <img class="img-ph case-img" src="projects/siberia/3.webp" alt="Siberia — носители бренда">
-      <img class="img-ph case-img" src="projects/siberia/5.webp" alt="Siberia — рекламные материалы">
-      <img class="img-ph case-img" src="projects/siberia/7.webp" alt="Siberia — строительный билборд">
+      <img class="img-ph wide case-img" src="projects/siberia/7.webp" alt="Siberia — строительный билборд">
     </div>
   </div>
 
@@ -538,17 +490,17 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 
 </div>
 
-<a href="agrotek.html" class="next-project">
+<a href="boyarko.html" class="next-project">
   <div>
     <p class="next-label">Следующий проект</p>
-    <p class="next-title">Агротек</p>
+    <p class="next-title">Boyarko</p>
   </div>
   <span class="next-arrow">&#8594;</span>
 </a>
 
 <footer>
   <span>&#169; 2026 Станислав</span>
-  <span>Дизайнер &amp; AI-специалист · Анталья</span>
+  <span>Дизайнер &amp; AI-специалист · Аланья</span>
 </footer>
 
 <script>
