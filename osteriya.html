@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--os-cream:#F5EDD8;--os-olive:#3D4A2E;--os-gold:#B8860B;--os-warm:#E8DBC0}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -20,18 +20,18 @@ body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;f
 .cursor.hover{width:40px;height:40px}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
 .nav-logo span{color:var(--accent)}
 .nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-back:hover{color:var(--accent)}
 .nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
 .nav-back-arrow{display:inline-block;transition:transform .2s}
 .project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
-.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,14vw,200px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(100px,14vw,200px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
 .project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
 .project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
-.project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
 .project-subtitle{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
 .project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
 .project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
@@ -46,20 +46,20 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .stats-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--black)}
 .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
 .stat-block{background:var(--gray);padding:28px}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px}
+.stat-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px}
 .stat-desc{font-size:12px;color:var(--muted);line-height:1.5}
 .project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
 .content-section{margin-bottom:80px}
 .content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
-.content-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
 .content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
 .content-text p{margin-bottom:16px}
 .content-text p:last-child{margin-bottom:0}
 .steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
 .step-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
 .step-card:hover{border-color:var(--accent)}
-.step-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
+.step-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
 .step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
 .step-text{font-size:13px;color:var(--muted);line-height:1.65}
 .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
@@ -72,7 +72,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .mindmap-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .mindmap-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start;margin-top:40px}
 .mindmap-center{background:rgba(200,255,0,.06);border:1px solid rgba(200,255,0,.2);border-radius:4px;padding:32px;text-align:center}
-.mindmap-center-title{font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--accent);line-height:.95;margin-bottom:8px}
+.mindmap-center-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:36px;color:var(--accent);line-height:.95;margin-bottom:8px}
 .mindmap-center-sub{font-size:12px;color:var(--muted);letter-spacing:.06em}
 .mindmap-branches{display:flex;flex-direction:column;gap:12px}
 .branch{background:var(--black);border:1px solid var(--border);border-radius:4px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s}
@@ -94,7 +94,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .img-ph.wide{aspect-ratio:16/9}
 .img-ph.tall{aspect-ratio:3/4}
 .quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
-.quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-text{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
 .quote-sub{font-size:13px;color:var(--muted)}
 .conversion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
 .conv-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px}
@@ -105,7 +105,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
 .next-project:hover{background:var(--gray)}
 .next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
 .next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
 .next-project:hover .next-arrow{transform:translateX(8px)}
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
@@ -122,7 +122,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 .external-link{color:var(--accent);text-decoration:none;font-weight:500}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
 .nav-logo span{color:var(--accent,var(--a,#C8FF00))}
 .nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
 .nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
@@ -203,7 +203,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
     </div>
   </div>
 </div>
-<div class="mindmap-section fade-up"><div style="max-width:1200px;margin:0 auto"><p class="content-label" style="margin-bottom:12px">Mindmap проекта</p><h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">От идеи к запуску</h2><div class="mindmap-grid"><div class="mindmap-center"><div class="mindmap-center-title">Osteriya</div><div class="mindmap-center-sub">Центральный продукт</div></div><div class="mindmap-branches"><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Логотип и айдентика</p><p class="branch-text">Разработан логотип, утверждена цветовая система. Кремовый фон, оливковый акцент — итальянская эстетика без клише. Адаптирован для веба, печати, шапки сайта.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Структура меню</p><p class="branch-text">6 дней × 3 блюда × 2 варианта меню = 36 позиций загружены сразу. Каждое блюдо — фото, название, состав, вес, цена, кнопка в корзину, всплывающая карточка с деталями.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Автоматизация смены меню</p><p class="branch-text">JS-скрипт: getWeek() → чётная/нечётная → показать блок menu-A или menu-B. Срабатывает при загрузке страницы. Клиент никогда не лезет в редактор Tilda.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">UX-навигация по дням</p><p class="branch-text">Кастомный sticky header с якорными ссылками на каждый день. На десктопе появляется при скролле. На мобиле — всегда видна. Протестировано: время до заказа сократилось.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Корзина + форма + интеграции</p><p class="branch-text">Tilda Store: корзина, поле адреса и времени доставки, галочка «запомнить». Заказ → одновременно на email, в Telegram-бот через webhook, в CRM Tilda для сбора клиентской базы.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Мультиязычность</p><p class="branch-text">Переключатель RUS/TUR/ENG в шапке. Искеле — международный город, аудитория смешанная. Базовая версия на русском, переводные версии на турецком и английском.</p></div></div></div></div></div></div>
+<div class="mindmap-section fade-up"><div style="max-width:1200px;margin:0 auto"><p class="content-label" style="margin-bottom:12px">Mindmap проекта</p><h2 style="font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">От идеи к запуску</h2><div class="mindmap-grid"><div class="mindmap-center"><div class="mindmap-center-title">Osteriya</div><div class="mindmap-center-sub">Центральный продукт</div></div><div class="mindmap-branches"><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Логотип и айдентика</p><p class="branch-text">Разработан логотип, утверждена цветовая система. Кремовый фон, оливковый акцент — итальянская эстетика без клише. Адаптирован для веба, печати, шапки сайта.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Структура меню</p><p class="branch-text">6 дней × 3 блюда × 2 варианта меню = 36 позиций загружены сразу. Каждое блюдо — фото, название, состав, вес, цена, кнопка в корзину, всплывающая карточка с деталями.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Автоматизация смены меню</p><p class="branch-text">JS-скрипт: getWeek() → чётная/нечётная → показать блок menu-A или menu-B. Срабатывает при загрузке страницы. Клиент никогда не лезет в редактор Tilda.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">UX-навигация по дням</p><p class="branch-text">Кастомный sticky header с якорными ссылками на каждый день. На десктопе появляется при скролле. На мобиле — всегда видна. Протестировано: время до заказа сократилось.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Корзина + форма + интеграции</p><p class="branch-text">Tilda Store: корзина, поле адреса и времени доставки, галочка «запомнить». Заказ → одновременно на email, в Telegram-бот через webhook, в CRM Tilda для сбора клиентской базы.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Мультиязычность</p><p class="branch-text">Переключатель RUS/TUR/ENG в шапке. Искеле — международный город, аудитория смешанная. Базовая версия на русском, переводные версии на турецком и английском.</p></div></div></div></div></div></div>
 <div class="project-content">
   <div class="content-section fade-up"><p class="content-label">Визуальная система</p><h2 class="content-title">Логотип и цвета</h2><div class="content-text"><p>Задача при разработке айдентики: итальянская кухня, но без банальных красно-зелёных флагов и пицц в логотипе. Ориентация на средиземноморскую эстетику — тёплые нейтральные тона, элегантная типографика, ощущение домашней траттории.</p></div><div class="palette-grid"><div class="color-card"><div class="color-swatch" style="background:#F5EDD8"></div><div class="color-info"><p class="color-name">Panna</p><p class="color-hex">#F5EDD8</p><p class="color-role">Основной фон</p></div></div><div class="color-card"><div class="color-swatch" style="background:#3D4A2E"></div><div class="color-info"><p class="color-name">Basilico</p><p class="color-hex">#3D4A2E</p><p class="color-role">Акцент · кнопки</p></div></div><div class="color-card"><div class="color-swatch" style="background:#B8860B"></div><div class="color-info"><p class="color-name">Oro</p><p class="color-hex">#B8860B</p><p class="color-role">Цены · детали</p></div></div><div class="color-card"><div class="color-swatch" style="background:#E8DBC0"></div><div class="color-info"><p class="color-name">Beige</p><p class="color-hex">#E8DBC0</p><p class="color-role">Карточки · фон блоков</p></div></div></div></div>
   <div class="content-section fade-up"><p class="content-label">Технические решения</p><h2 class="content-title">Автоматизация и интеграции</h2><div class="features-grid"><div class="feature-card"><span class="feature-icon">🔄</span><p class="feature-title">Автосмена меню</p><p class="feature-text">JavaScript определяет номер недели в году. Нечётная — показывает меню А, чётная — меню Б. Оба меню всегда на сайте, просто одно скрыто. Никаких ручных правок.</p><span class="feature-tag">JS · автоматика</span></div><div class="feature-card"><span class="feature-icon">📍</span><p class="feature-title">Липкая навигация</p><p class="feature-text">При скролле вниз появляются плашки «Пн / Вт / Ср / Чт / Пт / Сб». Клик — мгновенный якорный переход к нужному дню. Работает и в десктопе, и в мобиле.</p><span class="feature-tag">UX · навигация</span></div><div class="feature-card"><span class="feature-icon">🛒</span><p class="feature-title">Корзина с памятью</p><p class="feature-text">Tilda Store с кастомными полями: адрес, время доставки, имя. Галочка «запомнить» сохраняет данные в localStorage — постоянный клиент не заполняет форму заново.</p><span class="feature-tag">Tilda Store · UX</span></div><div class="feature-card"><span class="feature-icon">✈</span><p class="feature-title">Заказ в Telegram</p><p class="feature-text">Webhook Tilda → Telegram Bot API. При каждом заказе шеф получает сообщение в телефон: имя, телефон, адрес, время, состав заказа и сумма. Секунда задержки.</p><span class="feature-tag">Telegram API · webhook</span></div><div class="feature-card"><span class="feature-icon">👤</span><p class="feature-title">CRM клиентов</p><p class="feature-text">Каждый заказ автоматически попадает в CRM Tilda: имя, контакт, история покупок. Растёт пул постоянных клиентов для рассылок и акций.</p><span class="feature-tag">CRM · Tilda</span></div><div class="feature-card"><span class="feature-icon">🌐</span><p class="feature-title">Три языка</p><p class="feature-text">Переключатель RUS / TUR / ENG в шапке. Аудитория Северного Кипра смешанная: русскоязычные, местные турки, туристы. Каждый читает на своём языке.</p><span class="feature-tag">i18n · мультиязык</span></div></div></div>

@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--sib-blue:#1A63D8;--sib-sky:#4DA3FF;--sib-dark:#0D1B2E}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -20,7 +20,7 @@ body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;f
 .cursor.hover{width:40px;height:40px}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
 .nav-logo span{color:var(--accent)}
 .nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-back:hover{color:var(--accent)}
@@ -29,11 +29,11 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 
 /* HERO */
 .project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
-.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(100px,14vw,200px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(100px,14vw,200px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
 .project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
 .project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
 .project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
-.project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,6.5vw,100px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(52px,6.5vw,100px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
 .project-subtitle{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
 .project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
 .project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
@@ -53,7 +53,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .content-section{margin-bottom:80px}
 .content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
-.content-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
 .content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
 .content-text p{margin-bottom:16px}
 .content-text p:last-child{margin-bottom:0}
@@ -64,7 +64,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .value-block{background:var(--sib-dark);padding:28px;transition:background .2s}
 .value-block:hover{background:rgba(26,99,216,.15)}
 .value-icon{font-size:24px;margin-bottom:16px;display:block;line-height:1}
-.value-title{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--sib-sky);margin-bottom:10px;letter-spacing:.02em;line-height:1}
+.value-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:28px;color:var(--sib-sky);margin-bottom:10px;letter-spacing:.02em;line-height:1}
 .value-text{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5;max-width:none}
 
 /* LOGO ANALYSIS */
@@ -119,7 +119,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
 .step-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
 .step-card:hover{border-color:var(--accent)}
-.step-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
+.step-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
 .step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
 .step-text{font-size:13px;color:var(--muted);line-height:1.65}
 
@@ -138,14 +138,14 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 
 /* QUOTE */
 .quote-block{background:var(--gray);border-left:3px solid var(--sib-blue);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
-.quote-text{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-text{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
 .quote-sub{font-size:13px;color:var(--muted)}
 
 /* NEXT */
 .next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
 .next-project:hover{background:var(--gray)}
 .next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
 .next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
 .next-project:hover .next-arrow{transform:translateX(8px)}
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
@@ -184,7 +184,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 .img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
 .nav-logo span{color:var(--accent,var(--a,#C8FF00))}
 .nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
 .nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
@@ -252,7 +252,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <div class="values-section fade-up">
   <div style="max-width:1200px;margin:0 auto">
     <p class="palette-label">Платформа бренда</p>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:12px">Четыре ценности</h2>
+    <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:12px">Четыре ценности</h2>
     <p style="font-size:15px;color:var(--muted);max-width:600px;line-height:1.7">Прежде чем рисовать логотип — нужно понять, что компания хочет транслировать. Это фундамент, из которого растёт вся визуальная система.</p>
     <div class="values-grid">
       <div class="value-block">
@@ -336,7 +336,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <div class="logo-section fade-up">
   <div style="max-width:1200px;margin:0 auto">
     <p class="palette-label">Логотип</p>
-    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">Анализ знака</h2>
+    <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">Анализ знака</h2>
     <div class="logo-split">
       <div class="logo-preview">
         <img class="case-img" src="projects/siberia/1.webp" alt="Siberia — анализ знака">
@@ -378,7 +378,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <!-- ПАЛИТРА -->
 <div class="palette-section fade-up">
   <p class="palette-label">Цвет</p>
-  <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:16px">Цветовая система</h2>
+  <h2 style="font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:16px">Цветовая система</h2>
   <p class="palette-explanation">Четыре оттенка синего — от почти чёрного до небесного. Это не просто палитра, это история строительства: тёмный фундамент уходит в землю, светлый фасад смотрит в небо. Каждый цвет занимает своё место в иерархии носителей.</p>
   <div class="palette-grid">
     <div class="color-card">

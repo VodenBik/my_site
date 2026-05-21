@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
@@ -20,7 +20,7 @@ body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;f
 .cursor.hover{width:40px;height:40px}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
 .nav-logo span{color:var(--accent)}
 .nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-back:hover{color:var(--accent)}
@@ -29,7 +29,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .project-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
 .project-eyebrow-line{width:40px;height:1px;background:var(--accent)}
 .project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,8vw,120px);line-height:.92;letter-spacing:-.01em;color:var(--white);margin-bottom:24px}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.92;letter-spacing:-.01em;color:var(--white);margin-bottom:24px}
 .project-subtitle{font-size:16px;color:var(--muted);line-height:1.7;max-width:480px}
 .project-meta-grid{display:flex;flex-direction:column;gap:0;justify-content:flex-end}
 .meta-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
@@ -43,7 +43,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .content-section:last-child{margin-bottom:0}
 .section-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .section-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.section-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
 .section-text{font-size:16px;color:var(--muted);line-height:1.8;max-width:680px}
 .images-stack{display:grid;grid-template-columns:1fr;gap:28px;margin:48px 0}
 .images-stack img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
@@ -53,7 +53,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
 .next-project:hover{background:var(--gray)}
 .next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);line-height:.95;color:var(--white);letter-spacing:-.01em;text-transform:uppercase}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);line-height:.95;color:var(--white);letter-spacing:-.01em;text-transform:uppercase}
 .next-arrow{font-size:48px;color:var(--accent);flex-shrink:0;transition:transform .2s}
 .next-project:hover .next-arrow{transform:translateX(8px)}
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
@@ -63,7 +63,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 @media(max-width:600px){body{cursor:auto}.cursor{display:none}}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
 .nav-logo span{color:var(--accent,var(--a,#C8FF00))}
 .nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
 .nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
