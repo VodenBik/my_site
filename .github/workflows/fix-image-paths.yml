@@ -17,21 +17,39 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
+
           replacements = {
               'projects/poolsun-cover.webp': 'projects/poolsun/1.webp',
               'projects/agrotek-cover.webp': 'projects/agrotek/2.webp',
           }
-          for name in ['index.html', 'portfolio.html']:
+
+          pages = ['index.html']
+
+          changed = []
+          for name in pages:
               p = Path(name)
+              if not p.exists():
+                  print(f"skip missing: {name}")
+                  continue
+
               text = p.read_text(encoding='utf-8')
+              updated = text
               for old, new in replacements.items():
-                  text = text.replace(old, new)
-              p.write_text(text, encoding='utf-8')
+                  updated = updated.replace(old, new)
+
+              if updated != text:
+                  p.write_text(updated, encoding='utf-8')
+                  changed.append(name)
+
+          if changed:
+              print("updated:", ", ".join(changed))
+          else:
+              print("no cover path changes needed")
           PY
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html portfolio.html
+          git add index.html
           git diff --cached --quiet || git commit -m "Fix project cover image paths"
           git push
