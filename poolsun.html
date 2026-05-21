@@ -81,13 +81,18 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <div class="cursor" id="cursor"></div>
 <nav>
   <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <ul class="nav-links">
     <li><a href="index.html#projects">Проекты</a></li>
     <li><a href="graphics.html">Графика</a></li>
     <li><a href="ai.html" class="nav-ai">AI</a></li>
     <li><a href="index.html#skills">Скиллы</a></li>
     <li><a href="index.html#process">Процесс</a></li>
     <li><a href="index.html#contact">Контакт</a></li>
+      <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Написать</a></li>
   </ul>
   <a href="https://t.me/sawhite" class="nav-cta">Написать</a>
 </nav>
@@ -146,6 +151,31 @@ document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'p
 document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});});
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*100)});},{threshold:.1});
 document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
 </script>
 </body>
 </html>

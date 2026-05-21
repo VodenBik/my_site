@@ -32,13 +32,18 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <body>
 <nav>
   <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <ul class="nav-links">
     <li><a href="index.html#projects">Проекты</a></li>
     <li><a href="graphics.html">Графика</a></li>
     <li><a href="ai.html" class="nav-ai">AI</a></li>
     <li><a href="index.html#skills">Скиллы</a></li>
     <li><a href="index.html#process">Процесс</a></li>
     <li><a href="index.html#contact">Контакт</a></li>
+      <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Написать</a></li>
   </ul>
   <a href="https://t.me/sawhite" class="nav-cta">Написать</a>
 </nav>
@@ -55,4 +60,29 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <section class="section"><p class="label">Результат</p><h2>Что получилось</h2><div class="text"><p>Полная визуальная система: логотип в трёх вариантах, цветовая палитра с точными кодами, типографическая система на трёх языках, паттерн и шесть категорий носителей.</p><p>Брендбук на 37 страницах — рабочий инструмент. Подрядчик сможет точно воспроизвести фирменный стиль без лишних вопросов.</p><p>Главное достижение: бренд выглядит как международное агентство, а не локальная контора.</p></div><div class="images2"><img class="case-img" src="projects/fortress/31.webp" alt="Fortress — финальный разворот"><img class="case-img" src="projects/fortress/12.webp" alt="Fortress — логотип на стене"></div></section>
 <a href="osteriya.html" class="next"><div><p class="next-label">Следующий проект</p><p class="next-title">Osteriya</p></div><span class="arrow">→</span></a>
 <footer><span>© 2026 Станислав</span><span>Дизайнер &amp; AI-специалист · Аланья</span></footer>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
 </body></html>
