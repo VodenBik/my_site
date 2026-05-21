@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Агротек — Станислав</title>
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
@@ -92,7 +96,8 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 @media(max-width:1024px){
   nav{padding:20px 24px}
   .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
-  .project-cover,.narrative-section{margin:0 24px}
+  .project-cover{margin:0 24px}
+  .narrative-section{margin:0;padding:0 24px}
   .project-content{padding:60px 24px}
   .stats-grid{grid-template-columns:repeat(2,1fr)}
   .concept-grid{grid-template-columns:1fr 1fr}
@@ -107,6 +112,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 @media(max-width:600px){
   .concept-grid,.images-grid-3{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:1fr 1fr}
+  .narrative-section{padding:0 24px}
   body{cursor:auto}
   .cursor{display:none}
   .project-meta-grid{grid-template-columns:1fr}
@@ -121,6 +127,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 .img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
 
 </style>
+<link rel="stylesheet" href="mobile-tune.css">
 </head>
 <body>
 <div class="cursor" id="cursor"></div>

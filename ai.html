@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-дизайн и автоматизация — Станислав</title>
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Bebas Neue',sans-serif;font-size:clamp(110px,15vw,220px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left,.project-hero-right{position:relative;z-index:1}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(58px,7.4vw,112px);line-height:.9;letter-spacing:-.01em;margin-bottom:18px;color:var(--white)}
+.project-desc{font-size:16px;line-height:1.75;color:var(--muted);max-width:560px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400;line-height:1.45}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.intro-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--gray)}
+.intro-inner{max-width:1200px;margin:0 auto}
+.intro-text{font-size:18px;line-height:1.8;color:var(--white);max-width:850px}
+.ai-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.ai-group{margin-bottom:88px}
+.ai-group:last-child{margin-bottom:0}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:32px;line-height:.95}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ai-grid.wide{grid-template-columns:repeat(4,1fr)}
+.ai-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;overflow:visible;transition:border-color .2s,transform .2s}
+.ai-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ai-media{aspect-ratio:16/10;background:linear-gradient(135deg,rgba(200,255,0,.08),rgba(255,255,255,.025) 42%,rgba(255,255,255,.06));border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;padding:22px;text-align:center}
+.ai-media::before{content:'';position:absolute;inset:18px;border:1px solid rgba(200,255,0,.12);border-radius:4px}
+.media-label{position:relative;z-index:1;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,236,.46);line-height:1.5}
+.ai-media.has-image{padding:0;background:#111}
+.ai-media.has-image::before{display:none}
+.ai-media img{width:100%;height:100%;object-fit:contain;display:block}
+.ai-card-body{padding:24px}
+.ai-card-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.35}
+.ai-card-text{font-size:13px;color:var(--muted);line-height:1.65}
+.ai-card-link{display:block;color:inherit;text-decoration:none}
+.ai-card-youtube{background:var(--accent);border-color:var(--accent);color:var(--black)}
+.ai-card-youtube .ai-card-title,.ai-card-youtube .ai-card-text{color:var(--black)}
+.ai-card-youtube .ai-media{background:rgba(10,10,10,.12);border-bottom:1px solid rgba(10,10,10,.16)}
+.ai-card-youtube:hover{border-color:var(--white)}
+.apk-section{margin-top:8px;margin-bottom:88px;padding:48px;background:var(--gray);border:1px solid var(--border);border-radius:4px}
+.apk-lead{max-width:780px;color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:40px}
+.apk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.phone-card{text-align:center}
+.phone-shell{width:min(100%,280px);margin:0 auto 18px;padding:10px;border-radius:32px;background:#080808;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.phone-screen{aspect-ratio:9/19;border-radius:24px;overflow:hidden;background:#050505;display:flex;align-items:center;justify-content:center;position:relative}
+.phone-screen img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
+.phone-placeholder{padding:24px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,236,.46);line-height:1.5}
+.phone-title{font-size:13px;color:var(--white);font-weight:500}
+.approach-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.approach-inner{max-width:1200px;margin:0 auto}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.approach-card{background:var(--black);border:1px solid var(--border);border-radius:4px;padding:28px 24px}
+.approach-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--accent);opacity:.22;line-height:1;margin-bottom:16px}
+.approach-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.approach-text{font-size:13px;color:var(--muted);line-height:1.65}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .intro-section,.ai-content,.approach-section{padding:60px 24px}
+  .ai-grid,.ai-grid.wide,.approach-grid{grid-template-columns:1fr 1fr}
+  .apk-section{padding:36px 24px}
+  .apk-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .phone-shell{border-radius:26px;padding:8px}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+}
+@media(max-width:600px){
+  .project-meta-grid,.ai-grid,.ai-grid.wide,.approach-grid,.apk-grid{grid-template-columns:1fr}
+  .apk-section{padding:32px 18px}
+  .phone-shell{max-width:260px}
+  body{cursor:auto}
+  .cursor{display:none}
+}
+</style>
+<link rel="stylesheet" href="mobile-tune.css">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
+  <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-bg">AI</div>
+  <div class="project-hero-left">
+    <p class="project-type">AI-направление</p>
+    <h1 class="project-title">AI-дизайн и автоматизация</h1>
+    <p class="project-desc">Практические AI-инструменты, боты, генераторы, парсеры, визуальные эксперименты и рабочие системы, которые помогают быстрее собирать контент, документы, сайты и креативные материалы.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Клиент</p><p class="meta-value">собственные проекты / коммерческие задачи</p></div>
+      <div class="meta-item"><p class="meta-label">Формат</p><p class="meta-value">AI-инструменты, сайты, боты, генераторы</p></div>
+      <div class="meta-item"><p class="meta-label">Роль</p><p class="meta-value">концепция, интерфейс, промпты, логика, визуальная система</p></div>
+      <div class="meta-item"><p class="meta-label">Локация</p><p class="meta-value">Аланья</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">Automation</span>
+      <span class="tag">Bots</span>
+      <span class="tag">Prompts</span>
+      <span class="tag">Content</span>
+      <span class="tag">Prototypes</span>
+    </div>
+  </div>
+</section>
+
+<section class="intro-section fade-up">
+  <div class="intro-inner">
+    <p class="intro-text">Задача этого направления — не просто показать отдельные картинки, созданные нейросетями, а собрать практические кейсы: от автоматизации документов и новостей до визуальных концепций, промпт-систем и AI-пайплайнов для контента.</p>
+  </div>
+</section>
+
+<main class="ai-content">
+  <section class="ai-group fade-up">
+    <p class="content-label">Группа 1</p>
+    <h2 class="content-title">AI-инструменты</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/contract-check.webp">
+        <div class="ai-media has-image"><img src="projects/ai/contract-check.webp" alt="Проверка договоров"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Проверка договоров</h3><p class="ai-card-text">Сервис помогает разобрать договор, найти риски, спорные формулировки и подготовить понятный вывод по документу.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/contract-generator.webp">
+        <div class="ai-media has-image"><img src="projects/ai/contract-generator.webp" alt="Генератор договоров"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Генератор договоров</h3><p class="ai-card-text">Инструмент собирает договоры по заданным данным, подставляет участников сделки, даты, роли и формирует готовый документ.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/seo.webp">
+        <div class="ai-media has-image"><img src="projects/ai/seo.webp" alt="Сборщик SEO-ключей"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Сборщик SEO-ключей</h3><p class="ai-card-text">Инструмент помогает собрать и структурировать поисковые запросы для сайта, статьи или посадочной страницы, чтобы быстрее перейти от хаотичных идей к рабочему семантическому ядру.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="ai-group fade-up">
+    <p class="content-label">Группа 2</p>
+    <h2 class="content-title">Боты и образование</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/news-bot.webp">
+        <div class="ai-media has-image"><img src="projects/ai/news-bot.webp" alt="Сборщик новостей"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Сборщик новостей</h3><p class="ai-card-text">Бот отслеживает источники, отбирает релевантные новости, убирает повторы и помогает готовить редакционные черновики.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/chess.webp">
+        <div class="ai-media has-image"><img src="projects/ai/chess.webp" alt="Шахматы"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Шахматы</h3><p class="ai-card-text">Интерактивный формат для проверки шахматных знаний, логики и прогресса пользователя.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/storybook.webp">
+        <div class="ai-media has-image"><img src="projects/ai/storybook.webp" alt="Storybook"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Storybook</h3><p class="ai-card-text">Образовательный проект в формате интерактивной истории: структура, визуальные материалы и сценарии помогают превратить обучение в понятный игровой опыт.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="ai-group fade-up">
+    <p class="content-label">Группа 3</p>
+    <h2 class="content-title">Сайты и интерфейсы</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/expatito.webp">
+        <div class="ai-media has-image"><img src="projects/ai/expatito.webp" alt="Expatito"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Expatito</h3><p class="ai-card-text">Сайт в формате локальной барахолки для русскоязычных пользователей в Турции: объявления, товары, категории и быстрый доступ к публикации.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/turkey_search.webp">
+        <div class="ai-media has-image"><img src="projects/ai/turkey_search.webp" alt="Поиск по Турции"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Поиск по Турции</h3><p class="ai-card-text">Интерфейс для поиска и навигации по полезной информации, сервисам и локальным возможностям в Турции.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/dofamine.webp">
+        <div class="ai-media has-image"><img src="projects/ai/dofamine.webp" alt="Дофаминовые шаги"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Дофаминовые шаги</h3><p class="ai-card-text">Интерфейс для трекинга действий, прогресса и небольших ежедневных задач.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="ai-group fade-up">
+    <p class="content-label">Группа 4</p>
+    <h2 class="content-title">Промпты, изображения и видео</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/prompt-builder.webp">
+        <div class="ai-media has-image"><img src="projects/ai/prompt-builder.webp" alt="Конструктор промптов"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Конструктор промптов</h3><p class="ai-card-text">Система помогает собирать промпты по блокам: стиль, персонаж, локация, действие, камера, свет и ограничения.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/video-pipeline.webp">
+        <div class="ai-media has-image"><img src="projects/ai/video-pipeline.webp" alt="Видео pipeline"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Видео pipeline</h3><p class="ai-card-text">Сценарии для работы с первым и финальным кадром, движением камеры, continuity lock и генерацией коротких сцен.</p></div>
+      </article>
+      <a class="ai-card ai-card-link ai-card-youtube" href="https://www.youtube.com/@desegnator" target="_blank" rel="noopener noreferrer" data-image="projects/ai/youtube-ai.webp">
+        <div class="ai-media has-image"><img src="projects/ai/youtube-ai.webp" alt="YouTube"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">YouTube</h3><p class="ai-card-text">Канал desegnator с материалами про AI, визуальные эксперименты, промпты, видео и практическое применение нейросетей в дизайне.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="apk-section fade-up">
+    <p class="content-label">APK</p>
+    <h2 class="content-title">APK-приложения</h2>
+    <p class="apk-lead">Небольшие Android-приложения и экспериментальные интерфейсы, собранные как рабочие прототипы: с экранной логикой, визуальной системой и понятным пользовательским сценарием.</p>
+    <div class="apk-grid">
+      <div class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-1.webp" alt="APK-прототип 01"></div></div>
+        <p class="phone-title">APK-прототип 01</p>
+      </div>
+      <div class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-2.webp" alt="APK-прототип 02"></div></div>
+        <p class="phone-title">APK-прототип 02</p>
+      </div>
+      <div class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-3.webp" alt="APK-прототип 03"></div></div>
+        <p class="phone-title">APK-прототип 03</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="approach-section fade-up">
+  <div class="approach-inner">
+    <p class="content-label">Подход</p>
+    <h2 class="content-title">Как я работаю с AI</h2>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-num">01</div>
+        <h3 class="approach-title">Сначала задача, потом инструмент</h3>
+        <p class="approach-text">AI используется не ради эффекта, а там, где он сокращает ручную работу, ускоряет анализ или помогает собрать рабочий прототип.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">02</div>
+        <h3 class="approach-title">Визуал и логика вместе</h3>
+        <p class="approach-text">Для меня AI-кейс — это не только картинка или промпт, а связка интерфейса, сценария, структуры данных и результата для пользователя.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">03</div>
+        <h3 class="approach-title">Проверяемый результат</h3>
+        <p class="approach-text">Важны не обещания, а рабочий сценарий: что вводит пользователь, что получает на выходе и как это можно применить.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a class="next-project" href="fortress.html">
+  <div>
+    <p class="next-label">Следующий проект</p>
+    <p class="next-title">Fortress Investment</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>© 2026 Станислав</span>
+  <span>Дизайнер &amp; AI-специалист · Аланья</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,.ai-card').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')})});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+</body>
+</html>

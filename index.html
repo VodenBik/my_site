@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Станислав — Дизайнер & AI</title>
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
@@ -18,9 +22,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:fl
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
 .nav-logo span{color:var(--accent)}
-.nav-links{display:flex;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
 .nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
 .nav-links a:hover{color:var(--accent)}
+.nav-links .nav-ai{color:var(--black);background:var(--accent);border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black);background:#d5ff33;transform:translateY(-1px)}
 .nav-cta{position:relative;z-index:1;background:var(--accent);color:var(--black);padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
 .nav-cta:hover{transform:scale(1.04)}
 .hero{min-height:100vh;padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:end;position:relative;overflow:hidden}
@@ -162,6 +168,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
   <a href="#" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#projects">Проекты</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
     <li><a href="#skills">Скиллы</a></li>
     <li><a href="#process">Процесс</a></li>
     <li><a href="#contact">Контакт</a></li>
