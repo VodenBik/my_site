@@ -104,6 +104,19 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 .fade-up.visible{opacity:1;transform:translateY(0)}
 @media(max-width:1024px){nav{padding:20px 24px}.project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}.project-cover{margin:0 24px}.project-cover.nabucco-title-slide{max-width:none;margin-inline:24px}.project-content{padding:60px 24px}.palette-section,.font-section{padding:48px 24px}.palette-grid{grid-template-columns:1fr}.font-grid,.steps-grid{grid-template-columns:1fr}.deliverables-grid{grid-template-columns:1fr 1fr}.images-grid{grid-template-columns:1fr}.images-grid-3{grid-template-columns:1fr 1fr}.next-project{padding:60px 24px}footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}}
 @media(max-width:600px){.deliverables-grid,.images-grid-3{grid-template-columns:1fr}body{cursor:auto}.cursor{display:none}.project-meta-grid{grid-template-columns:1fr}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent,var(--a,#C8FF00))}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent,var(--a,#C8FF00))}
+.nav-links .nav-ai{color:var(--black,var(--b,#0A0A0A));background:var(--accent,var(--a,#C8FF00));border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black,var(--b,#0A0A0A));background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent,var(--a,#C8FF00));color:var(--black,var(--b,#0A0A0A));padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+@media(max-width:1024px){.nav-cta{display:none}}
+@media(max-width:600px){.nav-links{display:none}}
 </style>
 <link rel="stylesheet" href="mobile-tune.css">
 </head>
@@ -111,7 +124,15 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 <div class="cursor" id="cursor"></div>
 <nav>
   <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
-  <a href="index.html" class="nav-back"><span class="nav-back-arrow">&#8592;</span> Все проекты</a>
+  <ul class="nav-links">
+    <li><a href="index.html#projects">Проекты</a></li>
+    <li><a href="graphics.html">Графика</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#skills">Скиллы</a></li>
+    <li><a href="index.html#process">Процесс</a></li>
+    <li><a href="index.html#contact">Контакт</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Написать</a>
 </nav>
 <section class="project-hero">
   <div class="hero-bg">ITALIA</div>
