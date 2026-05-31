@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavera — Станислав</title>
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links .nav-ai{color:var(--black);background:var(--accent);border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black);background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent);color:var(--black);padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(110px,15vw,220px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left,.project-hero-right{position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:18px;color:var(--white)}
+.project-desc{font-size:16px;line-height:1.75;color:var(--muted);max-width:600px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400;line-height:1.45}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.cover{margin:0 48px;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--gray2)}
+.cover img{width:100%;display:block}
+.lavera-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:88px}
+.content-section:last-child{margin-bottom:0}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:18px;line-height:.95}
+.content-text{max-width:760px;color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:32px}
+.lavera-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.lavera-grid.four{grid-template-columns:repeat(4,1fr)}
+.lavera-grid.single{grid-template-columns:1fr}
+.lavera-media{background:#101010;border:1px solid var(--border);border-radius:4px;overflow:hidden;min-width:0}
+.lavera-media img{width:100%;height:auto;object-fit:contain;object-position:center;display:block;background:#101010}
+.lavera-media.is-wide img{object-fit:cover}
+.lavera-media.is-document img{height:auto}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .cover{margin-inline:24px}
+  .lavera-content{padding:60px 24px}
+  .lavera-grid,.lavera-grid.four{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+  .nav-cta{display:none}
+}
+@media(max-width:600px){
+  .project-meta-grid,.lavera-grid,.lavera-grid.four{grid-template-columns:1fr}
+  .project-title{font-size:clamp(42px,13vw,58px)}
+  .cover{margin-inline:18px}
+  .lavera-content{padding:56px 18px}
+  .next-project{align-items:flex-start;gap:24px}
+  .nav-links{display:none}
+  body{cursor:auto}
+  .cursor{display:none}
+}
+</style>
+<link rel="stylesheet" href="mobile-tune.css">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">СТАНИСЛАВ<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="projects.html">Проекты</a></li>
+    <li><a href="graphics.html">Графика</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#skills">Скиллы</a></li>
+    <li><a href="index.html#process">Процесс</a></li>
+    <li><a href="index.html#contact">Контакт</a></li>
+    <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Написать</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Написать</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-bg">LAVERA</div>
+  <div class="project-hero-left">
+    <p class="project-type">Визуальная упаковка</p>
+    <h1 class="project-title">Lavera</h1>
+    <p class="project-desc">Визуальная система для кафе: меню, авторские предложения, завтраки, десерты, мастер-классы и промо-коммуникация.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Клиент</p><p class="meta-value">Lavera</p></div>
+      <div class="meta-item"><p class="meta-label">Формат</p><p class="meta-value">кафе, меню, промо-материалы, визуальная система</p></div>
+      <div class="meta-item"><p class="meta-label">Роль</p><p class="meta-value">дизайн, структура, визуальная подача, подготовка материалов</p></div>
+      <div class="meta-item"><p class="meta-label">Носители</p><p class="meta-value">сайт / меню / презентационные материалы</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">Menu</span>
+      <span class="tag">Cafe</span>
+      <span class="tag">Visual System</span>
+      <span class="tag">Promo</span>
+      <span class="tag">Design</span>
+    </div>
+  </div>
+</section>
+
+<div class="cover fade-up">
+  <img src="projects/covers/lavera_cover.webp" alt="Lavera — визуальная упаковка кафе" loading="lazy">
+</div>
+
+<main class="lavera-content">
+  <section class="content-section fade-up">
+    <p class="content-label">Блок 1</p>
+    <h2 class="content-title">Визуальная система кафе</h2>
+    <p class="content-text">Задача — собрать цельный визуальный язык для кафе: от меню и авторских предложений до промо-материалов, завтраков, десертов и сезонных коммуникаций.</p>
+    <div class="lavera-grid">
+      <div class="lavera-media is-wide"><img src="projects/lavera/lavera_1.webp" alt="Lavera — визуальная система кафе" loading="lazy"></div>
+      <div class="lavera-media is-document"><img src="projects/lavera/lavera_2.webp" alt="Lavera — графическая подача" loading="lazy"></div>
+      <div class="lavera-media is-document"><img src="projects/lavera/lavera_3.webp" alt="Lavera — промо-материал" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="content-section fade-up">
+    <p class="content-label">Блок 2</p>
+    <h2 class="content-title">Меню и продуктовая подача</h2>
+    <p class="content-text">Меню должно быстро считываться, сохранять атмосферу бренда и помогать гостю выбирать без визуального шума.</p>
+    <div class="lavera-grid">
+      <div class="lavera-media is-wide"><img src="projects/lavera/lavera_menu.webp" alt="Lavera — меню" loading="lazy"></div>
+      <div class="lavera-media is-wide"><img src="projects/lavera/lavera_menu_1.webp" alt="Lavera — страница меню" loading="lazy"></div>
+      <div class="lavera-media is-document"><img src="projects/lavera/lavera_menu_2.webp" alt="Lavera — продуктовая подача меню" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="content-section fade-up">
+    <p class="content-label">Блок 3</p>
+    <h2 class="content-title">Завтраки, десерты и события</h2>
+    <p class="content-text">Отдельные предложения оформлены как часть общей системы: единая композиция, мягкая подача, понятные акценты и аккуратная работа с изображениями.</p>
+    <div class="lavera-grid four">
+      <div class="lavera-media is-wide"><img src="projects/lavera/lavera_breakfast_1.webp" alt="Lavera — завтраки" loading="lazy"></div>
+      <div class="lavera-media is-document"><img src="projects/lavera/lavera_breakfast_2.webp" alt="Lavera — предложение завтраков" loading="lazy"></div>
+      <div class="lavera-media is-wide"><img src="projects/lavera/lavera_desserts.webp" alt="Lavera — десерты" loading="lazy"></div>
+      <div class="lavera-media is-document"><img src="projects/lavera/lavera_master_class.webp" alt="Lavera — мастер-класс" loading="lazy"></div>
+    </div>
+  </section>
+
+  <section class="content-section fade-up">
+    <p class="content-label">Блок 4</p>
+    <h2 class="content-title">Финальная подача</h2>
+    <p class="content-text">Материалы собраны так, чтобы бренд выглядел цельно на разных носителях: в меню, промо, визуалах для сайта и коммуникации с гостями.</p>
+    <div class="lavera-grid single">
+      <div class="lavera-media is-wide"><img src="projects/lavera/lavera_footer.webp" alt="Lavera — финальная подача" loading="lazy"></div>
+    </div>
+  </section>
+</main>
+
+<a class="next-project" href="projects.html">
+  <div>
+    <p class="next-label">Все проекты</p>
+    <p class="next-title">Projects</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>&copy; 2026 Станислав</span>
+  <span>Дизайнер &amp; AI-специалист · Аланья</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,.lavera-media').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')})});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>
