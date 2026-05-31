@@ -55,6 +55,8 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .lavera-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
 .lavera-grid.four{grid-template-columns:repeat(4,1fr)}
 .lavera-grid.single{grid-template-columns:1fr}
+.lavera-stack{display:flex;flex-direction:column;gap:24px}
+.lavera-stack .lavera-media{width:100%}
 .lavera-media{background:#101010;border:1px solid var(--border);border-radius:4px;overflow:hidden;min-width:0}
 .lavera-media img{width:100%;height:auto;object-fit:contain;object-position:center;display:block;background:#101010}
 .lavera-media.is-wide img{object-fit:cover}
@@ -138,7 +140,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 </section>
 
 <div class="cover fade-up">
-  <img src="projects/covers/lavera_cover_1.webp" alt="Lavera — визуальная упаковка кафе" loading="lazy">
+  <img src="projects/covers/lavera_cover.webp" alt="Lavera — визуальная упаковка кафе" loading="lazy">
 </div>
 
 <main class="lavera-content">
@@ -146,7 +148,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     <p class="content-label">Блок 1</p>
     <h2 class="content-title">Визуальная система кафе</h2>
     <p class="content-text">Задача — собрать цельный визуальный язык для кафе: от меню и авторских предложений до промо-материалов, завтраков, десертов и сезонных коммуникаций.</p>
-    <div class="lavera-grid">
+    <div class="lavera-stack">
       <div class="lavera-media is-wide"><img src="projects/lavera/lavera_1.webp" alt="Lavera — визуальная система кафе" loading="lazy"></div>
       <div class="lavera-media is-document"><img src="projects/lavera/lavera_2.webp" alt="Lavera — графическая подача" loading="lazy"></div>
       <div class="lavera-media is-document"><img src="projects/lavera/lavera_3.webp" alt="Lavera — промо-материал" loading="lazy"></div>
@@ -157,7 +159,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     <p class="content-label">Блок 2</p>
     <h2 class="content-title">Меню и продуктовая подача</h2>
     <p class="content-text">Меню должно быстро считываться, сохранять атмосферу бренда и помогать гостю выбирать без визуального шума.</p>
-    <div class="lavera-grid">
+    <div class="lavera-stack">
       <div class="lavera-media is-wide"><img src="projects/lavera/lavera_menu.webp" alt="Lavera — меню" loading="lazy"></div>
       <div class="lavera-media is-wide"><img src="projects/lavera/lavera_menu_1.webp" alt="Lavera — страница меню" loading="lazy"></div>
       <div class="lavera-media is-document"><img src="projects/lavera/lavera_menu_2.webp" alt="Lavera — продуктовая подача меню" loading="lazy"></div>
@@ -168,7 +170,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     <p class="content-label">Блок 3</p>
     <h2 class="content-title">Завтраки, десерты и события</h2>
     <p class="content-text">Отдельные предложения оформлены как часть общей системы: единая композиция, мягкая подача, понятные акценты и аккуратная работа с изображениями.</p>
-    <div class="lavera-grid four">
+    <div class="lavera-stack">
       <div class="lavera-media is-wide"><img src="projects/lavera/lavera_breakfast_1.webp" alt="Lavera — завтраки" loading="lazy"></div>
       <div class="lavera-media is-document"><img src="projects/lavera/lavera_breakfast_2.webp" alt="Lavera — предложение завтраков" loading="lazy"></div>
       <div class="lavera-media is-wide"><img src="projects/lavera/lavera_desserts.webp" alt="Lavera — десерты" loading="lazy"></div>
@@ -180,7 +182,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     <p class="content-label">Блок 4</p>
     <h2 class="content-title">Финальная подача</h2>
     <p class="content-text">Материалы собраны так, чтобы бренд выглядел цельно на разных носителях: в меню, промо, визуалах для сайта и коммуникации с гостями.</p>
-    <div class="lavera-grid single">
+    <div class="lavera-stack">
       <div class="lavera-media is-wide"><img src="projects/lavera/lavera_footer.webp" alt="Lavera — финальная подача" loading="lazy"></div>
     </div>
   </section>
