@@ -56,6 +56,12 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .project-list-body{padding:24px}
 .project-list-title{font-size:17px;font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.35}
 .project-list-text{font-size:13px;color:var(--muted);line-height:1.65}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
 footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
@@ -64,6 +70,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
   .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
   .intro-section,.projects-content{padding:60px 24px}
   .projects-grid{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
   footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
   .nav-cta{display:none}
 }
@@ -71,6 +78,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
   .project-meta-grid,.projects-grid{grid-template-columns:1fr}
   .project-title{font-size:clamp(42px,13vw,58px)}
   .intro-text{font-size:16px}
+  .next-project{align-items:flex-start;gap:24px}
   .nav-links{display:none}
   body{cursor:auto}
   .cursor{display:none}
@@ -166,6 +174,14 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
     </a>
   </div>
 </main>
+
+<a class="next-project" href="graphics.html">
+  <div>
+    <p class="next-label">Следующий раздел</p>
+    <p class="next-title">Graphics</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
 
 <footer>
   <span>&copy; 2026 Станислав</span>
