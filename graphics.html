@@ -52,7 +52,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .content-desc{max-width:760px;color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:32px}
 .graphics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .work-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;overflow:visible;transition:border-color .2s,transform .2s}
-.direction-card{display:block;color:inherit;text-decoration:none;overflow:hidden}
 .work-card:hover{border-color:var(--accent);transform:translateY(-2px)}
 .work-media{aspect-ratio:16/11;background:linear-gradient(135deg,rgba(200,255,0,.08),rgba(255,255,255,.025) 42%,rgba(255,255,255,.06));border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;padding:22px;text-align:center}
 .work-media::before{content:'';position:absolute;inset:18px;border:1px solid rgba(200,255,0,.12);border-radius:4px}
@@ -65,6 +64,10 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .work-body{padding:24px}
 .work-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.35}
 .work-text{font-size:13px;color:var(--muted);line-height:1.65}
+.section-link{display:flex;align-items:center;justify-content:space-between;gap:24px;width:100%;min-height:64px;margin-top:18px;padding:18px 22px;background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:4px;color:var(--white);font-size:13px;font-weight:500;letter-spacing:.04em;text-decoration:none;transition:background .2s,border-color .2s,transform .2s}
+.section-link:hover{background:var(--gray);border-color:var(--accent);transform:translateY(-2px)}
+.section-link-arrow{flex:0 0 auto;color:var(--accent);font-size:20px;transition:transform .2s}
+.section-link:hover .section-link-arrow{transform:translateX(4px)}
 .approach-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .approach-inner{max-width:1200px;margin:0 auto}
 .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
@@ -96,6 +99,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
   .next-project{align-items:flex-start;gap:24px}
   body{cursor:auto}
   .cursor{display:none}
+  .section-link{min-height:60px;padding:16px 18px}
 }
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
 nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
@@ -127,7 +131,6 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
     <li><a href="graphics.html">Графика</a></li>
     <li><a href="presentations.html">Презентации</a></li>
     <li><a href="ai.html" class="nav-ai">AI</a></li>
-    <li><a href="index.html#skills">Скиллы</a></li>
     <li><a href="index.html#process">Процесс</a></li>
     <li><a href="index.html#contact">Контакт</a></li>
       <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Написать</a></li>
@@ -185,12 +188,13 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
         <div class="work-body"><h3 class="work-title">Изображение на футболках</h3><p class="work-text">Графика для мерча: изображение должно работать не только на экране, но и на ткани, сохраняя читаемость и характер.</p></div>
       </article>
     </div>
+    <a class="section-link" href="vector.html"><span>Смотреть все векторные работы</span><span class="section-link-arrow" aria-hidden="true">→</span></a>
   </section>
 
   <section class="graphics-group fade-up">
     <p class="content-label">Раздел 2</p>
-    <h2 class="content-title">Полиграфия и каталоги</h2>
-    <p class="content-desc">Каталоги, буклеты, меню, листовки, коммерческие материалы и PDF-документы, собранные под чтение, печать и отправку клиенту.</p>
+    <h2 class="content-title">Полиграфия и рекламные материалы</h2>
+    <p class="content-desc">Каталоги, буклеты, меню, листовки, рекламные макеты и digital-материалы, подготовленные для печати, социальных сетей и коммерческой коммуникации.</p>
     <div class="graphics-grid">
       <article class="work-card is-vertical">
         <div class="work-media has-image"><img src="projects/graphics/citadines.webp" alt="Citadines" loading="lazy"></div>
@@ -205,6 +209,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
         <div class="work-body"><h3 class="work-title">Aziano</h3><p class="work-text">Страница большого каталога для компании оптовой продажи продуктов питания: крупный визуал, понятная товарная подача и аккуратная структура для B2B-коммуникации.</p></div>
       </article>
     </div>
+    <a class="section-link" href="advertisement.html"><span>Смотреть рекламные материалы</span><span class="section-link-arrow" aria-hidden="true">→</span></a>
   </section>
 
   <section class="graphics-group fade-up">
@@ -225,6 +230,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
         <div class="work-body"><h3 class="work-title">Бренд этикетки молока</h3><p class="work-text">Визуальная упаковка бренда через презентационный формат: этикетка, характер продукта и единая графическая система.</p></div>
       </article>
     </div>
+    <a class="section-link" href="presentations.html"><span>Смотреть презентации</span><span class="section-link-arrow" aria-hidden="true">→</span></a>
   </section>
 
   <section class="graphics-group fade-up">
@@ -245,19 +251,9 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
         <div class="work-body"><h3 class="work-title">Lavera / Лавера</h3><p class="work-text">Презентационная листовка с рекламной подачей: продукт, визуальный акцент и аккуратная композиция в одном материале.</p></div>
       </article>
     </div>
+    <a class="section-link" href="photoshop.html"><span>Смотреть Photoshop-работы</span><span class="section-link-arrow" aria-hidden="true">→</span></a>
   </section>
 
-  <section class="graphics-group fade-up">
-    <p class="content-label">Расширенное портфолио</p>
-    <h2 class="content-title">Смотреть по направлениям</h2>
-    <p class="content-desc">Полные подборки работ с крупным просмотром изображений, краткими пояснениями и адаптивной подачей.</p>
-    <div class="graphics-grid">
-      <a class="work-card direction-card" href="vector.html"><div class="work-media has-image"><img src="images/vector/9.webp" alt="Векторная графика" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Векторная графика</h3><p class="work-text">13 примеров векторизации: знаки, персонажи, иллюстрации и принты.</p></div></a>
-      <a class="work-card direction-card" href="presentations.html"><div class="work-media has-image"><img src="images/presentations/14.webp" alt="Презентации" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Презентации</h3><p class="work-text">15 визуальных систем для бизнеса, технологий, обучения и недвижимости.</p></div></a>
-      <a class="work-card direction-card" href="advertisement.html"><div class="work-media has-image"><img src="images/advertisement/3/10.webp" alt="Рекламные материалы" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Рекламные материалы</h3><p class="work-text">35 макетов в шести тематических сериях для digital и печати.</p></div></a>
-      <a class="work-card direction-card" href="photoshop.html"><div class="work-media has-image"><img src="images/photoshop/1/1.webp" alt="Работы в Photoshop" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Photoshop</h3><p class="work-text">Коллажи, фотоманипуляции, реставрация и колоризация изображений.</p></div></a>
-    </div>
-  </section>
 </main>
 
 <section class="approach-section fade-up">
