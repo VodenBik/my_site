@@ -8,6 +8,45 @@
 .nav-toggle,
 .nav-mobile-cta { display: none }
 
+/* ---- ACTIVE DESKTOP NAVIGATION ---- */
+@media (min-width: 769px) {
+  nav .nav-links .nav-ai {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    color: var(--muted, var(--m, #666));
+    line-height: normal;
+    transform: none;
+  }
+
+  nav .nav-links .nav-ai:hover {
+    background: transparent;
+    color: var(--accent, var(--a, #C8FF00));
+    transform: none;
+  }
+
+  nav .nav-links a[aria-current="page"],
+  nav .nav-links a.is-active {
+    padding: 7px 13px;
+    border: 1px solid rgba(200,255,0,.55);
+    border-radius: 100px;
+    background: var(--accent, var(--a, #C8FF00));
+    box-shadow: 0 0 0 1px rgba(200,255,0,.08) inset;
+    color: var(--black, var(--b, #0A0A0A));
+    line-height: 1;
+    transition: background .2s,color .2s,transform .2s;
+  }
+
+  nav .nav-links a[aria-current="page"]:hover,
+  nav .nav-links a.is-active:hover {
+    background: #d5ff33;
+    color: var(--black, var(--b, #0A0A0A));
+    transform: translateY(-1px);
+  }
+}
+
 /* ============================================= */
 /* TABLET / LANDSCAPE PHONES  max-width: 768px  */
 /* ============================================= */

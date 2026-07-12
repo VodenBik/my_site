@@ -159,7 +159,7 @@ footer{background:var(--black);border-top:1px solid var(--border);padding:24px 4
 .project-thumb-ph.cover-contain img{object-fit:contain;padding:20px;background:#111}
 
 </style>
-<link rel="stylesheet" href="mobile-tune.css">
+<link rel="stylesheet" href="mobile-tune.css?v=nav-active">
 </head>
 <body>
 <div class="cursor" id="cursor"></div>
@@ -387,6 +387,50 @@ function openModal(id){
 function closeModal(){document.getElementById('modalOverlay').classList.remove('open');document.body.style.overflow='';}
 function closeModalOutside(e){if(e.target===document.getElementById('modalOverlay'))closeModal();}
 document.addEventListener('keydown',function(e){if(e.key==='Escape')closeModal()});
+</script>
+
+<script>
+(function(){
+  var processLink=document.querySelector('.nav-links a[href="#process"]');
+  var contactLink=document.querySelector('.nav-links a[href="#contact"]');
+  var processSection=document.getElementById('process');
+  var contactSection=document.getElementById('contact');
+  var desktop=window.matchMedia('(min-width: 769px)');
+  var scheduled=false;
+
+  if(!processLink||!contactLink||!processSection||!contactSection){return;}
+
+  function updateActiveSection(){
+    scheduled=false;
+    var activeLink=null;
+
+    if(desktop.matches){
+      var marker=window.innerHeight*.6;
+      var processRect=processSection.getBoundingClientRect();
+      var contactRect=contactSection.getBoundingClientRect();
+
+      if(contactRect.top<=marker&&contactRect.bottom>marker){
+        activeLink=contactLink;
+      }else if(processRect.top<=marker&&processRect.bottom>marker){
+        activeLink=processLink;
+      }
+    }
+
+    processLink.classList.toggle('is-active',activeLink===processLink);
+    contactLink.classList.toggle('is-active',activeLink===contactLink);
+  }
+
+  function scheduleUpdate(){
+    if(scheduled){return;}
+    scheduled=true;
+    window.requestAnimationFrame(updateActiveSection);
+  }
+
+  window.addEventListener('scroll',scheduleUpdate,{passive:true});
+  window.addEventListener('resize',scheduleUpdate);
+  window.addEventListener('hashchange',scheduleUpdate);
+  updateActiveSection();
+})();
 </script>
 
 <script>
