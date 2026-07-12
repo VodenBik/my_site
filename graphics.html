@@ -52,6 +52,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .content-desc{max-width:760px;color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:32px}
 .graphics-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .work-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;overflow:visible;transition:border-color .2s,transform .2s}
+.direction-card{display:block;color:inherit;text-decoration:none;overflow:hidden}
 .work-card:hover{border-color:var(--accent);transform:translateY(-2px)}
 .work-media{aspect-ratio:16/11;background:linear-gradient(135deg,rgba(200,255,0,.08),rgba(255,255,255,.025) 42%,rgba(255,255,255,.06));border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;padding:22px;text-align:center}
 .work-media::before{content:'';position:absolute;inset:18px;border:1px solid rgba(200,255,0,.12);border-radius:4px}
@@ -124,6 +125,7 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
   </button>  <ul class="nav-links">
     <li><a href="projects.html">Проекты</a></li>
     <li><a href="graphics.html">Графика</a></li>
+    <li><a href="presentations.html">Презентации</a></li>
     <li><a href="ai.html" class="nav-ai">AI</a></li>
     <li><a href="index.html#skills">Скиллы</a></li>
     <li><a href="index.html#process">Процесс</a></li>
@@ -242,6 +244,18 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
         <div class="work-media has-image"><img src="projects/graphics/lavera.webp" alt="Lavera / Лавера" loading="lazy"></div>
         <div class="work-body"><h3 class="work-title">Lavera / Лавера</h3><p class="work-text">Презентационная листовка с рекламной подачей: продукт, визуальный акцент и аккуратная композиция в одном материале.</p></div>
       </article>
+    </div>
+  </section>
+
+  <section class="graphics-group fade-up">
+    <p class="content-label">Расширенное портфолио</p>
+    <h2 class="content-title">Смотреть по направлениям</h2>
+    <p class="content-desc">Полные подборки работ с крупным просмотром изображений, краткими пояснениями и адаптивной подачей.</p>
+    <div class="graphics-grid">
+      <a class="work-card direction-card" href="vector.html"><div class="work-media has-image"><img src="images/vector/9.webp" alt="Векторная графика" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Векторная графика</h3><p class="work-text">13 примеров векторизации: знаки, персонажи, иллюстрации и принты.</p></div></a>
+      <a class="work-card direction-card" href="presentations.html"><div class="work-media has-image"><img src="images/presentations/14.webp" alt="Презентации" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Презентации</h3><p class="work-text">15 визуальных систем для бизнеса, технологий, обучения и недвижимости.</p></div></a>
+      <a class="work-card direction-card" href="advertisement.html"><div class="work-media has-image"><img src="images/advertisement/3/10.webp" alt="Рекламные материалы" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Рекламные материалы</h3><p class="work-text">35 макетов в шести тематических сериях для digital и печати.</p></div></a>
+      <a class="work-card direction-card" href="photoshop.html"><div class="work-media has-image"><img src="images/photoshop/1/1.webp" alt="Работы в Photoshop" loading="lazy" decoding="async"></div><div class="work-body"><h3 class="work-title">Photoshop</h3><p class="work-text">Коллажи, фотоманипуляции, реставрация и колоризация изображений.</p></div></a>
     </div>
   </section>
 </main>
