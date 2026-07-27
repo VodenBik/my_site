@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabucco — Stanislav</title>
+<meta name="description" content="Nabucco Italian Cuisine case: restaurant identity, logo, pattern, SMM materials and brand media.">
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=MuseoModerno:wght@400;500;600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--nabucco-orange:#E8531A;--nabucco-dark:#1A1008;--nabucco-cream:#F5F0E8}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+a{color:inherit;text-decoration:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(120px,16vw,240px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-subtitle{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border);background:var(--gray2)}
+.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
+.project-cover.nabucco-title-slide{max-width:980px;margin-left:48px;margin-right:auto;border:0;background:transparent;overflow:visible}
+.project-cover.nabucco-title-slide img{border:1px solid var(--border);border-radius:4px;background:var(--gray2)}
+.palette-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.palette-inner{max-width:1200px;margin:0 auto}
+.palette-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:32px;display:flex;align-items:center;gap:10px}
+.palette-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.palette-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.color-card{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.color-swatch{height:80px}
+.color-info{background:var(--black);padding:14px 16px}
+.color-name{font-size:13px;font-weight:400;color:var(--white);margin-bottom:4px}
+.color-hex{font-size:11px;color:var(--muted);font-family:monospace;letter-spacing:.04em}
+.color-role{font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+.font-section{padding:60px 48px;border-bottom:1px solid var(--border)}
+.font-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+.font-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.font-preview{font-size:clamp(32px,4vw,52px);line-height:1;color:var(--white)}
+.font-name{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.font-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:80px}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
+.content-text p{margin-bottom:16px}
+.content-text p:last-child{margin-bottom:0}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.step-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
+.step-card:hover{border-color:var(--accent)}
+.step-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
+.step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.step-text{font-size:13px;color:var(--muted);line-height:1.65}
+.deliverables-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.deliverable-item{display:flex;align-items:flex-start;gap:14px;padding:20px;background:var(--gray);border-radius:4px;border:1px solid var(--border)}
+.deliverable-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;flex-shrink:0;margin-top:6px}
+.deliverable-text{font-size:13px;color:var(--muted);line-height:1.5}
+.deliverable-text strong{color:var(--white);font-weight:500;display:block;margin-bottom:4px}
+.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.single-image{margin-top:32px}
+.smm-stack{display:grid;grid-template-columns:1fr;gap:16px;margin-top:32px}
+.images-grid img,.images-grid-3 img,.case-img{width:100%;height:auto;border-radius:4px;display:block;border:1px solid var(--border);background:var(--gray2)}
+.pattern-img{width:100%;max-width:1400px;height:auto;border-radius:4px;display:block;border:1px solid var(--border);background:var(--gray2)}
+.img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
+.img-ph.wide{aspect-ratio:16/9}
+.img-ph.square{aspect-ratio:1/1}
+.quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
+.quote-text{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-sub{font-size:13px;color:var(--muted)}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){nav{padding:20px 24px}.project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}.project-cover{margin:0 24px}.project-cover.nabucco-title-slide{max-width:none;margin-inline:24px}.project-content{padding:60px 24px}.palette-section,.font-section{padding:48px 24px}.palette-grid{grid-template-columns:1fr}.font-grid,.steps-grid{grid-template-columns:1fr}.deliverables-grid{grid-template-columns:1fr 1fr}.images-grid{grid-template-columns:1fr}.images-grid-3{grid-template-columns:1fr 1fr}.next-project{padding:60px 24px}footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}}
+@media(max-width:600px){.deliverables-grid,.images-grid-3{grid-template-columns:1fr}body{cursor:auto}.cursor{display:none}.project-meta-grid{grid-template-columns:1fr}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent,var(--a,#C8FF00))}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent,var(--a,#C8FF00))}
+.nav-links .nav-ai{color:var(--black,var(--b,#0A0A0A));background:var(--accent,var(--a,#C8FF00));border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black,var(--b,#0A0A0A));background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent,var(--a,#C8FF00));color:var(--black,var(--b,#0A0A0A));padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+@media(max-width:1024px){.nav-cta{display:none}}
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+<link rel="stylesheet" href="../mobile-tune.css?v=nav-active">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="index.html" class="nav-logo">STANISLAV<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <ul class="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="graphics.html">Graphics</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Contact</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Contact</a>
+</nav>
+<section class="project-hero">
+  <div class="hero-bg">ITALIA</div>
+  <div class="project-hero-left">
+    <p class="project-type">Identity</p>
+    <h1 class="project-title">Nabucco</h1>
+    <p class="project-subtitle">Corporate identity for an Italian restaurant in Alanya. Logo, color system, typography, media and SMM materials - from scratch to a full-fledged brand.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Client</p><p class="meta-value">Nabucco Italian Cuisine</p></div>
+      <div class="meta-item"><p class="meta-label">Year</p><p class="meta-value">2024</p></div>
+      <div class="meta-item"><p class="meta-label">Type</p><p class="meta-value">Identity & SMM</p></div>
+      <div class="meta-item"><p class="meta-label">Location</p><p class="meta-value">Alanya, Türkiye</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">Illustrator</span>
+      <span class="tag">Photoshop</span>
+      <span class="tag">Logo</span>
+      <span class="tag">Brand book</span>
+      <span class="tag">SMM</span>
+      <span class="tag">HoReCa</span>
+    </div>
+  </div>
+</section>
+<div class="project-cover nabucco-title-slide fade-up"><img src="../projects/nabucco/17.webp" alt="Nabucco Italian Cuisine - title slide"></div>
+<div class="project-content">
+  <div class="content-section fade-up">
+    <p class="content-label">Task</p>
+    <h2 class="content-title">How it all started</h2>
+    <div class="content-text">
+      <p>The Italian restaurant Nabucco opened in Alanya from scratch. The owner, Flavio di Marki, is an Italian who has long dreamed of opening a restaurant in Turkey. There was nothing ready-made at all: no logo, no colors, no understanding of the visual image.</p>
+      <p>Task: to create a full-fledged brand from scratch. It had to convey real Italian cuisine, while working in a Turkish context and not look like just another pizza place with the Italian flag on the sign.</p>
+    </div>
+    <div class="quote-block"><p class="quote-text">«It was my dream — to open my own restaurant in Turkey. Now the dream came true»</p><p class="quote-sub">Flavio di Marki, owner of Nabucco Italian Cuisine</p></div>
+  </div>
+  <div class="content-section fade-up">
+    <p class="content-label">Study</p>
+    <h2 class="content-title">Brainstorm and analysis</h2>
+    <div class="content-text">
+      <p>I started with an analysis of competitors in Alanya - most Italian restaurants use predictable solutions: a red and green palette, pizza in the logo, “Italian” typography with serifs. All this has long since depreciated.</p>
+      <p>I studied modern Italian brands in Europe - there is a trend towards laconicism, geometry, orange and terracotta shades. These are the colors of Italian architecture, sun, terracotta - real Italy, not a tourist cliché.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><p class="step-title">Competitor analysis</p><p class="step-text">Collected 20+ Italian restaurants in Alanya and Europe. I identified patterns that need to be avoided and blind spots where you can go.</p></div>
+      <div class="step-card"><div class="step-num">02</div><p class="step-title">References and mood</p><p class="step-text">I put together a mood board: modern Italian architecture, terracotta, geometric patterns, street markets of Naples. Confirmed with the client.</p></div>
+      <div class="step-card"><div class="step-num">03</div><p class="step-title">The name as a concept</p><p class="step-text">Nabucco is an opera by Verdi, a symbol of Italian culture. The name already carries history and character. This became the conceptual anchor.</p></div>
+      <div class="step-card"><div class="step-num">04</div><p class="step-title">Target audience and context</p><p class="step-text">A restaurant in Alanya has a mixed audience: tourists, Europeans and locals. You need to work for both groups without losing character.</p></div>
+    </div>
+  </div>
+  <div class="content-section fade-up">
+    <p class="content-label">Logo</p>
+    <h2 class="content-title">Creation of a sign</h2>
+    <div class="content-text">
+      <p>The logo is based on the monogram “NU” - the first letters of Nabucco. The shape of the sign is geometric, with a characteristic fracture that refers to the architectural elements of Italian buildings. The sign works both as an independent symbol and in conjunction with lettering.</p>
+      <p>The lettering "nabYcco" is a deliberately non-standard spelling with a capital Y in the middle. This is a visual trick that makes the name memorable and creates personality even in a text block.</p>
+    </div>
+    <div class="single-image"><img class="case-img" src="../projects/nabucco/15.webp" alt="Nabucco - monogram and logo"></div>
+  </div>
+</div>
+<div class="palette-section fade-up">
+  <div class="palette-inner">
+    <p class="palette-label">Color palette</p>
+    <div class="palette-grid">
+      <div class="color-card"><div class="color-swatch" style="background:#E8531A"></div><div class="color-info"><p class="color-name">Nabucco Orange</p><p class="color-hex">#E8531A</p><p class="color-role">Primary accent</p></div></div>
+      <div class="color-card"><div class="color-swatch" style="background:#1A1008"></div><div class="color-info"><p class="color-name">Espresso</p><p class="color-hex">#1A1008</p><p class="color-role">Base background</p></div></div>
+      <div class="color-card"><div class="color-swatch" style="background:#F5F0E8"></div><div class="color-info"><p class="color-name">Cream</p><p class="color-hex">#F5F0E8</p><p class="color-role">Light background/text</p></div></div>
+    </div>
+  </div>
+</div>
+<div class="font-section fade-up">
+  <div class="project-content" style="padding:0">
+    <p class="content-label">Typography</p>
+    <h2 class="content-title">Font selection</h2>
+    <div class="content-text"><p>Two fonts with clear roles: one for headings - characteristic, with personality. The second is for text - clean, functional. Both work together on all media.</p></div>
+    <div class="font-grid">
+      <div class="font-card"><div class="font-preview" style="font-family:'MuseoModerno',sans-serif;font-weight:500;letter-spacing:-.03em">Nabucco</div><p class="font-name">MuseoModerno</p><p class="font-desc">Title font. Geometric grotesque with rounded shapes - modern but warm. Used for logo, menu headings, signage.</p></div>
+      <div class="font-card"><div class="font-preview" style="font-family:'Times New Roman',serif;font-style:italic;font-size:clamp(24px,3vw,40px)">Italian cuisine</div><p class="font-name">Myriad Pro</p><p class="font-desc">Text font. Neutral sans-serif with good readability. Used for descriptions of dishes, captions and tags in social media materials.</p></div>
+    </div>
+  </div>
+</div>
+<div class="project-content">
+  <div class="content-section fade-up">
+    <p class="content-label">Pattern and graphics</p>
+    <h2 class="content-title">Ornament as an element of the system</h2>
+    <div class="content-text"><p>The key element of the identity, in addition to the logo, is a geometric pattern based on the NU monogram. The pattern is built from repeating characters and is used on packaging, media, and backgrounds of SMM materials.</p><p>The pattern works as a recognizable element of the system and allows you to quickly transfer the identity to different media without overloading the layout.</p></div>
+    <div class="single-image"><img class="pattern-img" src="../projects/nabucco/5.webp" alt="Nabucco - ornament"></div>
+  </div>
+  <div class="content-section fade-up">
+    <p class="content-label">SMM materials</p>
+    <h2 class="content-title">Content for social networks</h2>
+    <div class="content-text"><p>Developed a template system for Instagram. Each post follows a grid: an area for a product photo, an area for text, a logo in a fixed position. This allows the client to create content independently without losing their corporate identity.</p></div>
+    <div class="smm-stack">
+      <img class="case-img" src="../projects/nabucco/3.webp" alt="Nabucco - SMM material 3">
+      <img class="case-img" src="../projects/nabucco/4.webp" alt="Nabucco - SMM material 4">
+      <img class="case-img" src="../projects/nabucco/6.webp" alt="Nabucco - SMM material 6">
+      <img class="case-img" src="../projects/nabucco/9.webp" alt="Nabucco - SMM material 9">
+    </div>
+  </div>
+  <div class="content-section fade-up">
+    <p class="content-label">Applications</p>
+    <h2 class="content-title">Identity applications</h2>
+    <div class="content-text"><p>The corporate identity is applied to all physical and digital media of the restaurant. A single system works from a business card to a façade sign.</p></div>
+    <div class="deliverables-grid">
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Menu</strong>Printed menu in corporate colors with brand typography</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Package</strong>Pizza boxes with pattern and logo</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Merch</strong>Staff uniform with NU monogram on orange background</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Instagram</strong>Template system for posts and stories</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Business cards</strong>Double-sided, dark and orange version</div></div>
+      <div class="deliverable-item"><div class="deliverable-dot"></div><div class="deliverable-text"><strong>Brand book</strong>Rules for using the sign, colors, typography</div></div>
+    </div>
+    <div class="single-image"><img class="case-img" src="../projects/nabucco/8.webp" alt="Nabucco - branded stationery"></div>
+  </div>
+  <div class="content-section fade-up">
+    <p class="content-label">Result</p>
+    <h2 class="content-title">Outcome</h2>
+    <div class="content-text"><p>A complete identity from scratch: logo, monogram, color system, typography, ornament, templates for SMM and rules for use on media.</p><p>The main thing is that the brand does not look like another Italian restaurant in a tourist city. It has character, consistency, and recognition. The orange-dark palette stands out in the feed and on the street among competitors with predictable red-green.</p><p>The client received not just a logo, but a ready-made system that can be scaled to new locations, new media, new content formats.</p></div>
+    <img class="case-img" style="margin-top:40px" src="../projects/nabucco/13.webp" alt="Nabucco — welcome to our restaurant">
+  </div>
+</div>
+<a href="projects.html" class="next-project"><div><p class="next-label">All projects</p><p class="next-title">Projects</p></div><span class="next-arrow">&#8594;</span></a>
+<footer><span>&#169; 2026 Stanislav</span><span>Designer &amp; AI specialist · Alanya</span></footer>
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>

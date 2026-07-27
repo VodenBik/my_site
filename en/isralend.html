@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isralend Online Grocery Store — Stanislav</title>
+<meta name="description" content="Isralend case: an online grocery store with a catalog, cart, three languages ​​and sending orders to Telegram and email.">
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links .nav-ai{color:var(--black);background:var(--accent);border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black);background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent);color:var(--black);padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(110px,15vw,220px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left,.project-hero-right{position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:18px;color:var(--white)}
+.project-desc{font-size:16px;line-height:1.75;color:var(--muted);max-width:620px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400;line-height:1.45}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.cover{margin:0 48px;border:1px solid var(--border);border-radius:4px;overflow:hidden;background:var(--gray2)}
+.cover img{width:100%;display:block}
+.case-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:88px}
+.content-section:last-child{margin-bottom:0}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:18px;line-height:.95}
+.content-text{max-width:800px;color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:32px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:24px;min-height:132px}
+.feature-num{font-family:'Oswald',sans-serif;font-weight:600;font-size:36px;line-height:1;color:var(--accent);opacity:.35;margin-bottom:14px}
+.feature-title{font-size:15px;font-weight:500;color:var(--white);line-height:1.35;margin-bottom:8px}
+.feature-text{font-size:13px;color:var(--muted);line-height:1.65}
+.preview-frame{background:#101010;border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.preview-frame img{width:100%;height:auto;display:block;object-fit:contain;background:#101010}
+.mindmap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:36px}
+.mindmap-center{grid-column:1/-1;background:var(--accent);color:var(--black);border-radius:4px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.mindmap-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(32px,4vw,56px);line-height:.95}
+.mindmap-caption{font-size:13px;line-height:1.6;max-width:360px;font-weight:400}
+.mindmap-node{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:24px;position:relative;min-width:0}
+.mindmap-node::before{content:'';position:absolute;top:-17px;left:24px;width:1px;height:16px;background:var(--accent);opacity:.45}
+.mindmap-node h3{font-size:15px;font-weight:500;color:var(--white);margin-bottom:14px}
+.mindmap-node ul{list-style:none;display:grid;gap:8px}
+.mindmap-node li{font-size:13px;color:var(--muted);line-height:1.5;padding-left:14px;position:relative}
+.mindmap-node li::before{content:'';position:absolute;left:0;top:.68em;width:5px;height:5px;border-radius:50%;background:var(--accent)}
+.vibe-block{background:var(--gray);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:4px;padding:32px 40px}
+.vibe-block p{max-width:850px;color:var(--muted);font-size:15px;line-height:1.85}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .cover{margin-inline:24px}
+  .case-content{padding:60px 24px}
+  .feature-grid,.mindmap{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+  .nav-cta{display:none}
+}
+@media(max-width:600px){
+  .project-meta-grid,.feature-grid,.mindmap{grid-template-columns:1fr}
+  .project-title{font-size:clamp(42px,13vw,58px)}
+  .cover{margin-inline:18px}
+  .case-content{padding:56px 18px}
+  .mindmap-center{flex-direction:column;align-items:flex-start}
+  .next-project{align-items:flex-start;gap:24px}
+  .nav-links{display:none}
+  body{cursor:auto}
+  .cursor{display:none}
+}
+</style>
+<link rel="stylesheet" href="../mobile-tune.css?v=nav-active">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">STANISLAV<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="graphics.html">Graphics</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Contact</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Contact</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-bg">ISRALEND</div>
+  <div class="project-hero-left">
+    <p class="project-type">E-commerce</p>
+    <h1 class="project-title">Isralend</h1>
+    <p class="project-desc">Online grocery store with a catalog, shopping cart, three languages ​​and automatic order sending.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Project</p><p class="meta-value">Isralend</p></div>
+      <div class="meta-item"><p class="meta-label">Format</p><p class="meta-value">online store, catalog, shopping cart, applications</p></div>
+      <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">structure, interface, logic, vibe coding</p></div>
+      <div class="meta-item"><p class="meta-label">Integrations</p><p class="meta-value">Telegram / email / 3 languages</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">E-commerce</span>
+      <span class="tag">Food market</span>
+      <span class="tag">Multilingual</span>
+      <span class="tag">Telegram orders</span>
+      <span class="tag">Vibe coding</span>
+    </div>
+  </div>
+</section>
+
+<div class="cover fade-up">
+  <img src="../projects/covers/isralend-cover.webp" alt="Cover of the Isralend project - online grocery store" loading="lazy">
+</div>
+
+<main class="case-content">
+  <section class="content-section fade-up">
+    <p class="content-label">About the project</p>
+    <h2 class="content-title">Working e-commerce without heavy development</h2>
+    <p class="content-text">Isralend is an online grocery store. The site is made for convenient selection of products, placing an order and placing an order without a complex CRM: the user goes from the catalog to the cart, and the order is automatically sent to Telegram and email.</p>
+    <p class="content-text">The project was assembled as a practical e-commerce tool with an emphasis on launch speed, clear structure and further scaling of the assortment.</p>
+  </section>
+
+  <section class="content-section fade-up">
+    <p class="content-label">Interface</p>
+    <h2 class="content-title">Catalog, cards and ordering</h2>
+    <p class="content-text">The main screen shows the product structure of the site: categories, product cards, cart and ordering script in one clear user flow.</p>
+    <div class="preview-frame">
+      <img src="../projects/isralend/isralend-2.webp" alt="Interface of the Isralend website with product catalog and ordering" loading="lazy">
+    </div>
+  </section>
+
+  <section class="content-section fade-up">
+    <p class="content-label">Implementation</p>
+    <h2 class="content-title">What was implemented</h2>
+    <div class="feature-grid">
+      <article class="feature-card"><p class="feature-num">01</p><h3 class="feature-title">Product catalog</h3><p class="feature-text">A structure of categories and products that can be expanded without rebuilding all the logic.</p></article>
+      <article class="feature-card"><p class="feature-num">02</p><h3 class="feature-title">Product cards</h3><p class="feature-text">A clear presentation of the product: name, visual, price and a quick way to add to cart.</p></article>
+      <article class="feature-card"><p class="feature-num">03</p><h3 class="feature-title">Basket</h3><p class="feature-text">A script for checking an order before shipping, without unnecessary steps and complicated registration.</p></article>
+      <article class="feature-card"><p class="feature-num">04</p><h3 class="feature-title">Placing an order</h3><p class="feature-text">The form collects user data and helps turn product selection into a completed order.</p></article>
+      <article class="feature-card"><p class="feature-num">05</p><h3 class="feature-title">Telegram and email</h3><p class="feature-text">The order is automatically sent to Telegram and also sent by email for processing.</p></article>
+      <article class="feature-card"><p class="feature-num">06</p><h3 class="feature-title">Three languages</h3><p class="feature-text">Multilingual logic helps adapt the interface to different user needs.</p></article>
+      <article class="feature-card"><p class="feature-num">07</p><h3 class="feature-title">Responsive layout</h3><p class="feature-text">The site works as a showcase and ordering tool on mobile and desktop screens.</p></article>
+      <article class="feature-card"><p class="feature-num">08</p><h3 class="feature-title">Extensibility</h3><p class="feature-text">The structure is designed for adding new products, categories and work scenarios.</p></article>
+      <article class="feature-card"><p class="feature-num">09</p><h3 class="feature-title">Quick start</h3><p class="feature-text">The goal of the project is to obtain a functional e-commerce tool without a long development cycle.</p></article>
+    </div>
+  </section>
+
+  <section class="content-section fade-up">
+    <p class="content-label">Mindmap</p>
+    <h2 class="content-title">Project logic</h2>
+    <p class="content-text">Instead of a set of separate screens, the project is based on a combination of a catalog, a user flow, communications and multilingualism.</p>
+    <div class="mindmap">
+      <div class="mindmap-center">
+        <p class="mindmap-title">Isralend</p>
+        <p class="mindmap-caption">An online store where the product display is immediately linked to the cart, checkout and order-processing channels.</p>
+      </div>
+      <article class="mindmap-node"><h3>Catalog</h3><ul><li>categories</li><li>product cards</li><li>descriptions</li><li>prices</li></ul></article>
+      <article class="mindmap-node"><h3>Customer journey</h3><ul><li>product selection</li><li>add to cart</li><li>review order</li><li>submit order</li></ul></article>
+      <article class="mindmap-node"><h3>Communications</h3><ul><li>Telegram</li><li>email</li><li>order notification</li></ul></article>
+      <article class="mindmap-node"><h3>Multilingual</h3><ul><li>3 languages</li><li>localized interfaces</li><li>clear navigation</li></ul></article>
+      <article class="mindmap-node"><h3>Vibe coding</h3><ul><li>rapid prototype</li><li>functional logic</li><li>iterative improvement</li></ul></article>
+    </div>
+  </section>
+
+  <section class="content-section fade-up">
+    <p class="content-label">Vibe coding</p>
+    <h2 class="content-title">Fast iterations to a working site</h2>
+    <div class="vibe-block">
+      <p>The project was assembled in vibe coding format: from the idea and structure of the catalog to the functional logic of the shopping cart, multilingualism and sending orders. This approach made it possible to quickly get not merely a mockup, but a functional website, ready to be tested with real users.</p>
+    </div>
+  </section>
+</main>
+
+<a class="next-project" href="projects.html">
+  <div>
+    <p class="next-label">All projects</p>
+    <p class="next-title">Projects</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>&copy; 2026 Stanislav</span>
+  <span>Designer &amp; AI specialist · Alanya</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,.feature-card,.mindmap-node,.preview-frame').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')})});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>

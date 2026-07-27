@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Stanislav</title>
+<meta name="description" content="A selection of Stanislav's projects: websites, presentations, branding and visual systems for commercial tasks.">
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-links .nav-ai{color:var(--black);background:var(--accent);border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black);background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent);color:var(--black);padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(110px,15vw,220px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left,.project-hero-right{position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(58px,7.4vw,112px);line-height:.9;letter-spacing:-.01em;margin-bottom:18px;color:var(--white)}
+.project-desc{font-size:16px;line-height:1.75;color:var(--muted);max-width:600px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400;line-height:1.45}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.intro-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--gray)}
+.intro-inner{max-width:1200px;margin:0 auto}
+.intro-text{font-size:18px;line-height:1.8;color:var(--white);max-width:900px}
+.projects-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.project-list-card{display:block;text-decoration:none;color:inherit;background:var(--gray);border:1px solid var(--border);border-radius:4px;overflow:hidden;transition:border-color .2s,transform .2s}
+.project-list-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.project-list-media{aspect-ratio:16/10;background:var(--gray2);overflow:hidden}
+.project-list-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .45s ease,filter .45s ease}
+.project-list-card:hover img{transform:scale(1.04);filter:brightness(.82)}
+.project-list-body{padding:24px}
+.project-list-title{font-size:17px;font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.35}
+.project-list-text{font-size:13px;color:var(--muted);line-height:1.65}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .intro-section,.projects-content{padding:60px 24px}
+  .projects-grid{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+  .nav-cta{display:none}
+}
+@media(max-width:600px){
+  .project-meta-grid,.projects-grid{grid-template-columns:1fr}
+  .project-title{font-size:clamp(42px,13vw,58px)}
+  .intro-text{font-size:16px}
+  .next-project{align-items:flex-start;gap:24px}
+  .nav-links{display:none}
+  body{cursor:auto}
+  .cursor{display:none}
+}
+</style>
+<link rel="stylesheet" href="../mobile-tune.css?v=nav-active">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">STANISLAV<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="graphics.html">Graphics</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Contact</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Contact</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-bg">PROJECTS</div>
+  <div class="project-hero-left">
+    <p class="project-type">Projects</p>
+    <h1 class="project-title">Projects</h1>
+    <p class="project-desc">Websites, presentations, visual systems and commercial cases are projects where design works not as decoration, but as structure, presentation and a clear path for the client.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Client</p><p class="meta-value">commercial and self-initiated projects</p></div>
+      <div class="meta-item"><p class="meta-label">Format</p><p class="meta-value">websites, presentations, branding, visual systems</p></div>
+      <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">concept, design, structure, visual execution</p></div>
+      <div class="meta-item"><p class="meta-label">Location</p><p class="meta-value">Alanya / remote</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">Websites</span>
+      <span class="tag">Presentations</span>
+      <span class="tag">Branding</span>
+      <span class="tag">Tilda</span>
+      <span class="tag">Visual Systems</span>
+    </div>
+  </div>
+</section>
+
+<section class="intro-section fade-up">
+  <div class="intro-inner">
+    <p class="intro-text">This page collects projects that can be opened as separate cases: websites, presentations, visual concepts and commercial materials. The main page remains a showcase of key work, and here is a full list of projects.</p>
+  </div>
+</section>
+
+<main class="projects-content">
+  <div class="projects-grid">
+    <a class="project-list-card fade-up" href="fortress.html">
+      <div class="project-list-media"><img src="../projects/covers/1.webp" alt="Fortress Investment" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Fortress Investment</h2><p class="project-list-text">Website and brand book for an investment project: navigation, property selection, visual system and presentation design.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="nabucco.html">
+      <div class="project-list-media"><img src="../projects/covers/nabucco-cover.webp" alt="Nabucco" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Nabucco</h2><p class="project-list-text">Presentation case with architectural presentation, structure and visual storytelling.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="boyarko.html">
+      <div class="project-list-media"><img src="../projects/covers/boyarko-cover.webp" alt="Boyarko" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Boyarko</h2><p class="project-list-text">Visual presentation of the project with an emphasis on image, presentation and commercial structure.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="osteriya.html">
+      <div class="project-list-media"><img src="../projects/covers/osteriya-cover.webp" alt="Osteriya" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Osteriya</h2><p class="project-list-text">Website and visual system for a restaurant project.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="siberia.html">
+      <div class="project-list-media"><img src="../projects/covers/siberia-cover.webp" alt="Siberia" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Siberia</h2><p class="project-list-text">Visual concept and presentation of the project.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="poolsun.html">
+      <div class="project-list-media"><img src="../projects/covers/poolsun-cover.webp" alt="Poolsun" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Poolsun</h2><p class="project-list-text">Website and visual system for a swimming pool company.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="agrotek.html">
+      <div class="project-list-media"><img src="../projects/covers/agrotek-cover.webp" alt="Agrotek" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Agrotek</h2><p class="project-list-text">Presentation case for an agricultural brand and visual system.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="lavera.html">
+      <div class="project-list-media"><img src="../projects/covers/lavera_cover_1.webp" alt="Lavera" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Lavera</h2><p class="project-list-text">Visual identity for the café: menu, signature items, breakfasts, desserts and promotional materials.</p></div>
+    </a>
+    <a class="project-list-card fade-up" href="isralend.html">
+      <div class="project-list-media"><img src="../projects/covers/isralend-cover.webp" alt="Isralend" loading="lazy"></div>
+      <div class="project-list-body"><h2 class="project-list-title">Isralend</h2><p class="project-list-text">Online grocery store with multilingual support, a shopping cart and automatic order sending.</p></div>
+    </a>
+  </div>
+</main>
+
+<a class="next-project" href="graphics.html">
+  <div>
+    <p class="next-label">Next section</p>
+    <p class="next-title">Graphics</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>&copy; 2026 Stanislav</span>
+  <span>Designer &amp; AI specialist · Alanya</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,.project-list-card').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')})});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>

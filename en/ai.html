@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Design and Automation — Stanislav</title>
+<meta name="description" content="Stanislav's AI projects: image and video generation, automation, applications, bots and working prototypes.">
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(110px,15vw,220px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left,.project-hero-right{position:relative;z-index:1}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(58px,7.4vw,112px);line-height:.9;letter-spacing:-.01em;margin-bottom:18px;color:var(--white)}
+.project-desc{font-size:16px;line-height:1.75;color:var(--muted);max-width:560px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400;line-height:1.45}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.intro-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--gray)}
+.intro-inner{max-width:1200px;margin:0 auto}
+.intro-text{font-size:18px;line-height:1.8;color:var(--white);max-width:850px}
+.ai-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.ai-group{margin-bottom:88px}
+.ai-group:last-child{margin-bottom:0}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:32px;line-height:.95}
+.ai-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.ai-grid.wide{grid-template-columns:repeat(4,1fr)}
+.ai-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;overflow:visible;transition:border-color .2s,transform .2s}
+.ai-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.ai-media{aspect-ratio:16/10;background:linear-gradient(135deg,rgba(200,255,0,.08),rgba(255,255,255,.025) 42%,rgba(255,255,255,.06));border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative;padding:22px;text-align:center}
+.ai-media::before{content:'';position:absolute;inset:18px;border:1px solid rgba(200,255,0,.12);border-radius:4px}
+.media-label{position:relative;z-index:1;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,236,.46);line-height:1.5}
+.ai-media.has-image{padding:0;background:#111}
+.ai-media.has-image::before{display:none}
+.ai-media img{width:100%;height:100%;object-fit:contain;display:block}
+.ai-card-body{padding:24px}
+.ai-card-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px;line-height:1.35}
+.ai-card-text{font-size:13px;color:var(--muted);line-height:1.65}
+.ai-card-link{display:block;color:inherit;text-decoration:none}
+.ai-card-youtube{background:var(--accent);border-color:var(--accent);color:var(--black)}
+.ai-card-youtube .ai-card-title,.ai-card-youtube .ai-card-text{color:var(--black)}
+.ai-card-youtube .ai-media{background:rgba(10,10,10,.12);border-bottom:1px solid rgba(10,10,10,.16)}
+.ai-card-youtube:hover{border-color:var(--white)}
+.apk-section{margin-top:8px;margin-bottom:88px;padding:48px;background:var(--gray);border:1px solid var(--border);border-radius:4px}
+.apk-lead{max-width:780px;color:var(--muted);font-size:15px;line-height:1.8;margin-bottom:40px}
+.apk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+.phone-card{text-align:center}
+.phone-shell{width:min(100%,280px);margin:0 auto 18px;padding:10px;border-radius:32px;background:#080808;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.phone-screen{aspect-ratio:9/19;border-radius:24px;overflow:hidden;background:#050505;display:flex;align-items:center;justify-content:center;position:relative}
+.phone-screen img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
+.phone-placeholder{padding:24px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,236,.46);line-height:1.5}
+.phone-title{font-size:13px;color:var(--white);font-weight:500}
+.approach-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.approach-inner{max-width:1200px;margin:0 auto}
+.approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.approach-card{background:var(--black);border:1px solid var(--border);border-radius:4px;padding:28px 24px}
+.approach-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:48px;color:var(--accent);opacity:.22;line-height:1;margin-bottom:16px}
+.approach-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.approach-text{font-size:13px;color:var(--muted);line-height:1.65}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .intro-section,.ai-content,.approach-section{padding:60px 24px}
+  .ai-grid,.ai-grid.wide,.approach-grid{grid-template-columns:1fr 1fr}
+  .apk-section{padding:36px 24px}
+  .apk-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  .phone-shell{border-radius:26px;padding:8px}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+}
+@media(max-width:600px){
+  .project-meta-grid,.ai-grid,.ai-grid.wide,.approach-grid,.apk-grid{grid-template-columns:1fr}
+  .apk-section{padding:32px 18px}
+  .phone-shell{max-width:260px}
+  body{cursor:auto}
+  .cursor{display:none}
+}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent,var(--a,#C8FF00))}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent,var(--a,#C8FF00))}
+.nav-links .nav-ai{color:var(--black,var(--b,#0A0A0A));background:var(--accent,var(--a,#C8FF00));border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black,var(--b,#0A0A0A));background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent,var(--a,#C8FF00));color:var(--black,var(--b,#0A0A0A));padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+@media(max-width:1024px){.nav-cta{display:none}}
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+<link rel="stylesheet" href="../mobile-tune.css?v=nav-active">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">STANISLAV<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <ul class="nav-links">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="graphics.html">Graphics</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="ai.html" class="nav-ai" aria-current="page">AI</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Contact</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Contact</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-bg">AI</div>
+  <div class="project-hero-left">
+    <p class="project-type">AI direction</p>
+    <h1 class="project-title">AI design and automation</h1>
+    <p class="project-desc">Practical AI tools, bots, generators, parsers, visual experiments and production systems that help you produce content, documents, websites and creative materials faster.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Client</p><p class="meta-value">own projects / commercial tasks</p></div>
+      <div class="meta-item"><p class="meta-label">Format</p><p class="meta-value">AI tools, websites, bots, generators</p></div>
+      <div class="meta-item"><p class="meta-label">Role</p><p class="meta-value">concept, interface, prompts, logic, visual system</p></div>
+      <div class="meta-item"><p class="meta-label">Location</p><p class="meta-value">Alanya</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">Automation</span>
+      <span class="tag">Bots</span>
+      <span class="tag">Prompts</span>
+      <span class="tag">Content</span>
+      <span class="tag">Prototypes</span>
+    </div>
+  </div>
+</section>
+
+<section class="intro-section fade-up">
+  <div class="intro-inner">
+    <p class="intro-text">This practice is not about isolated AI-generated images; it is about building practical systems: from automation of documents and news to visual concepts, prompt systems and AI pipelines for content.</p>
+  </div>
+</section>
+
+<main class="ai-content">
+  <section class="ai-group fade-up">
+    <p class="content-label">Group 1</p>
+    <h2 class="content-title">AI tools</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/contract-check.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/contract-check.webp" alt="Contract review"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Contract review</h3><p class="ai-card-text">The service helps to analyze a contract, identify risks and ambiguous clauses, and prepare a clear report.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/contract-generator.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/contract-generator.webp" alt="Contract generator"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Contract generator</h3><p class="ai-card-text">The tool collects contracts based on the given data, inserts party details, dates, and roles, then generates a finished document.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/seo.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/seo.webp" alt="SEO Keyword Collector"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">SEO Keyword Collector</h3><p class="ai-card-text">The tool helps to collect and structure search queries for a website, article or landing page in order to quickly move from chaotic ideas to a working semantic core.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="ai-group fade-up">
+    <p class="content-label">Group 2</p>
+    <h2 class="content-title">Bots and education</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/news-bot.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/news-bot.webp" alt="News Aggregator"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">News Aggregator</h3><p class="ai-card-text">The bot tracks sources, selects relevant news, removes repetitions and helps prepare editorial drafts.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/chess.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/chess.webp" alt="Chess"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Chess</h3><p class="ai-card-text">An interactive format to test the user's chess knowledge, logic and progress.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/storybook.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/storybook.webp" alt="Storybook"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Storybook</h3><p class="ai-card-text">An educational project in the format of an interactive story: structure, visual materials and scenarios help turn learning into an engaging learning experience.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="ai-group fade-up">
+    <p class="content-label">Group 3</p>
+    <h2 class="content-title">Websites and interfaces</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/expatito-1.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/expatito-1.webp" alt="Expatito - service portal for expats in Turkey"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Expatito</h3><p class="ai-card-text">Service portal for expats in Turkey: useful sections, navigation through everyday tasks, documents, guides, problems and solutions for life after moving.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/isralend.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/isralend.webp" alt="Isralend - online food store"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Isralend</h3><p class="ai-card-text">An online food store with a product catalog, categories, cards, a shopping cart and a convenient structure for placing an order.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/dofamine.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/dofamine.webp" alt="Dopamine Steps"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Dopamine Steps</h3><p class="ai-card-text">Interface for tracking actions, progress and small daily tasks.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="ai-group fade-up">
+    <p class="content-label">Group 4</p>
+    <h2 class="content-title">Prompts, images and videos</h2>
+    <div class="ai-grid">
+      <article class="ai-card" data-image="projects/ai/prompt-builder.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/prompt-builder.webp" alt="Prompt constructor"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Prompt constructor</h3><p class="ai-card-text">The system helps to collect prompts by blocks: style, character, location, action, camera, light and restrictions.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/video-pipeline.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/video-pipeline.webp" alt="Video Pipeline"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Video Pipeline</h3><p class="ai-card-text">Scripts for working with the first and final frames, camera movement, continuity lock and generation of short scenes.</p></div>
+      </article>
+      <a class="ai-card ai-card-link ai-card-youtube" href="https://www.youtube.com/@desegnator" target="_blank" rel="noopener noreferrer" data-image="projects/ai/youtube-ai.webp">
+        <div class="ai-media has-image"><img src="../projects/ai/youtube-ai.webp" alt="YouTube"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">YouTube</h3><p class="ai-card-text">Desegnator channel with materials about AI, visual experiments, prompts, videos and practical application of neural networks in design.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="apk-section fade-up">
+    <p class="content-label">APK</p>
+    <h2 class="content-title">Android apps</h2>
+    <p class="apk-lead">Small Android applications and experimental interfaces, assembled as working prototypes: with on-screen logic, a visual system and a clear user flow.</p>
+    <div class="apk-grid">
+      <div class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="../projects/ai/apk-1.webp" alt="APK prototype 01"></div></div>
+        <p class="phone-title">APK prototype 01</p>
+      </div>
+      <div class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="../projects/ai/apk-2.webp" alt="APK prototype 02"></div></div>
+        <p class="phone-title">APK prototype 02</p>
+      </div>
+      <div class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="../projects/ai/apk-3.webp" alt="APK prototype 03"></div></div>
+        <p class="phone-title">APK prototype 03</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="approach-section fade-up">
+  <div class="approach-inner">
+    <p class="content-label">Approach</p>
+    <h2 class="content-title">How I work with AI</h2>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-num">01</div>
+        <h3 class="approach-title">First the task, then the tool</h3>
+        <p class="approach-text">AI is used not for the sake of effect, but where it reduces manual work, speeds up analysis, or helps assemble a working prototype.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">02</div>
+        <h3 class="approach-title">Visual and logic together</h3>
+        <p class="approach-text">For me, an AI case is not just a picture or a prompt, but a combination of an interface, a script, a data structure and a result for the user.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">03</div>
+        <h3 class="approach-title">Verifiable result</h3>
+        <p class="approach-text">What is important is not the promises, but the working scenario: what the user enters, what the user receives as output, and how it can be applied.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a class="next-project" href="projects.html">
+  <div>
+    <p class="next-label">Next section</p>
+    <p class="next-title">Projects</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>© 2026 Stanislav</span>
+  <span>Designer &amp; AI specialist · Alanya</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,.ai-card').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')})});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible')}})},{threshold:.12});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>

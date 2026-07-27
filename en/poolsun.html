@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poolsun — Stanislav</title>
+<meta name="description" content="Poolsun case: website and visual system of a company for the construction of swimming pools, hammams and saunas.">
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back::before{content:'←';font-size:14px}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;border-bottom:1px solid var(--border)}
+.project-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.project-eyebrow-line{width:40px;height:1px;background:var(--accent)}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.92;letter-spacing:-.01em;color:var(--white);margin-bottom:24px}
+.project-subtitle{font-size:16px;color:var(--muted);line-height:1.7;max-width:480px}
+.project-meta-grid{display:flex;flex-direction:column;gap:0;justify-content:flex-end}
+.meta-row{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border)}
+.meta-row:first-child{border-top:1px solid var(--border)}
+.meta-label{font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.meta-value{font-size:13px;color:var(--white);text-align:right}
+.project-cover{max-width:1200px;margin:0 auto;padding:48px;border-bottom:1px solid var(--border)}
+.project-cover img{width:100%;height:auto;object-fit:contain;display:block;border:1px solid var(--border);border-radius:4px;background:var(--gray2)}
+.project-content{max-width:1200px;margin:0 auto;padding:80px 48px}
+.content-section{margin-bottom:80px}
+.content-section:last-child{margin-bottom:0}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.section-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.section-text{font-size:16px;color:var(--muted);line-height:1.8;max-width:680px}
+.images-stack{display:grid;grid-template-columns:1fr;gap:28px;margin:48px 0}
+.images-stack img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
+.tags-wrap{display:flex;gap:8px;flex-wrap:wrap;margin-top:32px}
+.tag{padding:7px 16px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;gap:40px;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);line-height:.95;color:var(--white);letter-spacing:-.01em;text-transform:uppercase}
+.next-arrow{font-size:48px;color:var(--accent);flex-shrink:0;transition:transform .2s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){nav{padding:20px 24px}.project-hero{grid-template-columns:1fr;padding:120px 24px 60px;gap:40px}.project-cover{padding:32px 24px}.project-content{padding:60px 24px}.next-project{padding:60px 24px}footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}}
+@media(max-width:600px){body{cursor:auto}.cursor{display:none}}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent,var(--a,#C8FF00))}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent,var(--a,#C8FF00))}
+.nav-links .nav-ai{color:var(--black,var(--b,#0A0A0A));background:var(--accent,var(--a,#C8FF00));border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black,var(--b,#0A0A0A));background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent,var(--a,#C8FF00));color:var(--black,var(--b,#0A0A0A));padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+@media(max-width:1024px){.nav-cta{display:none}}
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+<link rel="stylesheet" href="../mobile-tune.css?v=nav-active">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="index.html" class="nav-logo">STANISLAV<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <ul class="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="graphics.html">Graphics</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Contact</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Contact</a>
+</nav>
+<section class="project-hero">
+  <div>
+    <div class="project-eyebrow"><div class="project-eyebrow-line"></div><span class="project-type">Website</span></div>
+    <h1 class="project-title">Poolsun</h1>
+    <p class="project-subtitle">Corporate website for a company designing, installing and maintaining swimming pools.</p>
+    <div class="tags-wrap" style="margin-top:32px"><span class="tag">Tilda</span><span class="tag">UI design</span><span class="tag">Corporate</span><span class="tag">Development</span></div>
+  </div>
+  <div class="project-meta-grid">
+    <div class="meta-row"><span class="meta-label">Client</span><span class="meta-value">Poolsun</span></div>
+    <div class="meta-row"><span class="meta-label">Task</span><span class="meta-value">Corporate website</span></div>
+    <div class="meta-row"><span class="meta-label">Tools</span><span class="meta-value">Tilda · Figma</span></div>
+    <div class="meta-row"><span class="meta-label">Year</span><span class="meta-value">2025</span></div>
+  </div>
+</section>
+<div class="project-cover fade-up"><img src="../projects/covers/poolsun-cover.webp" alt="Poolsun - site cover"></div>
+<div class="project-content">
+  <div class="content-section fade-up">
+    <p class="section-label">Task</p>
+    <h2 class="section-title">The brief</h2>
+    <p class="section-text">Create the Poolsun website as a clear showcase of an engineering company. The page should quickly explain what the team does, why it can be trusted, and how to submit a request without unnecessary searching on the site.</p>
+  </div>
+  <div class="content-section fade-up">
+    <p class="section-label">Solution</p>
+    <h2 class="section-title">Page logic</h2>
+    <p class="section-text">The structure is built around trust: clear positioning on the first screen, directions of work, visual examples, quality arguments and a clear path to contact. The visual style is based on large typography, a dark base and photographs of water, so that the site looks collected, technologically advanced and more expensive than typical contractor pages.</p>
+  </div>
+  <div class="content-section fade-up">
+    <p class="section-label">Visual system</p>
+    <h2 class="section-title">Strict technological style</h2>
+    <div class="images-stack">
+      <img class="case-img" src="../projects/poolsun/2.webp" alt="Poolsun - logo and project description">
+      <img class="case-img" src="../projects/poolsun/3.webp" alt="Poolsun - pool section">
+      <img class="case-img" src="../projects/poolsun/4.webp" alt="Poolsun - hammams and saunas">
+      <img class="case-img" src="../projects/poolsun/5.webp" alt="Poolsun - advantages">
+    </div>
+  </div>
+  <div class="content-section fade-up">
+    <p class="section-label">Process</p>
+    <h2 class="section-title">How the structure was assembled</h2>
+    <p class="section-text">First, the logic of the page was collected: what the company does, what objects it employs, how it differs from competitors, and where the user should leave a request. After this, the structure was transferred to Tilda and refined through visual blocks, adaptation and neat accents in the interface.</p>
+  </div>
+  <div class="content-section fade-up">
+    <p class="section-label">Result</p>
+    <h2 class="section-title">Outcome</h2>
+    <p class="section-text">The result was a solid presentation page for a swimming pool company: without unnecessary decorative noise, without repeating the cover and without undersized previews. The images are shown large, and the text guides users from understanding the service to submitting an enquiry.</p>
+  </div>
+</div>
+<a href="projects.html" class="next-project"><div><p class="next-label">All projects</p><p class="next-title">Projects</p></div><span class="next-arrow">→</span></a>
+<footer><span>&#169; 2026 Stanislav</span><span>Designer &amp; AI specialist · Alanya</span></footer>
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*100)});},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>

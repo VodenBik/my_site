@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agrotek — Stanislav</title>
+<meta name="description" content="Case Agrotek: strategic presentation on the development of an agricultural holding, built as an integral visual narrative.">
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(120px,16vw,240px);letter-spacing:-.04em;color:rgba(255,255,255,.02);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-subtitle{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(24px,3vw,42px);line-height:1;letter-spacing:-.01em;margin-bottom:32px;color:var(--accent)}
+.project-desc{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.project-cover img{width:100%;display:block;object-fit:cover}
+.project-cover-ph{width:100%;aspect-ratio:21/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
+.stats-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--black)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.stat-block{background:var(--gray);padding:28px}
+.stat-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px}
+.stat-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:80px}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
+.content-text p{margin-bottom:16px}
+.content-text p:last-child{margin-bottom:0}
+.concept-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:40px}
+.concept-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
+.concept-card:hover{border-color:var(--accent)}
+.concept-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:48px;color:var(--accent);opacity:.25;line-height:1;margin-bottom:16px}
+.concept-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.concept-text{font-size:13px;color:var(--muted);line-height:1.65}
+.narrative-section{padding:0 48px;margin-bottom:80px}
+.narrative-item{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:48px 0;border-top:1px solid var(--border)}
+.narrative-item:last-child{border-bottom:1px solid var(--border)}
+.narrative-item.reverse{direction:rtl}
+.narrative-item.reverse > *{direction:ltr}
+.narrative-slide-num{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.narrative-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(28px,3vw,44px);color:var(--white);line-height:.95;margin-bottom:16px}
+.narrative-desc{font-size:14px;color:var(--muted);line-height:1.75}
+.narrative-img{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.narrative-img-ph{width:100%;aspect-ratio:16/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333}
+.narrative-img img{width:100%;display:block;object-fit:cover}
+.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid img,.images-grid-3 img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
+.img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
+.img-ph.wide{aspect-ratio:16/9}
+.images-full-ph{width:100%;aspect-ratio:16/9;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333;border:1px solid var(--border);margin-bottom:16px}
+.images-full img{width:100%;border-radius:4px;display:block;border:1px solid var(--border);margin-bottom:16px}
+.quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
+.quote-text{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-sub{font-size:13px;color:var(--muted)}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){
+  nav{padding:20px 24px}
+  .project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}
+  .project-cover{margin:0 24px}
+  .narrative-section{margin:0;padding:0 24px}
+  .project-content{padding:60px 24px}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .concept-grid{grid-template-columns:1fr 1fr}
+  .narrative-item{grid-template-columns:1fr;gap:24px}
+  .narrative-item.reverse{direction:ltr}
+  .images-grid{grid-template-columns:1fr}
+  .images-grid-3{grid-template-columns:1fr 1fr}
+  .next-project{padding:60px 24px}
+  footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}
+  .stats-section{padding:60px 24px;background:var(--black)}
+}
+@media(max-width:600px){
+  .concept-grid,.images-grid-3{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .narrative-section{padding:0 24px}
+  body{cursor:auto}
+  .cursor{display:none}
+  .project-meta-grid{grid-template-columns:1fr}
+}
+
+/* REAL PROJECT IMAGES */
+.project-cover{background:var(--gray2)}
+.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
+.images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
+.logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
+.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent,var(--a,#C8FF00))}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent,var(--a,#C8FF00))}
+.nav-links .nav-ai{color:var(--black,var(--b,#0A0A0A));background:var(--accent,var(--a,#C8FF00));border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black,var(--b,#0A0A0A));background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent,var(--a,#C8FF00));color:var(--black,var(--b,#0A0A0A));padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+@media(max-width:1024px){.nav-cta{display:none}}
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+<link rel="stylesheet" href="../mobile-tune.css?v=nav-active">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+
+<nav>
+  <a href="index.html" class="nav-logo">STANISLAV<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <ul class="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="graphics.html">Graphics</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Contact</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Contact</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-bg">AGRO</div>
+  <div class="project-hero-left">
+    <p class="project-type">Presentation</p>
+    <h1 class="project-title">Agrotek</h1>
+    <p class="project-subtitle">Development strategy 2026</p>
+    <p class="project-desc">Multi-page strategic presentation for the Agrotek group of companies. The task is to convey the scale, ambitions and path of the company from a distributor to an independent full-cycle holding company.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Client</p><p class="meta-value">Agrotek Group</p></div>
+      <div class="meta-item"><p class="meta-label">Year</p><p class="meta-value">2026</p></div>
+      <div class="meta-item"><p class="meta-label">Type</p><p class="meta-value">Strategic presentation</p></div>
+      <div class="meta-item"><p class="meta-label">Slides</p><p class="meta-value">16</p></div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">PowerPoint</span>
+      <span class="tag">Strategy</span>
+      <span class="tag">B2B</span>
+      <span class="tag">Infographics</span>
+      <span class="tag">Narrative</span>
+    </div>
+  </div>
+</section>
+<div class="project-cover fade-up"><img src="../projects/covers/agrotek-cover.webp" alt="Agrotek - presentation cover"></div>
+
+<!-- STATS -->
+<div class="stats-section fade-up">
+  <div class="stats-grid">
+    <div class="stat-block">
+      <div class="stat-num">600+</div>
+      <div class="stat-desc">employees in the company</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">50+</div>
+      <div class="stat-desc">regions of presence</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">7000+</div>
+      <div class="stat-desc">partners throughout Russia</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">25M</div>
+      <div class="stat-desc">rubles of annual revenue</div>
+    </div>
+  </div>
+</div>
+
+<div class="project-content">
+
+  <!-- ЗАДАЧА -->
+  <div class="content-section fade-up">
+    <p class="content-label">Task</p>
+    <h2 class="content-title">The brief</h2>
+    <div class="content-text">
+      <p>The Agrotek group of companies is one of the largest agricultural holdings in Russia, operating in the segment of seeds, plant protection products and fertilizers. The company has evolved from a small distributor to a vertically integrated holding with its own science, production and sales.</p>
+      <p>Task: create a strategic presentation for the Start of the 2026 Season conference, which will show the company’s path, its philosophy and ambitions. The audience is managers, partners and employees. Tone: inspiring, without pretension.</p>
+    </div>
+  </div>
+
+  <!-- АНАЛИЗ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Analysis</p>
+    <h2 class="content-title">Research before starting</h2>
+    <div class="content-text">
+      <p>Before starting, I analyzed the company’s positioning: Agrotek does not just sell seeds - they are building an independent system that does not depend on Western players. After the departure of global brands in 2022, the company did not retreat, but seized the vacated space.</p>
+      <p>Key insight: the company has a strong emotional narrative - from the pressure of giants to sovereignty. This became the basis for the structure of the presentation.</p>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="concept-num">01</div>
+        <p class="concept-title">Narrative as a basis</p>
+        <p class="concept-text">Instead of dry numbers, there is a story of transformation. From pressure to sovereignty, from “I” to “We”. Each slide continues this story.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-num">02</div>
+        <p class="concept-title">Visual Contrast</p>
+        <p class="concept-text">A dark background dominates B2B presentations for serious meetings. The green accent is the brand's signature color. White text - maximum contrast and readability.</p>
+      </div>
+      <div class="concept-card">
+        <div class="concept-num">03</div>
+        <p class="concept-title">Lively imagery</p>
+        <p class="concept-text">Memes, strong metaphors (evolution, a tree, an old tractor versus modern machinery), real photos of the team. Not corporate boredom—living energy.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- НАРРАТИВ — КЛЮЧЕВЫЕ СЛАЙДЫ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Narrative</p>
+    <h2 class="content-title">Story structure</h2>
+    <div class="content-text">
+      <p>The presentation is structured as a journey - from the past to the future, from individual experience to collective purpose. Each slide is a key point in the company's history.</p>
+    </div>
+  </div>
+</div>
+
+<!-- КЛЮЧЕВЫЕ СЛАЙДЫ -->
+<div class="narrative-section">
+
+  <div class="narrative-item fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Slide 02</p>
+      <h3 class="narrative-title">Technologies change, but values ​​remain</h3>
+      <p class="narrative-desc">Opening image after the title. Great-grandfather's old tractor versus modern agricultural technology. This is about continuity - the company grew from real people with real roots, and not from offices. The slide provides an emotional anchor before the strategic part.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="../projects/agrotek/3.webp" alt="Agrotek - technologies change, values ​​remain the same">
+    </div>
+  </div>
+
+  <div class="narrative-item reverse fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Slide 03</p>
+      <h3 class="narrative-title">From personal journey to shared strength</h3>
+      <p class="narrative-desc">This slide connects personal motivation of employees with the movement of the entire company. I assembled the composition around the idea of ​​belonging: a person sees in the development of Agrotek not an abstract corporate goal, but a continuation of their own path. Therefore, it is not the numbers that are important here, but the sense of scale - the country, the company and each participant within one story.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="../projects/agrotek/4.webp" alt="Agrotek - belonging to something greater">
+    </div>
+  </div>
+
+  <div class="narrative-item fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Slide 05</p>
+      <h3 class="narrative-title">From pressure to sovereignty</h3>
+      <p class="narrative-desc">Here it was necessary to show the turning point without dry business language. The slide captures the state of dependence and external pressure, and then translates this emotion into the main thesis of the presentation: Agrotek is moving away from an unequal partnership to its own system of solutions. This way the strategy becomes clear not through a table, but through a strong visual contrast.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="../projects/agrotek/6.webp" alt="Agrotek - moving beyond an unequal partnership">
+    </div>
+  </div>
+
+  <div class="narrative-item reverse fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Slide 08</p>
+      <h3 class="narrative-title">Innovation with character</h3>
+      <p class="narrative-desc">This block is intentionally bold to break the tone of a corporate presentation. Instead of a neat illustration about technology, there is a vivid comparison: competitors look like outdated metal, Agrotek looks like an engineering system of the future. The slide is designed to be memorable and adds energy to the presentation, which is often lacking in B2B presentations.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="../projects/agrotek/8.webp" alt="Agrotek - competitors and innovations">
+    </div>
+  </div>
+
+  <div class="narrative-item fade-up">
+    <div class="narrative-text">
+      <p class="narrative-slide-num">Slide 09</p>
+      <h3 class="narrative-title">Who we are today - numbers</h3>
+      <p class="narrative-desc">After the narrative, there are the facts. 300+ varieties, 1000+ plant protection products, 600+ employees, 7000+ partners, 25 million in revenue. The slide with numbers deliberately comes after the emotional part - the audience is already involved and ready to perceive the scale.</p>
+    </div>
+    <div class="narrative-img">
+      <img class="narrative-img-ph narrative-img" src="../projects/agrotek/9.webp" alt="Agrotek - who we are today">
+    </div>
+  </div>
+
+</div>
+
+<div class="project-content">
+
+  <!-- ПРОЦЕСС -->
+  <div class="content-section fade-up">
+    <p class="content-label">Process</p>
+    <h2 class="content-title">How I built it</h2>
+    <div class="content-text">
+      <p>I started by immersing myself in the company’s materials: history, values, key events. From this, the main conflict of the presentation crystallized - pressure vs sovereignty - which became the backbone of the plot.</p>
+      <p>The structure was based on the principle of a narrative arc: emotional start (history, roots) → conflict (2022, departure of Western players) → victory (holding, innovation) → inspiration (team, future). Numbers and statistics are only in the middle, when the audience is already emotionally involved.</p>
+      <p>Each slide was tested by one question: “What should the viewer feel at this moment?” If there was no answer, the slide was redone.</p>
+    </div>
+
+    <div class="quote-block">
+      <p class="quote-text">The departure of global players became a signal for us to attack, not retreat</p>
+      <p class="quote-sub">The key message of the presentation that determined the entire visual tone</p>
+    </div>
+  </div>
+
+  <!-- СКРИНЫ ПРОИЗВОДСТВА -->
+  <div class="content-section fade-up">
+    <p class="content-label">Visual system</p>
+    <h2 class="content-title">Design solutions</h2>
+    <div class="content-text">
+      <p>Dark background #0D2318 - Agrotek’s corporate green in a dark version. This creates a feeling of depth and seriousness without losing the corporate identity. Headings - Bebas Neue, large, bold. Accent green - only on keywords.</p>
+    </div>
+    <div class="images-grid" style="margin-top:32px">
+      <img class="img-ph wide case-img" src="../projects/agrotek/10.webp" alt="Agrotek - production unit">
+      <img class="img-ph wide case-img" src="../projects/agrotek/11.webp" alt="Agrotek - team section">
+    </div>
+    <div class="images-grid" style="margin-top:16px">
+      <img class="img-ph wide case-img" src="../projects/agrotek/7.webp" alt="Agrotek - goal, strength, path">
+      <img class="img-ph wide case-img" src="../projects/agrotek/15.webp" alt="Agrotek - final slide">
+    </div>
+  </div>
+
+  <!-- РЕЗУЛЬТАТ -->
+  <div class="content-section fade-up">
+    <p class="content-label">Result</p>
+    <h2 class="content-title">Outcome</h2>
+    <div class="content-text">
+      <p>A 16-slide presentation with a single visual system and narrative from the first to the last slide. Used at the “Start of Season 2026” conference in front of an audience of 600+ employees and partners.</p>
+      <p>The main achievement is that the presentation does not look like a corporate report. This is a story with character, humor and real emotions that holds the attention of the audience from beginning to end.</p>
+    </div>
+  </div>
+
+</div>
+
+<a href="projects.html" class="next-project">
+  <div>
+    <p class="next-label">All projects</p>
+    <p class="next-title">Projects</p>
+  </div>
+  <span class="next-arrow">&#8594;</span>
+</a>
+
+<footer>
+  <span>&#169; 2026 Stanislav</span>
+  <span>Designer &amp; AI specialist · Alanya</span>
+</footer>
+
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(function(el){
+  el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});
+  el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});
+});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});
+},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>

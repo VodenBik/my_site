@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Osteriya — Stanislav</title>
+<meta name="description" content="Osteriya case: restaurant promotional website with daily menu, dish cards and visual system.">
+<link rel="icon" href="../assets/favicon/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&family=Onest:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#0A0A0A;--white:#F5F2EC;--accent:#C8FF00;--gray:#1A1A1A;--gray2:#2A2A2A;--muted:#666;--border:rgba(255,255,255,0.08);--os-cream:#F5EDD8;--os-olive:#3D4A2E;--os-gold:#B8860B;--os-warm:#E8DBC0}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'Onest',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+.cursor.hover{width:40px;height:40px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white);text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent)}
+.nav-back{position:relative;z-index:1;display:flex;align-items:center;gap:10px;font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s}
+.nav-back:hover{color:var(--accent)}
+.nav-back:hover .nav-back-arrow{transform:translateX(-4px)}
+.nav-back-arrow{display:inline-block;transition:transform .2s}
+.project-hero{padding:140px 48px 80px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;min-height:75vh;position:relative;overflow:hidden}
+.hero-bg{position:absolute;bottom:-20px;right:-10px;font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(100px,14vw,200px);letter-spacing:-.04em;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.project-hero-left{display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1}
+.project-type{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.project-type::before{content:'';display:inline-block;width:28px;height:1px;background:var(--accent)}
+.project-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(64px,8vw,120px);line-height:.9;letter-spacing:-.01em;margin-bottom:16px;color:var(--white)}
+.project-subtitle{font-size:16px;line-height:1.75;color:var(--muted);max-width:480px}
+.project-hero-right{display:flex;flex-direction:column;gap:24px;justify-content:flex-end;position:relative;z-index:1}
+.project-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden}
+.meta-item{background:var(--gray);padding:20px 24px}
+.meta-label{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.meta-value{font-size:14px;color:var(--white);font-weight:400}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{padding:8px 18px;background:rgba(255,255,255,.04);color:var(--muted);border-radius:100px;font-size:11px;font-weight:500;letter-spacing:.06em;border:1px solid var(--border)}
+.project-cover{margin:0 48px;border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.project-cover img{width:100%;display:block;object-fit:cover}
+.project-cover-ph{width:100%;aspect-ratio:21/9;background:var(--gray2);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#333}
+.stats-section{padding:60px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--black)}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border)}
+.stat-block{background:var(--gray);padding:28px}
+.stat-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:44px;color:var(--accent);line-height:1;margin-bottom:8px}
+.stat-desc{font-size:12px;color:var(--muted);line-height:1.5}
+.project-content{padding:80px 48px;max-width:1200px;margin:0 auto}
+.content-section{margin-bottom:80px}
+.content-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.content-label::before{content:'';display:inline-block;width:20px;height:1px;background:var(--accent)}
+.content-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,56px);color:var(--white);margin-bottom:24px;line-height:.95}
+.content-text{font-size:15px;line-height:1.85;color:var(--muted);max-width:680px}
+.content-text p{margin-bottom:16px}
+.content-text p:last-child{margin-bottom:0}
+.steps-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.step-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
+.step-card:hover{border-color:var(--accent)}
+.step-num{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:48px;color:var(--accent);opacity:.2;line-height:1;margin-bottom:16px}
+.step-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.step-text{font-size:13px;color:var(--muted);line-height:1.65}
+.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.feature-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px;transition:border-color .2s}
+.feature-card:hover{border-color:var(--accent)}
+.feature-icon{font-size:28px;margin-bottom:16px;display:block}
+.feature-title{font-size:15px;font-weight:500;color:var(--white);margin-bottom:10px}
+.feature-text{font-size:13px;color:var(--muted);line-height:1.65}
+.feature-tag{display:inline-block;background:rgba(200,255,0,.06);color:var(--accent);font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:100px;border:1px solid rgba(200,255,0,.15);margin-top:12px}
+.mindmap-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.mindmap-grid{display:grid;grid-template-columns:1fr 2fr;gap:48px;align-items:start;margin-top:40px}
+.mindmap-center{background:rgba(200,255,0,.06);border:1px solid rgba(200,255,0,.2);border-radius:4px;padding:32px;text-align:center}
+.mindmap-center-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:36px;color:var(--accent);line-height:.95;margin-bottom:8px}
+.mindmap-center-sub{font-size:12px;color:var(--muted);letter-spacing:.06em}
+.mindmap-branches{display:flex;flex-direction:column;gap:12px}
+.branch{background:var(--black);border:1px solid var(--border);border-radius:4px;padding:20px 24px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s}
+.branch:hover{border-color:var(--accent)}
+.branch-arrow{color:var(--accent);font-size:18px;flex-shrink:0;margin-top:2px}
+.branch-title{font-size:13px;font-weight:500;color:var(--white);margin-bottom:4px}
+.branch-text{font-size:12px;color:var(--muted);line-height:1.5}
+.palette-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.color-card{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.color-swatch{height:80px}
+.color-info{background:var(--black);padding:14px 16px}
+.color-name{font-size:13px;font-weight:400;color:var(--white);margin-bottom:4px}
+.color-hex{font-size:11px;color:var(--muted);font-family:monospace}
+.color-role{font-size:10px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:.08em}
+.images-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px}
+.images-grid img,.images-grid-3 img{width:100%;border-radius:4px;display:block;border:1px solid var(--border)}
+.img-ph{aspect-ratio:4/3;background:var(--gray2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#333;border:1px solid var(--border)}
+.img-ph.wide{aspect-ratio:16/9}
+.img-ph.tall{aspect-ratio:3/4}
+.quote-block{background:var(--gray);border-left:3px solid var(--accent);padding:32px 40px;border-radius:0 4px 4px 0;margin:40px 0}
+.quote-text{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(22px,2.5vw,32px);color:var(--white);line-height:1.1;margin-bottom:16px}
+.quote-sub{font-size:13px;color:var(--muted)}
+.conversion-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.conv-card{background:var(--gray);border:1px solid var(--border);border-radius:4px;padding:28px 24px}
+.conv-before{font-size:13px;color:var(--muted);margin-bottom:8px}
+.conv-arrow{font-size:20px;color:var(--accent);margin-bottom:8px;display:block}
+.conv-after{font-size:15px;font-weight:500;color:var(--white);margin-bottom:8px}
+.conv-result{font-size:12px;color:var(--accent)}
+.next-project{padding:80px 48px;display:flex;align-items:center;justify-content:space-between;text-decoration:none;transition:background .2s;border-top:1px solid var(--border)}
+.next-project:hover{background:var(--gray)}
+.next-label{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.next-title{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:clamp(36px,4vw,60px);color:var(--white);line-height:.95}
+.next-arrow{font-size:48px;color:var(--accent);transition:transform .3s}
+.next-project:hover .next-arrow{transform:translateX(8px)}
+footer{background:var(--black);border-top:1px solid var(--border);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:1024px){nav{padding:20px 24px}.project-hero{grid-template-columns:1fr;padding:120px 24px 60px;min-height:auto;gap:40px}.project-cover{margin:0 24px}.project-content,.mindmap-section,.stats-section{padding:60px 24px}.stats-grid{grid-template-columns:repeat(2,1fr)}.features-grid,.steps-grid,.conversion-grid{grid-template-columns:1fr}.mindmap-grid{grid-template-columns:1fr}.palette-grid{grid-template-columns:1fr 1fr}.images-grid{grid-template-columns:1fr}.images-grid-3{grid-template-columns:1fr 1fr}.next-project{padding:60px 24px}footer{flex-direction:column;gap:8px;padding:20px 24px;text-align:center}}
+@media(max-width:600px){.palette-grid,.images-grid-3{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr 1fr}body{cursor:auto}.cursor{display:none}.project-meta-grid{grid-template-columns:1fr}}
+.project-cover{background:var(--gray2)}
+.project-cover img{width:100%;height:auto;display:block;object-fit:contain;background:var(--gray2)}
+.images-grid img,.images-grid-2 img,.images-grid-3 img,.narrative-img,.case-img{width:100%;height:auto;display:block;border-radius:4px;border:1px solid var(--border);background:var(--gray2)}
+.logo-preview img,.logo-card img{max-width:100%;height:auto;display:block}
+.logo-preview svg,.logo-card svg{max-width:100%;height:auto;display:block}
+.img-note{font-size:11px;line-height:1.5;color:var(--muted);margin-top:8px}
+.external-link{color:var(--accent);text-decoration:none;font-weight:500}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;align-items:center;justify-content:space-between}
+nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);backdrop-filter:blur(20px);border-bottom:1px solid var(--border,var(--br,rgba(255,255,255,.08)))}
+.nav-logo{font-family:'Oswald',sans-serif;font-weight:600;text-transform:uppercase;font-size:22px;letter-spacing:.1em;color:var(--white,var(--w,#F5F2EC));text-decoration:none;position:relative;z-index:1}
+.nav-logo span{color:var(--accent,var(--a,#C8FF00))}
+.nav-links{display:flex;align-items:center;gap:40px;list-style:none;position:relative;z-index:1}
+.nav-links a{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted,var(--m,#666));text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent,var(--a,#C8FF00))}
+.nav-links .nav-ai{color:var(--black,var(--b,#0A0A0A));background:var(--accent,var(--a,#C8FF00));border:1px solid rgba(200,255,0,.55);border-radius:100px;padding:7px 13px;line-height:1;box-shadow:0 0 0 1px rgba(200,255,0,.08) inset;transition:background .2s,color .2s,transform .2s}
+.nav-links .nav-ai:hover{color:var(--black,var(--b,#0A0A0A));background:#d5ff33;transform:translateY(-1px)}
+.nav-cta{position:relative;z-index:1;background:var(--accent,var(--a,#C8FF00));color:var(--black,var(--b,#0A0A0A));padding:10px 24px;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border-radius:100px;transition:transform .2s}
+.nav-cta:hover{transform:scale(1.04)}
+@media(max-width:1024px){.nav-cta{display:none}}
+@media(max-width:600px){.nav-links{display:none}}
+</style>
+<link rel="stylesheet" href="../mobile-tune.css?v=nav-active">
+</head>
+<body>
+<div class="cursor" id="cursor"></div>
+<nav>
+  <a href="index.html" class="nav-logo">STANISLAV<span>.</span></a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>  <ul class="nav-links">
+    <li><a href="projects.html" aria-current="page">Projects</a></li>
+    <li><a href="graphics.html">Graphics</a></li>
+    <li><a href="presentations.html">Presentations</a></li>
+    <li><a href="ai.html" class="nav-ai">AI</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+      <li class="nav-mobile-cta"><a href="https://t.me/sawhite">Contact</a></li>
+  </ul>
+  <a href="https://t.me/sawhite" class="nav-cta">Contact</a>
+</nav>
+<section class="project-hero">
+  <div class="hero-bg">ITALY</div>
+  <div class="project-hero-left">
+    <p class="project-type">Website · Web development</p>
+    <h1 class="project-title">Osteriya</h1>
+    <p class="project-subtitle">Website for the delivery of Italian business lunches in Iskele, Northern Cyprus. Logo, dynamic menu, automatic change once a week, shopping cart, CRM and integration with mail and Telegram.</p>
+  </div>
+  <div class="project-hero-right">
+    <div class="project-meta-grid">
+      <div class="meta-item"><p class="meta-label">Client</p><p class="meta-value">Osteriya · Chef Vladimir Vodka</p></div>
+      <div class="meta-item"><p class="meta-label">Website</p><p class="meta-value">osteriya.com</p></div>
+      <div class="meta-item"><p class="meta-label">Platform</p><p class="meta-value">Tilda</p></div>
+      <div class="meta-item"><p class="meta-label">Location</p><p class="meta-value">Iskele, Northern Cyprus</p></div>
+    </div>
+    <div class="project-tags"><span class="tag">Tilda</span><span class="tag">Logo</span><span class="tag">JavaScript</span><span class="tag">CRM</span><span class="tag">Telegram API</span><span class="tag">HoReCa</span></div>
+  </div>
+</section>
+<div class="project-cover fade-up"><img src="../projects/covers/osteriya-cover.webp" alt="Osteriya - site cover"></div>
+<div class="stats-section fade-up">
+  <div class="stats-grid">
+    <div class="stat-block"><div class="stat-num">2</div><div class="stat-desc">Rotating menu - changes every Monday automatically</div></div>
+    <div class="stat-block"><div class="stat-num">6</div><div class="stat-desc">delivery days - Mon–Sat, 12:00–16:00</div></div>
+    <div class="stat-block"><div class="stat-num">3</div><div class="stat-desc">channels for receiving orders: mail, Telegram, CRM</div></div>
+    <div class="stat-block"><div class="stat-num">3</div><div class="stat-desc">dishes per day - salad, soup, main course</div></div>
+  </div>
+</div>
+<div class="project-content">
+  <div class="content-section fade-up">
+    <p class="content-label">Task</p>
+    <h2 class="content-title">Fast and working</h2>
+    <div class="content-text">
+      <p>Chef Vladimir Vodka, a chef with many years of experience in Italian and French cuisines and an internship in Hong Kong, opened the first gastronomic project in Northern Cyprus. Business lunches with delivery in Iskele: Italian cuisine, daily menu, three dishes to choose from.</p>
+      <p>Task: make a website quickly - the client wanted to launch in the coming days. At the same time, it had to solve real business problems: take orders, not require manual updating of the menu every week, and collect a customer base.</p>
+    </div>
+    <div class="quote-block"><p class="quote-text">The site should work on its own. The chef cooks - does not program.</p><p class="quote-sub">The key principle that determined all technical solutions</p></div>
+  </div>
+  <div class="content-section fade-up">
+    <p class="content-label">Brainstorm</p>
+    <h2 class="content-title">Key challenges</h2>
+    <div class="content-text"><p>The main problem: the daily menu is a data structure that changes 6 days a week. Plus two different menus for alternating weeks. If you do this through manual editing, the client will spend an hour every Monday. Automation is needed.</p><p>Second challenge: navigation. The menu is long - Mon/Tue/Wed/Thu/Fri/Sat. The user must get to the desired day with one click, without scrolling through the kilometers.</p></div>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><p class="step-title">Auto change menu</p><p class="step-text">Two full menus for all 6 days have already been uploaded to the site. The JavaScript script determines the current week number and shows the desired menu - odd/even week. Every Monday itself.</p></div>
+      <div class="step-card"><div class="step-num">02</div><p class="step-title">Sticky navigation by day</p><p class="step-text">When you scroll down, the menu blocks go up, and clickable blocks with the days of the week appear in the header. Click - the anchor link goes to the desired day. More convenient than most restaurant sites.</p></div>
+      <div class="step-card"><div class="step-num">03</div><p class="step-title">Cart and order</p><p class="step-text">“Add to cart” button on each dish. The client types the order, fills in the name, phone number, address and delivery time. The “remember contacts” checkbox means that when you return, the form has already been filled out.</p></div>
+      <div class="step-card"><div class="step-num">04</div><p class="step-title">Three notification channels</p><p class="step-text">The order arrives simultaneously by email, Telegram bot and CRM. The manager sees the notification on his phone a second later. Mail is for the archive. CRM - for working with repeat clients.</p></div>
+    </div>
+  </div>
+</div>
+<div class="mindmap-section fade-up"><div style="max-width:1200px;margin:0 auto"><p class="content-label" style="margin-bottom:12px">Project Mindmap</p><h2 style="font-family:'Oswald',sans-serif;font-size:clamp(36px,4vw,56px);color:var(--white);line-height:.95;margin-bottom:40px">From idea to launch</h2><div class="mindmap-grid"><div class="mindmap-center"><div class="mindmap-center-title">Osteriya</div><div class="mindmap-center-sub">Central product</div></div><div class="mindmap-branches"><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Logo and identity</p><p class="branch-text">The logo was developed and the color system was approved. Cream background, olive accent - Italian aesthetics without clichés. Adapted for web, print, website header.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Menu structure</p><p class="branch-text">6 days × 3 dishes × 2 menu options = 36 items loaded at once. Each dish - photo, name, composition, weight, price, add to cart button, pop-up card with details.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Automation of menu changes</p><p class="branch-text">JS script: getWeek() → even/odd → show menu-A or menu-B block. Fires when the page loads. The client never gets into the Tilda editor.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">UX navigation by day</p><p class="branch-text">Custom sticky header with anchor links for every day. On the desktop it appears when scrolling. On mobile - always visible. Tested: time to order reduced.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Cart + form + integrations</p><p class="branch-text">Tilda Store: cart, address and delivery time field, “remember” checkbox. Order → simultaneously by email, in a Telegram bot via webhook, in CRM Tilda to collect a customer base.</p></div></div><div class="branch"><div class="branch-arrow">→</div><div><p class="branch-title">Multilingual</p><p class="branch-text">RUS/TUR/ENG switch in the header. Iskele is an international city, the audience is mixed. Basic version in Russian, translated versions in Turkish and English.</p></div></div></div></div></div></div>
+<div class="project-content">
+  <div class="content-section fade-up"><p class="content-label">Visual system</p><h2 class="content-title">Logo and colors</h2><div class="content-text"><p>The challenge when developing the identity: Italian cuisine, but without the banal red-green flags and pizzas in the logo. Focusing on Mediterranean aesthetics - warm neutral tones, elegant typography, a homey trattoria feel.</p></div><div class="palette-grid"><div class="color-card"><div class="color-swatch" style="background:#F5EDD8"></div><div class="color-info"><p class="color-name">Panna</p><p class="color-hex">#F5EDD8</p><p class="color-role">Base background</p></div></div><div class="color-card"><div class="color-swatch" style="background:#3D4A2E"></div><div class="color-info"><p class="color-name">Basilico</p><p class="color-hex">#3D4A2E</p><p class="color-role">Accent buttons</p></div></div><div class="color-card"><div class="color-swatch" style="background:#B8860B"></div><div class="color-info"><p class="color-name">Oro</p><p class="color-hex">#B8860B</p><p class="color-role">Prices details</p></div></div><div class="color-card"><div class="color-swatch" style="background:#E8DBC0"></div><div class="color-info"><p class="color-name">Beige</p><p class="color-hex">#E8DBC0</p><p class="color-role">Cards block background</p></div></div></div></div>
+  <div class="content-section fade-up"><p class="content-label">Technical solutions</p><h2 class="content-title">Automation and integrations</h2><div class="features-grid"><div class="feature-card"><span class="feature-icon">🔄</span><p class="feature-title">Auto change menu</p><p class="feature-text">JavaScript determines the week number of the year. Odd - shows menu A, even - menu B. Both menus are always on the site, just one is hidden. No manual edits.</p><span class="feature-tag">JS · automation</span></div><div class="feature-card"><span class="feature-icon">📍</span><p class="feature-title">Sticky navigation</p><p class="feature-text">When you scroll down, the “Mon / Tue / Wed / Thu / Fri / Sat” bars appear. Click - an instant anchor transition to the desired day. Works on both desktop and mobile.</p><span class="feature-tag">UX navigation</span></div><div class="feature-card"><span class="feature-icon">🛒</span><p class="feature-title">Saved checkout details</p><p class="feature-text">Tilda Store with custom fields: address, delivery time, name. The “remember” checkbox saves the data in localStorage - the regular client does not fill out the form again.</p><span class="feature-tag">Tilda Store · UX</span></div><div class="feature-card"><span class="feature-icon">✈</span><p class="feature-title">Order in Telegram</p><p class="feature-text">Webhook Tilda → Telegram Bot API. With each order, the chef receives a message on his phone: name, phone number, address, time, order contents and amount. The notification arrives within seconds.</p><span class="feature-tag">Telegram API · webhook</span></div><div class="feature-card"><span class="feature-icon">👤</span><p class="feature-title">Customer CRM</p><p class="feature-text">Each order automatically goes into Tilda CRM: name, contact, purchase history. The pool of regular customers for newsletters and promotions is growing.</p><span class="feature-tag">CRM · Tilda</span></div><div class="feature-card"><span class="feature-icon">🌐</span><p class="feature-title">Three languages</p><p class="feature-text">Switch RUS / TUR / ENG in the header. The audience of Northern Cyprus is mixed: Russian speakers, local Turks, tourists. Everyone reads in their own language.</p><span class="feature-tag">i18n multi-language</span></div></div></div>
+  <div class="content-section fade-up"><p class="content-label">Conversion</p><h2 class="content-title">How to increase conversion</h2><div class="content-text"><p>Each solution was tested by one question: how much does it shorten the path from “saw the dish” to “clicked Order”. Here are the key changes that produced results.</p></div><div class="conversion-grid"><div class="conv-card"><p class="conv-before">Previously: scroll the entire menu to find the desired day</p><span class="conv-arrow">↓</span><p class="conv-after">Now: one click on the day sign in the header</p><p class="conv-result">Finding a dish now takes seconds, not minutes</p></div><div class="conv-card"><p class="conv-before">It happened: there was no popup with a description - customers could not tell what they were ordering</p><span class="conv-arrow">↓</span><p class="conv-after">Now: click on the photo - a card with composition, weight, price pops up</p><p class="conv-result">Fewer abandoned orders for unfamiliar dishes</p></div><div class="conv-card"><p class="conv-before">Previously: re-enter name, phone number, address each time</p><span class="conv-arrow">↓</span><p class="conv-after">Now: check “remember” - repeat order in two clicks</p><p class="conv-result">Regular customers order faster</p></div></div></div>
+  <div class="content-section fade-up"><p class="content-label">Screenshots</p><h2 class="content-title">Site pages</h2><div class="images-grid"><img class="img-ph wide case-img" src="../projects/osteriya/2.webp" alt="Osteriya - choice of day and menu"><img class="img-ph wide case-img" src="../projects/osteriya/3.webp" alt="Osteriya - dish cards"></div><div class="images-grid" style="margin-top:16px"><img class="img-ph wide case-img" src="../projects/osteriya/4.webp" alt="Osteriya - Tuesday menu"><img class="img-ph wide case-img" src="../projects/osteriya/6.webp" alt="Osteriya - final block"></div></div>
+  <div class="content-section fade-up"><p class="content-label">Result</p><h2 class="content-title">Outcome</h2><div class="content-text"><p>The site was launched on time - quickly, as required. At the same time, it solves every core business need: takes orders, changes the menu without manual input from the client, collects a customer base.</p><p>The main technical discovery is the automatic menu change via the week number. The client uploaded both menu options to Tilda once and never returned to it. The system runs automatically.</p><p>The site is available at <a class="external-link" href="https://osteriya.com/" target="_blank" rel="noopener">osteriya.com</a> — you can see live how navigation by day and switching languages ​​works.</p></div></div>
+</div>
+<a href="projects.html" class="next-project"><div><p class="next-label">All projects</p><p class="next-title">Projects</p></div><span class="next-arrow">&#8594;</span></a>
+<footer><span>&#169; 2026 Stanislav</span><span>Designer &amp; AI specialist · Alanya</span></footer>
+<script>
+var cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',function(e){cursor.style.left=e.clientX+'px';cursor.style.top=e.clientY+'px'});
+document.querySelectorAll('a,button').forEach(function(el){el.addEventListener('mouseenter',function(){cursor.classList.add('hover')});el.addEventListener('mouseleave',function(){cursor.classList.remove('hover')});});
+var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible')},i*80)});},{threshold:.1});
+document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('nav');
+  var toggle=document.querySelector('.nav-toggle');
+  if(!nav||!toggle){return;}
+  function closeMenu(){
+    nav.classList.remove('menu-open');
+    toggle.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded','false');
+  }
+  toggle.addEventListener('click',function(){
+    var open=!nav.classList.contains('menu-open');
+    nav.classList.toggle('menu-open',open);
+    toggle.classList.toggle('is-open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.querySelectorAll('.nav-links a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){closeMenu();}
+  });
+})();
+</script>
+</body>
+</html>
