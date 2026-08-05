@@ -1,0 +1,75 @@
+name: Fix duplicate mobile CSS
+
+on:
+  push:
+    branches: [fix-mobile-css]
+    paths:
+      - '.github/workflows/fix-mobile-css.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix-mobile-css
+
+      - name: Remove duplicate stylesheet and inspect automation
+        shell: python
+        run: |
+          from pathlib import Path
+
+          root = Path('.')
+          index = root / 'index.html'
+          text = index.read_text(encoding='utf-8')
+
+          versioned = '<link rel="stylesheet" href="mobile-tune.css?v=nav-active">'
+          duplicate = '<link rel="stylesheet" href="mobile-tune.css">'
+
+          if text.count(versioned) != 1:
+              raise RuntimeError(f'Expected one versioned mobile stylesheet link, found {text.count(versioned)}')
+          if text.count(duplicate) != 1:
+              raise RuntimeError(f'Expected one duplicate unversioned link, found {text.count(duplicate)}')
+
+          text = text.replace(duplicate + '\n', '', 1)
+          index.write_text(text, encoding='utf-8')
+
+          matches = []
+          workflows = root / '.github' / 'workflows'
+          if workflows.exists():
+              for path in workflows.glob('*'):
+                  if path.name == 'fix-mobile-css.yml' or not path.is_file():
+                      continue
+                  try:
+                      body = path.read_text(encoding='utf-8')
+                  except UnicodeDecodeError:
+                      continue
+                  if 'mobile-tune.css' in body or 'Link mobile-only CSS' in body:
+                      matches.append(str(path))
+
+          print('Other workflow references:', matches or 'none')
+          if matches:
+              raise RuntimeError('Another workflow may restore the duplicate stylesheet link')
+
+          (root / '.github' / 'workflows' / 'fix-mobile-css.yml').unlink()
+
+      - name: Verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(grep -c 'mobile-tune.css?v=nav-active' index.html)" = "1"
+          test "$(grep -c 'href="mobile-tune.css"' index.html || true)" = "0"
+          test ! -e .github/workflows/fix-mobile-css.yml
+
+      - name: Commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Remove duplicate mobile stylesheet link"
+          git push origin fix-mobile-css
