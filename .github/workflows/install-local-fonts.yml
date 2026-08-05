@@ -62,15 +62,13 @@ jobs:
 
           google_api = re.compile(r'\s*<link\b[^>]*href=["\']https://fonts\.googleapis\.com[^"\']*["\'][^>]*>\s*', re.I)
           google_static = re.compile(r'\s*<link\b[^>]*href=["\']https://fonts\.gstatic\.com[^"\']*["\'][^>]*>\s*', re.I)
+          closing_head = re.compile(r'</head\s*>', re.I)
 
           html_paths = sorted(root.rglob('*.html'))
           for path in html_paths:
               raw = path.read_bytes()
               has_bom = raw.startswith(b'\xef\xbb\xbf')
               text = raw.decode('utf-8-sig')
-
-              if not (google_api.search(text) or google_static.search(text)):
-                  continue
 
               text = google_api.sub('\n', text)
               text = google_static.sub('\n', text)
@@ -84,9 +82,9 @@ jobs:
               )
 
               if 'fonts-local.css' not in text:
-                  if '<style>' not in text:
-                      raise RuntimeError(f'No <style> tag found in {path}')
-                  text = text.replace('<style>', local_links + '<style>', 1)
+                  if not closing_head.search(text):
+                      raise RuntimeError(f'No closing head tag found in {path}')
+                  text = closing_head.sub(local_links + '</head>', text, count=1)
 
               encoded = text.encode('utf-8')
               if has_bom:
