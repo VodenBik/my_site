@@ -1,4 +1,4 @@
-# Triggered after opening the cleanup pull request
+# Trigger synchronization for the main-branch cleanup workflow
 name: Fix duplicate mobile CSS
 
 on:
