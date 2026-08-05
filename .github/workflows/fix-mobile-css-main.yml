@@ -17,7 +17,7 @@ jobs:
         with:
           ref: main
 
-      - name: Remove duplicate stylesheet and inspect workflows
+      - name: Remove duplicate stylesheet and obsolete workflow
         shell: python
         run: |
           from pathlib import Path
@@ -36,22 +36,11 @@ jobs:
 
           index.write_text(text.replace(duplicate + '\n', '', 1), encoding='utf-8')
 
-          matches = []
           workflows = root / '.github' / 'workflows'
-          if workflows.exists():
-              for path in workflows.glob('*'):
-                  if path.name == 'fix-mobile-css-main.yml' or not path.is_file():
-                      continue
-                  try:
-                      body = path.read_text(encoding='utf-8')
-                  except UnicodeDecodeError:
-                      continue
-                  if 'mobile-tune.css' in body or 'Link mobile-only CSS' in body:
-                      matches.append(str(path))
-
-          print('Other workflow references:', matches or 'none')
-          if matches:
-              raise RuntimeError('Another workflow may restore the duplicate link')
+          obsolete = workflows / 'link-mobile-css.yml'
+          if not obsolete.exists():
+              raise RuntimeError('Obsolete link-mobile-css workflow was not found')
+          obsolete.unlink()
 
           (workflows / 'fix-mobile-css-main.yml').unlink()
 
@@ -61,6 +50,7 @@ jobs:
           set -euo pipefail
           test "$(grep -c 'mobile-tune.css?v=nav-active' index.html)" = "1"
           test "$(grep -c 'href="mobile-tune.css"' index.html || true)" = "0"
+          test ! -e .github/workflows/link-mobile-css.yml
           test ! -e .github/workflows/fix-mobile-css-main.yml
 
       - name: Commit
@@ -70,5 +60,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Remove duplicate mobile stylesheet link"
+          git commit -m "Remove duplicate mobile CSS automation"
           git push origin main
