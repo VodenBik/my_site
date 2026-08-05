@@ -1,4 +1,4 @@
-# Trigger synchronization for the main-branch cleanup workflow
+# Trigger cleanup of the obsolete main-branch CSS workflow
 name: Fix duplicate mobile CSS
 
 on:
