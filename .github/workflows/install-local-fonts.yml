@@ -1,0 +1,115 @@
+name: Install local fonts
+
+on:
+  push:
+    branches: [local-fonts]
+    paths:
+      - '.github/workflows/install-local-fonts.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: local-fonts
+
+      - name: Build fonts and update pages
+        shell: python
+        run: |
+          from pathlib import Path
+          import base64
+          import re
+          import shutil
+
+          root = Path('.')
+          font_dir = root / 'assets' / 'fonts'
+          font_dir.mkdir(parents=True, exist_ok=True)
+
+          sources = (
+              ('onest', font_dir / 'Onest-VariableFont_wght.woff2'),
+              ('oswald', font_dir / 'Oswald-600.woff2'),
+          )
+          for source_name, target in sources:
+              parts = sorted((root / '.font-upload' / source_name).glob('*.part'))
+              if not parts:
+                  raise RuntimeError(f'No staged data found for {source_name}')
+              encoded = ''.join(part.read_text(encoding='ascii').strip() for part in parts)
+              target.write_bytes(base64.b64decode(encoded, validate=True))
+
+          css = """@font-face {
+            font-family: 'Onest';
+            src: url('assets/fonts/Onest-VariableFont_wght.woff2') format('woff2');
+            font-style: normal;
+            font-weight: 100 900;
+            font-display: swap;
+          }
+
+          @font-face {
+            font-family: 'Oswald';
+            src: url('assets/fonts/Oswald-600.woff2') format('woff2');
+            font-style: normal;
+            font-weight: 600;
+            font-display: swap;
+          }
+          """
+          (root / 'fonts-local.css').write_text(css, encoding='utf-8')
+
+          google_api = re.compile(r'\s*<link\b[^>]*href=["\']https://fonts\.googleapis\.com[^"\']*["\'][^>]*>\s*', re.I)
+          google_static = re.compile(r'\s*<link\b[^>]*href=["\']https://fonts\.gstatic\.com[^"\']*["\'][^>]*>\s*', re.I)
+
+          html_paths = sorted(root.rglob('*.html'))
+          for path in html_paths:
+              raw = path.read_bytes()
+              has_bom = raw.startswith(b'\xef\xbb\xbf')
+              text = raw.decode('utf-8-sig')
+
+              if not (google_api.search(text) or google_static.search(text)):
+                  continue
+
+              text = google_api.sub('\n', text)
+              text = google_static.sub('\n', text)
+
+              depth = len(path.relative_to(root).parts) - 1
+              prefix = '../' * depth
+              local_links = (
+                  f'<link rel="preload" href="{prefix}assets/fonts/Oswald-600.woff2" '
+                  'as="font" type="font/woff2" crossorigin>\n'
+                  f'<link rel="stylesheet" href="{prefix}fonts-local.css">\n'
+              )
+
+              if 'fonts-local.css' not in text:
+                  if '<style>' not in text:
+                      raise RuntimeError(f'No <style> tag found in {path}')
+                  text = text.replace('<style>', local_links + '<style>', 1)
+
+              encoded = text.encode('utf-8')
+              if has_bom:
+                  encoded = b'\xef\xbb\xbf' + encoded
+              path.write_bytes(encoded)
+
+          shutil.rmtree(root / '.font-upload')
+          (root / '.github' / 'workflows' / 'install-local-fonts.yml').unlink()
+
+      - name: Verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$(stat -c %s assets/fonts/Onest-VariableFont_wght.woff2)" = "57500"
+          test "$(stat -c %s assets/fonts/Oswald-600.woff2)" = "38500"
+          ! grep -R "fonts.googleapis.com\|fonts.gstatic.com" --include='*.html' .
+          missing="$(find . -name '*.html' -print0 | xargs -0 grep -L 'fonts-local.css' || true)"
+          test -z "$missing"
+
+      - name: Commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Use local Onest and Oswald fonts"
+          git push origin local-fonts
