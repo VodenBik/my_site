@@ -1,16 +1,16 @@
 name: Fix duplicate mobile CSS on main
 
 on:
-  push:
+  pull_request:
     branches: [main]
-    paths:
-      - '.github/workflows/fix-mobile-css-main.yml'
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: write
 
 jobs:
   fix:
+    if: github.head_ref == 'fix-mobile-css'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
