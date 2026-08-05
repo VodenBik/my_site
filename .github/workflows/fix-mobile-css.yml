@@ -1,3 +1,4 @@
+# Triggered after opening the cleanup pull request
 name: Fix duplicate mobile CSS
 
 on:
