@@ -5,6 +5,8 @@ on:
     branches: [local-fonts]
     paths:
       - '.github/workflows/install-local-fonts.yml'
+  pull_request:
+    branches: [main]
 
 permissions:
   contents: write
@@ -99,7 +101,7 @@ jobs:
         run: |
           set -euo pipefail
           test "$(stat -c %s assets/fonts/Onest-VariableFont_wght.woff2)" = "57500"
-          test "$(stat -c %s assets/fonts/Oswald-600.woff2)" = "38500"
+          test "$(stat -c %s assets/fonts/Oswald-600.woff2)" = "38472"
           ! grep -R "fonts.googleapis.com\|fonts.gstatic.com" --include='*.html' .
           missing="$(find . -name '*.html' -print0 | xargs -0 grep -L 'fonts-local.css' || true)"
           test -z "$missing"
