@@ -16,11 +16,11 @@
     const dx = e.clientX - last[0];
     const dy = e.clientY - last[1];
     const distance = Math.hypot(dx, dy);
-    if (distance < 10 || now - lastTime < 26) return;
+    if (distance < 10 || now - lastTime < 12) return;
     last = [e.clientX, e.clientY];
     lastTime = now;
 
-    dots ??= Array.from({length: 28}, () => {
+    dots ??= Array.from({length: 80}, () => {
       const dot = document.createElement('span');
       dot.className = 'cursor-trail-dot';
       dot.setAttribute('aria-hidden', 'true');
@@ -30,7 +30,7 @@
     const dot = dots[index];
     index = (index + 1) % dots.length;
     dot.getAnimations().forEach((animation) => animation.cancel());
-    const size = 7 + (index % 4) * 2;
+    const size = 14;
     const behind = 12;
     const x = e.clientX - dx / distance * behind;
     const y = e.clientY - dy / distance * behind;
@@ -40,8 +40,8 @@
     dot.style.top = `${y}px`;
     dot.animate([
       {opacity: 0.75, transform: 'translate(-50%, -50%) scale(1)'},
-      {opacity: 0, transform: 'translate(-50%, -50%) scale(.24)'}
-    ], {duration: 650, easing: 'ease-out', fill: 'forwards'});
+      {opacity: 0, transform: 'translate(-50%, -50%) scale(3)'}
+    ], {duration: 1100, easing: 'ease-out', fill: 'forwards'});
   }, {passive: true});
 
   function resetPosition() {
