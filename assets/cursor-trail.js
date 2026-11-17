@@ -20,7 +20,7 @@
     last = [e.clientX, e.clientY];
     lastTime = now;
 
-    dots ??= Array.from({length: 20}, () => {
+    dots ??= Array.from({length: 28}, () => {
       const dot = document.createElement('span');
       dot.className = 'cursor-trail-dot';
       dot.setAttribute('aria-hidden', 'true');
@@ -41,7 +41,7 @@
     dot.animate([
       {opacity: 0.75, transform: 'translate(-50%, -50%) scale(1)'},
       {opacity: 0, transform: 'translate(-50%, -50%) scale(.24)'}
-    ], {duration: 430, easing: 'ease-out', fill: 'forwards'});
+    ], {duration: 650, easing: 'ease-out', fill: 'forwards'});
   }, {passive: true});
 
   function resetPosition() {
