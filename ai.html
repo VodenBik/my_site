@@ -15,8 +15,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="alternate" hreflang="ru" href="https://desegnator.pro/ai.html">
 <link rel="alternate" hreflang="en" href="https://desegnator.pro/en/ai.html">
 <link rel="alternate" hreflang="x-default" href="https://desegnator.pro/ai.html">
-<title>AI-дизайн и автоматизация — Станислав</title>
-<meta name="description" content="AI-проекты Станислава: генерация изображений и видео, автоматизация, приложения, боты и рабочие прототипы.">
+<title>AI-продукты, приложения и автоматизация | Desegnator</title>
+<meta name="description" content="AI-проекты Станислава: веб-инструменты, Android-приложения, Telegram-боты, автоматизация бизнес-процессов и AI-интерфейсы.">
 <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
@@ -87,6 +87,8 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 .phone-screen img{width:100%;height:100%;object-fit:contain;object-position:center center;display:block}
 .phone-placeholder{padding:24px;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,242,236,.46);line-height:1.5}
 .phone-title{font-size:13px;color:var(--white);font-weight:500}
+.phone-desc{max-width:280px;margin:8px auto 0;font-size:13px;line-height:1.65;color:var(--muted);text-align:left}
+.phone-card.ai-card-link:hover .phone-title{color:var(--accent)}
 .approach-section{padding:60px 48px;background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .approach-inner{max-width:1200px;margin:0 auto}
 .approach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
@@ -138,6 +140,9 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <link rel="stylesheet" href="mobile-tune.css?v=nav-active">
 <link rel="preload" href="assets/fonts/Oswald-600.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fonts-local.css">
+<link rel="canonical" href="https://desegnator.pro/ai.html">
+
+<link rel="stylesheet" href="assets/cursor-trail.css">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -172,8 +177,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-bg">AI</div>
   <div class="project-hero-left">
     <p class="project-type">AI-направление</p>
-    <h1 class="project-title">AI-дизайн и автоматизация</h1>
-    <p class="project-desc">Практические AI-инструменты, боты, генераторы, парсеры, визуальные эксперименты и рабочие системы, которые помогают быстрее собирать контент, документы, сайты и креативные материалы.</p>
+    <h1 class="project-title">AI-продукты и автоматизация</h1>
+    <p class="project-desc">Разрабатываю AI-инструменты, веб-сервисы, мобильные приложения и Telegram-ботов. Объединяю дизайн интерфейсов, программную логику и автоматизацию — от идеи до работающего продукта.</p>
   </div>
   <div class="project-hero-right">
     <div class="project-meta-grid">
@@ -214,6 +219,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <article class="ai-card" data-image="projects/ai/seo.webp">
         <div class="ai-media has-image"><img src="projects/ai/seo.webp" alt="Сборщик SEO-ключей"></div>
         <div class="ai-card-body"><h3 class="ai-card-title">Сборщик SEO-ключей</h3><p class="ai-card-text">Инструмент помогает собрать и структурировать поисковые запросы для сайта, статьи или посадочной страницы, чтобы быстрее перейти от хаотичных идей к рабочему семантическому ядру.</p></div>
+      </article>
+
+      <article class="ai-card" data-image="projects/ai/new/schoolgrid.webp">
+        <div class="ai-media has-image"><img src="projects/ai/new/schoolgrid.webp" alt="SchoolGrid — школьное расписание, интерфейс веб-сервиса" loading="lazy"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">SchoolGrid — школьное расписание</h3><p class="ai-card-text">Веб-сервис для составления школьного расписания с учётом классов, преподавателей и правил учебного процесса. Помогает организовать нагрузку и избежать пересечений.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/new/restaurant-audit.webp">
+        <div class="ai-media has-image"><img src="projects/ai/new/restaurant-audit.webp" alt="Restaurant Audit — учёт ресторана, интерфейс веб-сервиса" loading="lazy"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">Restaurant Audit — учёт ресторана</h3><p class="ai-card-text">Веб-панель для управления операционными данными ресторана: каталог ингредиентов, остатки, инвентаризация и показатели в одном интерфейсе.</p></div>
+      </article>
+      <article class="ai-card" data-image="projects/ai/new/oge-trainer.webp">
+        <div class="ai-media has-image"><img src="projects/ai/new/oge-trainer.webp" alt="OGE Trainer — подготовка к ОГЭ, интерфейс веб-сервиса" loading="lazy"></div>
+        <div class="ai-card-body"><h3 class="ai-card-title">OGE Trainer — подготовка к ОГЭ</h3><p class="ai-card-text">Интерактивный веб-тренажёр по информатике: задания ОГЭ, тренировочные варианты и разбор учебных задач.</p></div>
       </article>
     </div>
   </section>
@@ -256,7 +274,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <section class="ai-group fade-up">
+  <!-- Archived for later restoration: prompts, images and video -->
+  <section class="ai-group fade-up" hidden aria-hidden="true" style="display:none">
     <p class="content-label">Группа 4</p>
     <h2 class="content-title">Промпты, изображения и видео</h2>
     <div class="ai-grid">
@@ -278,20 +297,53 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="apk-section fade-up">
     <p class="content-label">APK</p>
     <h2 class="content-title">APK-приложения</h2>
-    <p class="apk-lead">Небольшие Android-приложения и экспериментальные интерфейсы, собранные как рабочие прототипы: с экранной логикой, визуальной системой и понятным пользовательским сценарием.</p>
+    <p class="apk-lead">Мобильные приложения и цифровые продукты: полезные инструменты, игры, учебные сервисы и Android-интерфейсы. Показываю реальные экраны, сценарии использования и дизайн.</p>
     <div class="apk-grid">
-      <div class="phone-card">
-        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-1.webp" alt="APK-прототип 01"></div></div>
-        <p class="phone-title">APK-прототип 01</p>
-      </div>
-      <a class="phone-card ai-card-link" href="https://play.google.com/store/apps/details?id=com.foodnotbad.app&hl=ru" target="_blank" rel="noopener noreferrer">
-        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-2.webp" alt="APK-прототип 02"></div></div>
-        <p class="phone-title">APK-прототип 02</p>
+      <a class="phone-card ai-card-link" href="https://play.google.com/store/apps/details?id=com.foodnotbad.app&amp;hl=ru" target="_blank" rel="noopener noreferrer">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/new/foodnotbad-ru.webp" alt="Food Not Bad — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">Food Not Bad</h3>
+        <p class="phone-desc">Рецепты по продуктам, распознавание блюд по фото, подсчёт калорий и БЖУ, дневник питания и планирование меню в одном Android-приложении.</p>
       </a>
-      <div class="phone-card">
-        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-3.webp" alt="APK-прототип 03"></div></div>
-        <p class="phone-title">APK-прототип 03</p>
-      </div>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/new/battle-word-ru.webp" alt="Battle Word — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">Battle Word</h3>
+        <p class="phone-desc">Словесная игра с битвами против капитана и онлайн-соперников, ежедневными заданиями и прогрессом игрока.</p>
+      </article>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/new/calcaton-ru.webp" alt="Calcaton — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">Calcaton</h3>
+        <p class="phone-desc">Мобильный калькулятор с обычным и научным режимами, историей вычислений и дополнительными функциями для повседневных задач.</p>
+      </article>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-3.webp" alt="СонникAI — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">СонникAI</h3>
+        <p class="phone-desc">AI-сонник для толкования сновидений: пользователь описывает сон, исследует значения образов и ведёт личный дневник.</p>
+      </article>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/new/12-testers.webp" alt="12testers — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">12testers</h3>
+        <p class="phone-desc">Сервис взаимного тестирования Android-приложений: задания, ежедневные проверки, прогресс 14-дневного цикла и система баллов для участников.</p>
+      </article>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/new/oge.webp" alt="ОГЭ Информатика — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">ОГЭ Информатика</h3>
+        <p class="phone-desc">Приложение для подготовки к ОГЭ по информатике: тренировочные задания, тематические блоки и отслеживание учебного прогресса.</p>
+      </article>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/new/expatito-bot.webp" alt="Expatito Bot — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">Expatito Bot</h3>
+        <p class="phone-desc">Telegram-сервис объявлений для экспатов: просмотр товаров, категории, избранное и размещение объявлений через мобильный интерфейс.</p>
+      </article>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/new/instauto.webp" alt="InstaAuto — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">InstaAuto</h3>
+        <p class="phone-desc">Инструмент для создания контента Reels и каруселей: от темы и сценария до подготовки материалов для социальных сетей.</p>
+      </article>
+      <article class="phone-card">
+        <div class="phone-shell"><div class="phone-screen"><img src="projects/ai/apk-1.webp" alt="Число судьбы — экран приложения" loading="lazy"></div></div>
+        <h3 class="phone-title">Число судьбы</h3>
+        <p class="phone-desc">Нумерологический калькулятор по дате рождения: расчёт числа судьбы и персональная интерпретация результата.</p>
+      </article>
     </div>
   </section>
 </main>
@@ -366,5 +418,6 @@ document.querySelectorAll('.fade-up').forEach(function(el){obs.observe(el)});
 })();
 </script>
 <script src="floating-controls.js" defer></script>
+<script defer src="assets/cursor-trail.js"></script>
 </body>
 </html>

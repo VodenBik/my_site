@@ -50,7 +50,7 @@ button.gallery-button{appearance:none;padding:0;color:inherit;font:inherit;text-
 .artboard button{display:block;width:100%;padding:0;border:0;background:white;cursor:none}
 .artboard img{display:block;width:100%;height:auto;object-fit:contain}
 .artboard-info{display:grid;grid-template-columns:minmax(220px,.65fr) 1.35fr;gap:32px;padding:22px 24px;background:var(--gray);border-top:1px solid var(--border)}
-.artboard-info h3{font-size:15px;font-weight:500}.artboard-info p{font-size:13px;line-height:1.65;color:var(--muted)}
+.artboard-info h2{font-size:15px;font-weight:500}.artboard-info p{font-size:13px;line-height:1.65;color:var(--muted)}
 .masonry{columns:3 260px;column-gap:18px}
 .masonry .gallery-button{break-inside:avoid;margin:0 0 18px}
 .masonry .gallery-button img{width:100%;height:auto;object-fit:contain}

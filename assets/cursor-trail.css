@@ -1,0 +1,21 @@
+/* Desegnator: transient accent-colored cursor particles. Desktop mouse only. */
+.cursor-trail-dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9998;
+  display: block;
+  width: 10px;
+  height: 10px;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(200,255,0,.8) 0%, rgba(200,255,0,.4) 35%, rgba(200,255,0,0) 78%);
+  filter: blur(1.7px);
+  will-change: transform, opacity;
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .cursor-trail-dot { display: none; }
+}

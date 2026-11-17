@@ -256,7 +256,7 @@ nav .nav-links .nav-reviews:hover {
 
   /* ---- DISPLAY TYPOGRAPHY ---- */
   h1,
-  h2,
+  h2:where(:not(.artboard-info h2)),
   .project-title,
   .hero-title,
   .contact-title,
@@ -275,7 +275,7 @@ nav .nav-links .nav-reviews:hover {
     max-width: 100%;
   }
 
-  h2,
+  h2:where(:not(.artboard-info h2)),
   .content-title,
   .section-title,
   .narrative-title {
@@ -542,7 +542,7 @@ nav .nav-links .nav-reviews:hover {
     line-height: .96 !important;
   }
 
-  h2,
+  h2:where(:not(.artboard-info h2)),
   .content-title,
   .section-title,
   .narrative-title {

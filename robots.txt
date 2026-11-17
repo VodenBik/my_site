@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://desegnator.pro/sitemap.xml
