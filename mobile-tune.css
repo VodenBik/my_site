@@ -441,6 +441,14 @@ nav .nav-links .nav-reviews:hover {
   .work-card.is-vertical .work-media img { object-fit: contain }
 
   /* ---- APK PHONES ---- */
+  /* Mobile APK section contains nine tall cards: the 12% reveal threshold
+     cannot be reached within one phone viewport, leaving a blank section. */
+  .apk-section.fade-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
   .apk-section {
     width: 100%;
     max-width: 100%;
