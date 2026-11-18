@@ -144,11 +144,8 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 
 <link rel="stylesheet" href="../assets/cursor-trail.css">
 <style>
-/* AI archive stays hidden on desktop; restore its cards only on mobile. */
-.ai-group--mobile-only { display: none; }
 @media (max-width: 768px) {
-  .ai-group--mobile-only { display: block; }
-  /* Tall app gallery must not wait for an unreachable reveal threshold. */
+  /* Keep the tall APK gallery visible on mobile. */
   .apk-section.fade-up { opacity: 1; transform: none; }
 }
 </style>
@@ -283,28 +280,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- Archived for later restoration: prompts, images and video -->
-  <section class="ai-group ai-group--mobile-only">
-    <p class="content-label">Group 4</p>
-    <h2 class="content-title">Prompts, images and videos</h2>
-    <div class="ai-grid">
-      <article class="ai-card" data-image="../projects/ai/prompt-builder.webp">
-        <div class="ai-media has-image"><img src="../projects/ai/prompt-builder.webp" alt="Prompt constructor"></div>
-        <div class="ai-card-body"><h3 class="ai-card-title">Prompt constructor</h3><p class="ai-card-text">The system helps to collect prompts by blocks: style, character, location, action, camera, light and restrictions.</p></div>
-      </article>
-      <article class="ai-card" data-image="../projects/ai/video-pipeline.webp">
-        <div class="ai-media has-image"><img src="../projects/ai/video-pipeline.webp" alt="Video Pipeline"></div>
-        <div class="ai-card-body"><h3 class="ai-card-title">Video Pipeline</h3><p class="ai-card-text">Scripts for working with the first and final frames, camera movement, continuity lock and generation of short scenes.</p></div>
-      </article>
-      <a class="ai-card ai-card-link ai-card-youtube" href="https://www.youtube.com/@desegnator" target="_blank" rel="noopener noreferrer" data-image="../projects/ai/youtube-ai.webp">
-        <div class="ai-media has-image"><img src="../projects/ai/youtube-ai.webp" alt="YouTube"></div>
-        <div class="ai-card-body"><h3 class="ai-card-title">YouTube</h3><p class="ai-card-text">Desegnator channel with materials about AI, visual experiments, prompts, videos and practical application of neural networks in design.</p></div>
-      </a>
-    </div>
-  </section>
-
   <section class="apk-section fade-up">
-    <p class="content-label">APK</p>
+    <p class="content-label">Group 4</p>
     <h2 class="content-title">Android apps</h2>
     <p class="apk-lead">Mobile apps and digital products: practical tools, games, educational services and Android interfaces, presented through real screens and user journeys.</p>
     <div class="apk-grid">
