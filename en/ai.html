@@ -143,6 +143,15 @@ nav::before{content:'';position:absolute;inset:0;background:rgba(10,10,10,.75);b
 <link rel="canonical" href="https://desegnator.pro/en/ai.html">
 
 <link rel="stylesheet" href="../assets/cursor-trail.css">
+<style>
+/* AI archive stays hidden on desktop; restore its cards only on mobile. */
+.ai-group--mobile-only { display: none; }
+@media (max-width: 768px) {
+  .ai-group--mobile-only { display: block; }
+  /* Tall app gallery must not wait for an unreachable reveal threshold. */
+  .apk-section.fade-up { opacity: 1; transform: none; }
+}
+</style>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -275,7 +284,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- Archived for later restoration: prompts, images and video -->
-  <section class="ai-group fade-up" hidden aria-hidden="true" style="display:none">
+  <section class="ai-group ai-group--mobile-only">
     <p class="content-label">Group 4</p>
     <h2 class="content-title">Prompts, images and videos</h2>
     <div class="ai-grid">
